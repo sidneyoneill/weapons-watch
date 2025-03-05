@@ -1,8 +1,25 @@
-pandas
-numpy
-matplotlib
-jupyter
-pycountry
-geopandas
-fastapi
-uvicorn
+# Data processing and analysis
+pandas==2.1.4
+numpy==1.24.3
+geopandas==0.14.1
+pycountry==23.12.11
+
+# Visualization
+matplotlib==3.8.2
+
+# Jupyter notebooks
+jupyter==1.0.0
+notebook==7.0.6
+
+# API and server
+fastapi==0.109.0
+uvicorn==0.27.0
+python-multipart==0.0.6
+pydantic==2.5.3
+
+# CORS support
+starlette==0.36.1
+
+# Optional but recommended
+python-dotenv==1.0.0  # For environment variables
+requests==2.31.0      # For making HTTP requests
