@@ -1,0 +1,13 @@
+# Ignore virtual environment directory
+venv/
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Environment variables file (if you use one)
+.env
