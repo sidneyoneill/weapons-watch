@@ -71,5 +71,4 @@ json_data = {
 with open(output_file, 'w', encoding='utf-8') as f:
     json.dump(json_data, f, indent=2, ensure_ascii=False)
 
-print(f"Conversion complete. JSON data saved to {output_file}")
-print(f"Added both absolute military expenditure and percentage of GDP data")
+print(f"Conversion complete. JSON data saved to {output_file}") 
