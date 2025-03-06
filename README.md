@@ -2,6 +2,14 @@
 
 A comprehensive visualization tool for exploring global arms trade data. This project consists of a React frontend for interactive visualizations and a FastAPI backend for data processing and serving.
 
+## Key Objectives & Questions
+
+- Summary Stats
+- Visualise military dependencies and alliances between countries. This would be Kmeans, etc
+- Contextualise military expenditure and arms trading. Other datasets, News stories
+- Prediction of trading/expenditure over the next few years?
+- Conflict analysis
+
 ## Project Structure
 
 arms-trade-dashboard/
