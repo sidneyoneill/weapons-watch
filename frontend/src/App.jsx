@@ -64,8 +64,8 @@ function App() {
       {error && (
         <div style={{ color: "red", marginBottom: "10px" }}>{error}</div>
       )}
-      <div style={{ padding: "20px" }}>
-        <div style={{ marginBottom: "20px" }}>
+      {/* <div style={{ padding: "20px" }}> */}
+        {/* <div style={{ marginBottom: "20px" }}>
           <MapComponent onCountrySelect={handleCountrySelect} />
         </div>
         {loading && <div>Loading data...</div>}
@@ -74,10 +74,10 @@ function App() {
             timeSeriesData={timeSeriesData}
             selectedCountry={selectedCountry}
           />
-        )}
+        )} */}
         {/* <CountryExpenditureComponent /> */}
-        {/* <ExpenditureMapComponent /> */}
-      </div>
+        <ExpenditureMapComponent />
+      {/* </div> */}
     </div>
   );
 }
