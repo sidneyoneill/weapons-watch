@@ -28,11 +28,7 @@ for country, group in df.groupby('Country'):
     for _, row in group.iterrows():
         time_series.append({
             "year": int(row['Year']),
-            "military_expenditure": float(row['Expenditure']),
-            "arms_trading": {
-                "imports": [],  # Empty placeholder for future arms import data
-                "exports": []   # Empty placeholder for future arms export data
-            }
+            "military_expenditure": float(row['Expenditure'])
         })
     
     # Add country data to the list
@@ -51,4 +47,4 @@ json_data = {
 with open(output_file, 'w', encoding='utf-8') as f:
     json.dump(json_data, f, indent=2, ensure_ascii=False)
 
-print(f"Conversion complete. JSON data saved to {output_file}") 
+print(f"Conversion complete. JSON data saved to {output_file}")

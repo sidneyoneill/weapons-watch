@@ -4,14 +4,13 @@ A comprehensive visualization tool for exploring global arms trade data. This pr
 
 ## Project Structure
 
-```
 arms-trade-dashboard/
 ├── frontend/ # React frontend application
 ├── backend/ # FastAPI backend server
 ├── data/ # Dataset files
 ├── notebooks/ # Jupyter notebooks for data analysis
 └── venv/ # Python virtual environment
-```
+
 ## Prerequisites
 
 - Node.js (v14+) and npm for the frontend
