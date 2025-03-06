@@ -59,24 +59,25 @@ function App() {
   };
 
   return (
-    // <div className="App" style={{ padding: "20px" }}>
-    //   <h1>Arms Trade Dashboard</h1>
-    //   {error && (
-    //     <div style={{ color: "red", marginBottom: "10px" }}>{error}</div>
-    //   )}
-    <div style={{ padding: "20px" }}>
-      {/* <div style={{ marginBottom: "20px" }}>
-        <MapComponent onCountrySelect={handleCountrySelect} />
+    <div className="App" style={{ padding: "20px" }}>
+      <h1>Arms Trade Dashboard</h1>
+      {error && (
+        <div style={{ color: "red", marginBottom: "10px" }}>{error}</div>
+      )}
+      <div style={{ padding: "20px" }}>
+        <div style={{ marginBottom: "20px" }}>
+          <MapComponent onCountrySelect={handleCountrySelect} />
+        </div>
+        {loading && <div>Loading data...</div>}
+        {selectedCountry && timeSeriesData.length > 0 && !loading && (
+          <ChartComponent
+            timeSeriesData={timeSeriesData}
+            selectedCountry={selectedCountry}
+          />
+        )}
+        {/* <CountryExpenditureComponent /> */}
+        {/* <ExpenditureMapComponent /> */}
       </div>
-      {loading && <div>Loading data...</div>}
-      {selectedCountry && timeSeriesData.length > 0 && !loading && (
-        <ChartComponent 
-          timeSeriesData={timeSeriesData} 
-          selectedCountry={selectedCountry} 
-        />
-      )} */}
-      {/* <CountryExpenditureComponent /> */}
-      <ExpenditureMapComponent />
     </div>
   );
 }
