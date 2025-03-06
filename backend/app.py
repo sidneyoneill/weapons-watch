@@ -62,6 +62,16 @@ def get_static_geo_data() -> Dict[str, Any]:
     static_geo_json = geo_gdf.to_json()
     return {"data": static_geo_json}
 
+@app.get("/all_expenditures", response_model=Dict[str, Any])
+def get_all_expenditures() -> Dict[str, Any]:
+    """
+    Returns the time series of military expenditure for all countries.
+    """
+    # Convert the attribute data to a list of records
+    time_series = attribute_df[['Country', 'Year', 'Expenditure']].sort_values(by='Year').to_dict(orient='records')
+    print(time_series)
+    return {"time_series": time_series}
+
 
 if __name__ == "__main__":
     uvicorn.run(app, host="127.0.0.1", port=8000)
