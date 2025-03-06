@@ -5,28 +5,8 @@ import geopandas as gpd
 
 
 # Load the cleaned wide-format dataset
-df = pd.read_csv('data/sipri_milex_data.csv')
-
-# Melt the DataFrame so that each row is a (Country, Year, Expenditure) observation.
-# 'Country' is kept as the identifier, and all other columns become part of the 'Year' variable.
-tidy_df = pd.melt(df, id_vars=['Country'], var_name='Year', value_name='Expenditure')
-
-# Convert the 'Year' column to numeric (it was originally the column names)
-tidy_df['Year'] = pd.to_numeric(tidy_df['Year'], errors='coerce')
-
-# Replace '...' and 'XXX' with NaN, since they indicate missing data or non-existent entries.
-tidy_df['Expenditure'] = tidy_df['Expenditure'].replace({'...': np.nan, 'XXX': np.nan})
-
-# Convert the 'Expenditure' column to a numeric type
-tidy_df['Expenditure'] = pd.to_numeric(tidy_df['Expenditure'], errors='coerce')
-
-# Optional: Drop rows where there is no expenditure data, if you don't need those entries.
-tidy_df = tidy_df.dropna(subset=['Expenditure'])
-
-# Reset index for a clean DataFrame
-tidy_df = tidy_df.reset_index(drop=True)
-
-# 1. Add ISO Codes to Your DataFrame
+df_absolute = pd.read_csv('data/sipri_milex_data.csv')  # First csv: absolute values
+df_percentage = pd.read_csv('data/sipri_milex_gdp_data.csv')  # Second csv: percentage of GDP
 
 # Custom mapping for country names that don't match pycountry's expected names
 custom_mappings = {
@@ -60,19 +40,56 @@ def get_iso_code(country_name):
     except LookupError:
         return None
 
-# Apply the function to create a new column 'ISO_Code'
-tidy_df['ISO_Code'] = tidy_df['Country'].apply(get_iso_code)
+def create_tidy_df(df, value_name):
+    """
+    Process a wide-format dataframe into a tidy format with ISO codes
+    
+    Args:
+        df: Input dataframe in wide format
+        value_name: Name for the value column (e.g., 'Expenditure', 'ExpenditureGDP')
+    
+    Returns:
+        A tidy dataframe with ISO codes
+    """
+    # Melt the DataFrame
+    tidy_df = pd.melt(df, id_vars=['Country'], var_name='Year', value_name=value_name)
+    
+    # Convert the 'Year' column to numeric
+    tidy_df['Year'] = pd.to_numeric(tidy_df['Year'], errors='coerce')
+    
+    # Replace '...' and 'XXX' with NaN
+    tidy_df[value_name] = tidy_df[value_name].replace({'...': np.nan, 'XXX': np.nan})
+    
+    # Convert the value column to numeric
+    tidy_df[value_name] = pd.to_numeric(tidy_df[value_name], errors='coerce')
+    
+    # Drop rows with no expenditure data
+    tidy_df = tidy_df.dropna(subset=[value_name])
+    
+    # Reset index
+    tidy_df = tidy_df.reset_index(drop=True)
+    
+    # Apply the function to create a new column 'ISO_Code'
+    tidy_df['ISO_Code'] = tidy_df['Country'].apply(get_iso_code)
+    
+    # Drop rows where ISO code lookup failed
+    tidy_df = tidy_df.dropna(subset=['ISO_Code'])
+    
+    return tidy_df
 
-# Check whether the function was successful, print unique countries
-print(tidy_df[tidy_df['ISO_Code'].isna()]['Country'].unique())
+# Create tidy dataframes for both absolute and percentage data
+tidy_df_absolute = create_tidy_df(df_absolute, 'Expenditure')
+tidy_df_percentage = create_tidy_df(df_percentage, 'Expenditure')
 
-# Optionally, drop rows where ISO code lookup failed
-tidy_df = tidy_df.dropna(subset=['ISO_Code'])
+# Check which countries failed ISO code lookup
+print("Countries without ISO codes in absolute data:")
+print(df_absolute[~df_absolute['Country'].isin(tidy_df_absolute['Country'])]['Country'].unique())
+print("\nCountries without ISO codes in percentage data:")
+print(df_percentage[~df_percentage['Country'].isin(tidy_df_percentage['Country'])]['Country'].unique())
 
-print(tidy_df[tidy_df['ISO_Code'].isna()]['Country'].unique())
-
-# Save the tidied DataFrame to a new CSV file
-tidy_df.to_csv('data/sipri_milex_data_tidy.csv', index=False)
+# Save the tidied DataFrames to new CSV files
+tidy_df_absolute.to_csv('data/sipri_milex_data_tidy.csv', index=False)
+tidy_df_percentage.to_csv('data/sipri_milex_gdp_data_tidy.csv', index=False)
 
 # 2. Obtain and Load GeoJSON Data for Country Boundaries
 
@@ -88,17 +105,17 @@ print(world.columns)
 
 # If you want to visualize the data for a specific year (for example, 2020):
 year_to_map = 2020
-tidy_df_year = tidy_df[tidy_df['Year'] == year_to_map]
 
-# Merge the GeoDataFrame with your expenditure data.
-# Here we assume the GeoJSON has an ISO code column named 'ISO_A3'
-merged_data = world.merge(tidy_df_year, left_on='ISO_A3', right_on='ISO_Code', how='left')
+# For absolute expenditure
+tidy_df_year_abs = tidy_df_absolute[tidy_df_absolute['Year'] == year_to_map]
+merged_data_abs = world.merge(tidy_df_year_abs, left_on='ISO_A3', right_on='ISO_Code', how='left')
+print("\nMerged absolute data head:")
+print(merged_data_abs.head())
+merged_data_abs.to_file('data/sipri_milex_data_merged.geojson', driver='GeoJSON')
 
-# Inspect the merged data to verify the join
-print(merged_data.head())
-
-# Inspect the columns of the merged data
-print(merged_data.columns)
-
-# Save the merged data to a new GeoJSON file
-merged_data.to_file('data/sipri_milex_data_merged.geojson', driver='GeoJSON')
+# For percentage of GDP
+tidy_df_year_pct = tidy_df_percentage[tidy_df_percentage['Year'] == year_to_map]
+merged_data_pct = world.merge(tidy_df_year_pct, left_on='ISO_A3', right_on='ISO_Code', how='left')
+print("\nMerged percentage data head:")
+print(merged_data_pct.head())
+merged_data_pct.to_file('data/sipri_milex_gdp_data_merged.geojson', driver='GeoJSON')
