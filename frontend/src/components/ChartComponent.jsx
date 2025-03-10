@@ -23,7 +23,7 @@ ChartJS.register(
   Legend
 );
 
-const ChartComponent = ({ timeSeriesData, selectedCountry }) => {
+const ChartComponent = ({ timeSeriesData, selectedCountry, dataMode = 'total' }) => {
   const chartRef = useRef(null);
 
   // Clean up chart instance when component unmounts or data changes
@@ -33,7 +33,7 @@ const ChartComponent = ({ timeSeriesData, selectedCountry }) => {
         chartRef.current.destroy();
       }
     };
-  }, [timeSeriesData, selectedCountry]);
+  }, [timeSeriesData, selectedCountry, dataMode]);
 
   if (!timeSeriesData || timeSeriesData.length === 0) {
     return <div>No data available for {selectedCountry}</div>;
@@ -43,11 +43,20 @@ const ChartComponent = ({ timeSeriesData, selectedCountry }) => {
   const years = timeSeriesData.map(entry => entry.Year || entry.year);
   const expenditures = timeSeriesData.map(entry => entry.Expenditure || entry.value);
 
+  // Determine label and y-axis title based on data mode
+  const labelText = dataMode === 'gdp' 
+    ? `${selectedCountry} Military Expenditure (% of GDP)` 
+    : `${selectedCountry} Military Expenditure (Constant USD)`;
+  
+  const yAxisText = dataMode === 'gdp' 
+    ? 'Expenditure (% of GDP)' 
+    : 'Expenditure (USD)';
+
   const data = {
     labels: years,
     datasets: [
       {
-        label: `${selectedCountry} Military Expenditure (Constant USD)`,
+        label: labelText,
         data: expenditures,
         fill: false,
         borderColor: 'rgb(75, 192, 192)',
@@ -64,7 +73,7 @@ const ChartComponent = ({ timeSeriesData, selectedCountry }) => {
         beginAtZero: false,
         title: {
           display: true,
-          text: 'Expenditure (USD)'
+          text: yAxisText
         }
       },
       x: {

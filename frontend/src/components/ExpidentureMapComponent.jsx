@@ -11,7 +11,7 @@ import axios from "axios";
 import L from "leaflet";
 import ChartComponent from "./ChartComponent";
 
-const ExpenditureMapComponent = () => {
+const ExpenditureMapComponent = ({ dataMode = 'total' }) => {
   const [geoData, setGeoData] = useState(null);
   const [expenditureData, setExpenditureData] = useState({});
   const [loading, setLoading] = useState(true);
@@ -21,11 +21,11 @@ const ExpenditureMapComponent = () => {
   const [selectedCountry, setSelectedCountry] = useState(null); // Track clicked country
   const [countryHistoryData, setCountryHistoryData] = useState([]); // Store historical data
 
-  // Fetch geo data on mount
+  // Fetch geo data when component mounts or dataMode changes
   useEffect(() => {
     setLoading(true);
     axios
-      .get("http://localhost:8000/geo_data")
+      .get(`http://localhost:8000/geo_data?mode=${dataMode}`)
       .then((response) => {
         try {
           const parsedData = JSON.parse(response.data.data);
@@ -42,13 +42,13 @@ const ExpenditureMapComponent = () => {
         setError("Failed to fetch geo data");
         setLoading(false);
       });
-  }, []);
+  }, [dataMode]); // Re-fetch when dataMode changes
 
   // Fetch expenditure data for all countries
   const fetchAllExpenditureData = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:8000/all_expenditures"
+        `http://localhost:8000/all_expenditures?mode=${dataMode}`
       );
       const data = response.data.time_series;
       console.log("Received expenditure data:", data);
@@ -180,6 +180,15 @@ const ExpenditureMapComponent = () => {
     Math.round(maxExpenditure * 0.75),
   ].filter((size) => size > 0);
 
+  // Format expenditure value based on data mode
+  const formatExpenditureValue = (value) => {
+    if (dataMode === 'gdp') {
+      return `${value.toFixed(2)}% of GDP`;
+    } else {
+      return `$${value.toLocaleString()} million`;
+    }
+  };
+
   return (
     <div
       className="expenditure-map-container"
@@ -232,8 +241,7 @@ const ExpenditureMapComponent = () => {
                       <br />
                       Year: {selectedYear}
                       <br />
-                      Military Expenditure: ${expenditure.toLocaleString()}{" "}
-                      million
+                      Military Expenditure: {formatExpenditureValue(expenditure)}
                       <br />
                       <button
                         onClick={(e) => {
@@ -250,7 +258,7 @@ const ExpenditureMapComponent = () => {
                           cursor: "pointer",
                         }}
                       >
-                        View Historical Data
+                        View History
                       </button>
                     </div>
                   </Popup>
@@ -260,98 +268,83 @@ const ExpenditureMapComponent = () => {
         </LayerGroup>
       </MapContainer>
 
-      {/* Year slider overlay */}
+      {/* Year slider control */}
       <div
         style={{
           position: "absolute",
           bottom: "20px",
           left: "50%",
           transform: "translateX(-50%)",
-          background: "rgba(255,255,255,0.9)",
-          padding: "15px",
+          background: "white",
+          padding: "10px",
           borderRadius: "5px",
-          width: "80%",
-          maxWidth: "800px",
-          textAlign: "center",
+          boxShadow: "0 0 10px rgba(0,0,0,0.2)",
           zIndex: 1000,
-          boxShadow: "0 2px 10px rgba(0,0,0,0.1)",
+          width: "80%",
+          maxWidth: "500px",
         }}
       >
-        <div style={{ marginBottom: "10px" }}>
-          <span style={{ fontSize: "18px", fontWeight: "bold" }}>
-            Military Expenditure - Year: {selectedYear}
-          </span>
+        <div style={{ marginBottom: "5px", textAlign: "center" }}>
+          Year: {selectedYear}
         </div>
         <input
           type="range"
-          min={1968}
-          max={2024}
+          min="1988"
+          max="2022"
           value={selectedYear}
           onChange={(e) => setSelectedYear(parseInt(e.target.value))}
           style={{ width: "100%" }}
         />
-        <div style={{ display: "flex", justifyContent: "space-between" }}>
-          <span>1968</span>
-          <span>2024</span>
-        </div>
       </div>
 
-      {/* Bubble Legend */}
+      {/* Legend */}
       <div
         style={{
           position: "absolute",
           top: "20px",
           right: "20px",
-          background: "rgba(255,255,255,0.9)",
-          padding: "15px",
+          background: "white",
+          padding: "10px",
           borderRadius: "5px",
+          boxShadow: "0 0 10px rgba(0,0,0,0.2)",
           zIndex: 1000,
-          boxShadow: "0 2px 10px rgba(0,0,0,0.1)",
         }}
       >
-        <div style={{ marginBottom: "10px", fontWeight: "bold" }}>
-          Military Expenditure ($ million)
+        <div style={{ fontWeight: "bold", marginBottom: "5px" }}>
+          {dataMode === 'gdp' ? 'Military Expenditure (% of GDP)' : 'Military Expenditure ($ millions)'}
         </div>
-
         {legendSizes.map((size) => (
           <div
-            key={size}
-            style={{
-              display: "flex",
-              alignItems: "center",
-              marginBottom: "8px",
-            }}
+            key={`legend-${size}`}
+            style={{ display: "flex", alignItems: "center", margin: "5px 0" }}
           >
             <div
               style={{
-                width: getCircleRadius(size) * 2,
-                height: getCircleRadius(size) * 2,
+                width: `${getCircleRadius(size) * 2}px`,
+                height: `${getCircleRadius(size) * 2}px`,
                 borderRadius: "50%",
                 background: getBubbleColor(size),
                 marginRight: "10px",
-                border: "1px solid black",
               }}
             ></div>
-            <span>{size.toLocaleString()}</span>
+            <div>{formatExpenditureValue(size)}</div>
           </div>
         ))}
       </div>
 
-      {/* Country History Panel */}
-      {selectedCountry && countryHistoryData.length > 0 && (
+      {/* Country history panel */}
+      {selectedCountry && (
         <div
           style={{
             position: "absolute",
-            top: "50%",
-            left: "50%",
-            transform: "translate(-50%, -50%)",
-            background: "rgba(255,255,255,0.95)",
-            padding: "20px",
-            borderRadius: "8px",
-            zIndex: 2000,
-            boxShadow: "0 5px 15px rgba(0,0,0,0.3)",
-            width: "80%",
-            maxWidth: "800px",
+            top: "20px",
+            left: "20px",
+            background: "white",
+            padding: "15px",
+            borderRadius: "5px",
+            boxShadow: "0 0 10px rgba(0,0,0,0.2)",
+            zIndex: 1000,
+            maxWidth: "500px",
             maxHeight: "80vh",
             overflow: "auto",
           }}
@@ -360,30 +353,28 @@ const ExpenditureMapComponent = () => {
             style={{
               display: "flex",
               justifyContent: "space-between",
+              alignItems: "center",
               marginBottom: "15px",
             }}
           >
-            <h2 style={{ margin: 0 }}></h2>
+            <h3 style={{ margin: 0 }}>{selectedCountry} - Historical Data</h3>
             <button
               onClick={closeHistoryPanel}
               style={{
-                background: "transparent",
+                background: "none",
                 border: "none",
-                fontSize: "1.5rem",
+                fontSize: "20px",
                 cursor: "pointer",
-                padding: "0 5px",
               }}
             >
-              &times;
+              ×
             </button>
           </div>
-
-          <div style={{ height: "400px" }}>
-            <ChartComponent
-              timeSeriesData={countryHistoryData}
-              selectedCountry={selectedCountry}
-            />
-          </div>
+          <ChartComponent
+            timeSeriesData={countryHistoryData}
+            selectedCountry={selectedCountry}
+            dataMode={dataMode}
+          />
         </div>
       )}
     </div>
