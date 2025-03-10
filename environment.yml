@@ -1,22 +1,20 @@
 name: arms-trade
 channels:
-  - conda-forge
   - defaults
 dependencies:
   - python=3.11
-  - pandas=2.1.4
-  - numpy=1.24.3
-  - geopandas=0.14.1
-  - pycountry=23.12.11
-  - matplotlib=3.8.2
-  - jupyter=1.0.0
-  - notebook=7.0.6
-  - fastapi=0.109.0
-  - uvicorn=0.27.0
-  - pydantic=2.5.3
-  - starlette=0.36.1
-  - pip
-  - pip:
-    - python-multipart==0.0.6
-    - python-dotenv==1.0.0
-    - requests==2.31.0
+  - uvicorn
+  - fastapi
+  - pycountry
+  - pydantic
+  - numpy
+  - pandas
+  - jupyter
+  - starlette
+  - geopandas
+  - notebook
+  - matplotlib
+  - plotly
+  - networkx
+  - seaborn
+prefix: /Users/sidneyoneill/anaconda3/envs/arms-trade
