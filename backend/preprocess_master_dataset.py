@@ -284,6 +284,98 @@ def extract_indicators_key(merged_data_path, output_key_path):
         print(f"Error: {e}", file=sys.stderr)
         sys.exit(1)
 
+def clean_indicator_names(data):
+    """
+    Cleans indicator names in the dataset to make them more code-friendly.
+    
+    This function:
+    - Converts names to lowercase
+    - Replaces spaces with underscores
+    - Removes special characters
+    - Updates both time series data and indicator references
+    
+    Args:
+        data: The merged dataset with original indicator names
+        
+    Returns:
+        cleaned_data: Dataset with cleaned indicator names
+        name_mapping: Dictionary mapping original names to cleaned names
+    """
+    import re
+    import copy
+    
+    # Create a deep copy to avoid modifying the original data
+    cleaned_data = copy.deepcopy(data)
+    name_mapping = {}
+    
+    def clean_name(indicator):
+        if indicator in name_mapping:
+            return name_mapping[indicator]
+            
+        # Skip standard fields
+        if indicator in ['year', 'date', 'iso', 'country']:
+            return indicator
+            
+        # Convert to lowercase and replace spaces with underscores
+        cleaned = indicator.lower().replace(' ', '_')
+        
+        # Handle percentage indicators consistently
+        cleaned = cleaned.replace('(%)', 'percent')
+        cleaned = cleaned.replace('% of', 'percent_of')
+        cleaned = cleaned.replace('%_of', 'percent_of')
+        cleaned = cleaned.replace('%', 'percent')
+        
+        # Remove all non-alphanumeric characters except underscores
+        cleaned = re.sub(r'[^\w]', '', cleaned)
+        
+        # Replace multiple underscores with single ones
+        cleaned = re.sub(r'_+', '_', cleaned)
+        
+        # Remove trailing underscores
+        cleaned = cleaned.strip('_')
+        
+        name_mapping[indicator] = cleaned
+        return cleaned
+    
+    # Clean indicators in each country's time series
+    for country in cleaned_data.get('countries', []):
+        for time_entry in country.get('time_series', []):
+            cleaned_entry = {}
+            for key, value in list(time_entry.items()):
+                cleaned_key = clean_name(key)
+                cleaned_entry[cleaned_key] = value
+            
+            # Replace with cleaned version
+            time_entry.clear()
+            time_entry.update(cleaned_entry)
+    
+    # Update indicator references
+    if 'indicators' in cleaned_data:
+        # Update SIPRI indicators
+        if 'SIPRI' in cleaned_data['indicators']:
+            updated_sipri = {}
+            for orig_name, info in cleaned_data['indicators']['SIPRI'].items():
+                clean_key = clean_name(orig_name)
+                updated_info = copy.deepcopy(info)
+                updated_info['name'] = clean_key
+                updated_sipri[clean_key] = updated_info
+            cleaned_data['indicators']['SIPRI'] = updated_sipri
+        
+        # Update World Bank indicators
+        if 'World Bank' in cleaned_data['indicators']:
+            updated_wb = {}
+            for code, info in cleaned_data['indicators']['World Bank'].items():
+                updated_info = copy.deepcopy(info)
+                if 'name' in updated_info:
+                    orig_name = updated_info['name']
+                    updated_info['name'] = clean_name(orig_name)
+                    name_mapping[orig_name] = updated_info['name']
+                updated_wb[code] = updated_info
+            cleaned_data['indicators']['World Bank'] = updated_wb
+    
+    print(f"Cleaned {len(name_mapping)} indicator names")
+    return cleaned_data, name_mapping
+
 if __name__ == '__main__':
     # Define file paths
     script_dir = Path(__file__).parent
@@ -292,5 +384,19 @@ if __name__ == '__main__':
     sipri_file_path = repo_root / "data" / "sipri_milex_data_nested.json"
     wb_file_path = repo_root / "data" / "world_bank" / "world_bank_data_normalized.json"
     output_path = repo_root / "data" / "all_data_merged.json"
+    cleaned_output_path = repo_root / "data" / "all_data_merged_cleaned.json"
     
+    # First merge the data
     merge_world_bank_into_sipri(sipri_file_path, wb_file_path, output_path)
+    
+    # Then clean the indicator names
+    with open(output_path, 'r') as f:
+        merged_data = json.load(f)
+    
+    cleaned_data, name_mapping = clean_indicator_names(merged_data)
+    
+    # Save the cleaned data
+    with open(cleaned_output_path, 'w') as f:
+        json.dump(cleaned_data, f, indent=2)
+    
+    print(f"Cleaned data saved to: {cleaned_output_path}")
