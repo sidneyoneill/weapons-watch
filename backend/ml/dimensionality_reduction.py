@@ -8,6 +8,7 @@ from sklearn.manifold import TSNE
 import umap
 from sklearn.preprocessing import StandardScaler
 from scipy.stats import pearsonr
+import os
 
 # G20 countries with ISO codes
 G20_COUNTRIES = {
@@ -43,490 +44,603 @@ G20_ALTERNATIVE_NAMES = {
 # Reverse mapping from ISO to standard name for visualization
 ISO_TO_NAME = {iso: name for name, iso in G20_COUNTRIES.items()}
 
-# Primary data loading function - reads the JSON file containing merged SIPRI and World Bank data
-def load_data(filepath='data/all_data_merged.json'):
-    """Load the merged dataset from JSON file"""
-    with open(filepath, 'r') as file:
-        data = json.load(file)
-    return data
-
-# Extracts only G20 countries from the full dataset for focused analysis
-def extract_g20_countries(data):
-    """Extract G20 countries from the dataset using ISO codes"""
-    g20_data = []
-    
-    # Create a lookup set of G20 ISO codes
-    g20_iso_set = set(G20_COUNTRIES.values())
-    
-    # Create a lookup set with all possible G20 country names
-    g20_names_set = set(G20_COUNTRIES.keys())
-    for country, alternatives in G20_ALTERNATIVE_NAMES.items():
-        g20_names_set.update(alternatives)
-    
-    for country in data.get('countries', []):
-        # First try matching by ISO code (more reliable)
-        if country['ISO'] in g20_iso_set:
-            country_copy = country.copy()
-            # Store the standard name based on ISO
-            country_copy['std_name'] = ISO_TO_NAME.get(country['ISO'], country['name'])
-            g20_data.append(country_copy)
-        # If ISO doesn't match, try matching by name as fallback
-        elif country['name'] in g20_names_set:
-            # Map alternative names to standard G20 name
-            std_name = country['name']
-            for g20_name, alternatives in G20_ALTERNATIVE_NAMES.items():
-                if country['name'] in alternatives:
-                    std_name = g20_name
-                    break
+class DimensionalityReducer:
+    def __init__(self, data_path=None, data=None, g20_only=True):
+        """
+        Initialize the DimensionalityReducer class
+        
+        Parameters:
+        data_path (str): Path to the JSON data file
+        data (DataFrame): Optional pre-loaded pandas DataFrame
+        g20_only (bool): Whether to filter for only G20 countries or use all countries
+        """
+        if data is not None:
+            self.df = data
+        elif data_path:
+            self.data = self.load_data(data_path)
             
-            country_copy = country.copy()
-            country_copy['std_name'] = std_name
-            # If we can determine the ISO from the name, use that
-            country_copy['std_ISO'] = G20_COUNTRIES.get(std_name, country['ISO'])
-            g20_data.append(country_copy)
+            if g20_only:
+                # Filter for G20 countries only
+                self.df = self.convert_to_dataframe(self.extract_g20_countries(self.data))
+            else:
+                # Use all countries
+                self.df = self.convert_to_dataframe(self.extract_all_countries(self.data))
+        else:
+            raise ValueError("Either data_path or data must be provided")
     
-    return g20_data
-
-# Transforms nested country time series data into a flat pandas DataFrame for analysis
-def convert_to_dataframe(countries_data):
-    """Convert the time series data for countries into a pandas DataFrame"""
-    rows = []
+    def load_data(self, filepath):
+        """Load the merged dataset from JSON file"""
+        with open(filepath, 'r') as file:
+            data = json.load(file)
+        return data
     
-    for country in countries_data:
-        country_name = country.get('std_name', country['name'])
-        country_iso = country.get('std_ISO', country['ISO'])
+    def extract_g20_countries(self, data):
+        """Extract G20 countries from the dataset using ISO codes"""
+        g20_data = []
         
-        for year_data in country['time_series']:
-            row = {'country': country_name, 'ISO': country_iso, 'year': year_data['year']}
-            row.update(year_data)
-            rows.append(row)
-    
-    df = pd.DataFrame(rows)
-    return df
+        # Create a lookup set of G20 ISO codes
+        g20_iso_set = set(G20_COUNTRIES.values())
+        
+        # Create a lookup set with all possible G20 country names
+        g20_names_set = set(G20_COUNTRIES.keys())
+        for country, alternatives in G20_ALTERNATIVE_NAMES.items():
+            g20_names_set.update(alternatives)
+        
+        for country in data.get('countries', []):
+            # First try matching by ISO code (more reliable)
+            if country['ISO'] in g20_iso_set:
+                country_copy = country.copy()
+                # Store the standard name based on ISO
+                country_copy['std_name'] = ISO_TO_NAME.get(country['ISO'], country['name'])
+                g20_data.append(country_copy)
+            # If ISO doesn't match, try matching by name as fallback
+            elif country['name'] in g20_names_set:
+                # Map alternative names to standard G20 name
+                std_name = country['name']
+                for g20_name, alternatives in G20_ALTERNATIVE_NAMES.items():
+                    if country['name'] in alternatives:
+                        std_name = g20_name
+                        break
+                
+                country_copy = country.copy()
+                country_copy['std_name'] = std_name
+                # If we can determine the ISO from the name, use that
+                country_copy['std_ISO'] = G20_COUNTRIES.get(std_name, country['ISO'])
+                g20_data.append(country_copy)
+        
+        return g20_data
 
-# Creates a visual comparison between two indicators with country labels
-def create_scatter_plot(df, x_indicator, y_indicator, year=None, countries=None, title=None, use_iso=True):
-    """
-    Create a scatter plot of two indicators for countries
+    def extract_all_countries(self, data):
+        """Extract all countries from the dataset"""
+        # Simply return all countries without filtering
+        return data.get('countries', [])
     
-    Parameters:
-    df (DataFrame): DataFrame with country data
-    x_indicator (str): Name of the indicator for x-axis
-    y_indicator (str): Name of the indicator for y-axis
-    year (int): Optional specific year to visualize
-    countries (list): Optional list of specific country ISO codes to include
-    title (str): Optional title for the plot
-    use_iso (bool): Whether to use ISO codes or country names for identification
-    """
-    if year is not None:
-        df = df[df['year'] == year]
+    def convert_to_dataframe(self, countries_data):
+        """Convert the time series data for countries into a pandas DataFrame"""
+        rows = []
+        
+        for country in countries_data:
+            country_name = country.get('std_name', country['name'])
+            country_iso = country.get('std_ISO', country['ISO'])
+            
+            for year_data in country['time_series']:
+                row = {'country': country_name, 'ISO': country_iso, 'year': year_data['year']}
+                row.update(year_data)
+                rows.append(row)
+        
+        df = pd.DataFrame(rows)
+        return df
     
-    if countries is not None:
+    def filter_years(self, start_year, end_year):
+        """Filter the DataFrame to include only the specified range of years"""
+        self.df = self.df[(self.df['year'] >= start_year) & (self.df['year'] <= end_year)]
+        return self
+    
+    def check_missing_data(self):
+        """Check for missing data in the DataFrame and highlight potential issues"""
+        missing_values = self.df.isnull().sum()
+        
+        if missing_values.sum() == 0:
+            print("No missing values found in the dataset")
+        else:
+            print("Missing values found in the dataset:")
+            print(missing_values[missing_values > 0])
+        
+        return missing_values[missing_values > 0]
+    
+    def prepare_for_dimensionality_reduction(self, indicators=None, countries=None, 
+                                           use_iso=True, impute_missing=True, 
+                                           min_non_null_ratio=0.7):
+        """
+        Prepare data for dimensionality reduction by extracting a clean matrix
+        
+        Parameters:
+        indicators (list): List of indicators to include
+        countries (list): Optional list of country ISO codes to include
+        use_iso (bool): Whether to use ISO codes or country names for identification
+        impute_missing (bool): Whether to impute missing values instead of dropping rows
+        min_non_null_ratio (float): Minimum ratio of non-null values needed for an indicator to be kept
+        
+        Returns:
+        tuple: (data_matrix, feature_names, row_labels)
+        """
+        # Make a copy to avoid modifying the original dataframe
+        work_df = self.df.copy()
+        
+        # Filter by countries if specified
+        if countries:
+            id_column = 'ISO' if use_iso else 'country'
+            work_df = work_df[work_df[id_column].isin(countries)]
+        
+        # If no indicators specified, use all numeric columns except metadata
+        if not indicators:
+            all_possible_indicators = [col for col in work_df.columns 
+                        if col not in ['country', 'ISO', 'year', 'row_label'] 
+                        and pd.api.types.is_numeric_dtype(work_df[col])]
+                        
+            # Filter out indicators with too many missing values
+            indicators = []
+            for col in all_possible_indicators:
+                non_null_ratio = work_df[col].notna().mean()
+                if non_null_ratio >= min_non_null_ratio:
+                    indicators.append(col)
+                    
+            if not indicators:
+                print(f"Warning: No indicators meet the minimum non-null ratio of {min_non_null_ratio}. Try lowering this threshold.")
+                # Fall back to using the least-sparse indicators
+                if all_possible_indicators:
+                    non_null_counts = {col: work_df[col].notna().mean() for col in all_possible_indicators}
+                    sorted_indicators = sorted(non_null_counts.items(), key=lambda x: x[1], reverse=True)
+                    indicators = [ind for ind, _ in sorted_indicators[:10]]  # Take top 10
+                    print(f"Using {len(indicators)} indicators with highest coverage.")
+        else:
+            # Ensure all specified indicators exist in the dataframe
+            indicators = [ind for ind in indicators if ind in work_df.columns]
+        
+        print(f"Number of indicators selected: {len(indicators)}")
+        
+        # Create row labels with country identifier and year
         id_column = 'ISO' if use_iso else 'country'
-        df = df[df[id_column].isin(countries)]
-    
-    if x_indicator not in df.columns or y_indicator not in df.columns:
-        print(f"Error: Indicators {x_indicator} or {y_indicator} not found in data")
-        return
-    
-    # Drop rows with missing values for the selected indicators
-    plot_df = df.dropna(subset=[x_indicator, y_indicator])
-    
-    if plot_df.empty:
-        print("No data available for the selected indicators and filters")
-        return
-    
-    plt.figure(figsize=(12, 8))
-    
-    # Create scatter plot using ISO for the hue
-    scatter_plot = sns.scatterplot(data=plot_df, x=x_indicator, y=y_indicator, 
-                                  hue='ISO' if use_iso else 'country', s=100)
-    
-    # Add labels to points
-    for _, row in plot_df.iterrows():
-        label = row['ISO'] if use_iso else row['country']
-        plt.annotate(label, 
-                    (row[x_indicator], row[y_indicator]),
-                    textcoords="offset points",
-                    xytext=(0, 5),
-                    ha='center')
-    
-    plt.xlabel(x_indicator)
-    plt.ylabel(y_indicator)
-    
-    if year:
-        title_suffix = f" ({year})"
-    else:
-        title_suffix = ""
+        work_df['row_label'] = work_df[id_column] + " (" + work_df['year'].astype(str) + ")"
         
-    plt.title(title or f"Relationship between {x_indicator} and {y_indicator}{title_suffix}")
-    plt.tight_layout()
-    plt.grid(True, linestyle='--', alpha=0.7)
-    
-    # Update legend with country names if needed
-    if not use_iso:
-        handles, labels = scatter_plot.get_legend_handles_labels()
-        plt.legend(handles=handles, labels=labels)
-    else:
-        handles, labels = scatter_plot.get_legend_handles_labels()
-        plt.legend(handles=handles, labels=[ISO_TO_NAME.get(iso, iso) for iso in labels])
-    
-    plt.show()
-
-# Calculates Pearson correlation coefficients between indicators for a specific country
-def calculate_pearson_correlation(df, country_iso, indicators=None, use_iso=True):
-    """
-    Calculate Pearson correlation coefficients between indicators for a specific country
-    
-    Parameters:
-    df (DataFrame): DataFrame with country data
-    country_iso (str): Country ISO code
-    indicators (list): Optional list of specific indicators to include
-    use_iso (bool): Whether to use ISO codes or country names for identification
-    
-    Returns:
-    DataFrame: Correlation matrix
-    """
-    id_column = 'ISO' if use_iso else 'country'
-    country_df = df[df[id_column] == country_iso]
-    
-    if indicators:
-        indicators = [ind for ind in indicators if ind in country_df.columns]
-    else:
-        # Exclude non-numeric columns
-        indicators = [col for col in country_df.columns 
-                     if col not in ['country', 'ISO', 'year'] 
-                     and pd.api.types.is_numeric_dtype(country_df[col])]
-    
-    # Extract only the indicators we're interested in
-    correlation_df = country_df[indicators].copy()
-    
-    # Drop rows with all NaN values
-    correlation_df = correlation_df.dropna(how='all')
-    
-    if correlation_df.empty:
-        country_name = ISO_TO_NAME.get(country_iso, country_iso) if use_iso else country_iso
-        print(f"No valid data found for {country_name}")
-        return None
-    
-    # Calculate correlation matrix
-    corr_matrix = correlation_df.corr(method='pearson')
-    
-    return corr_matrix
-
-# Creates a visual heatmap of correlation coefficients for a country
-def visualize_correlation_matrix(corr_matrix, country_iso, title=None, use_iso=True):
-    """
-    Visualize a correlation matrix as a heatmap
-    
-    Parameters:
-    corr_matrix (DataFrame): Correlation matrix
-    country_iso (str): Country ISO code
-    title (str): Optional custom title
-    use_iso (bool): Whether to use ISO codes or country names for identification
-    """
-    if corr_matrix is None:
-        return
-    
-    plt.figure(figsize=(14, 10))
-    
-    mask = np.triu(np.ones_like(corr_matrix, dtype=bool))
-    
-    # Set up the matplotlib figure
-    sns.heatmap(corr_matrix, mask=mask, cmap='coolwarm', vmax=1, vmin=-1, center=0,
-                annot=True, fmt=".2f", square=True, linewidths=.5)
-    
-    country_name = ISO_TO_NAME.get(country_iso, country_iso) if use_iso else country_iso
-    plt.title(title or f"Correlation Matrix for {country_name}")
-    plt.tight_layout()
-    plt.show()
-
-# Helper function to identify top-performing countries for a specific metric
-def get_top_countries_by_metric(df, metric, year=None, top_n=4, ascending=False, use_iso=True):
-    """
-    Get the top N countries based on a specific metric
-    
-    Parameters:
-    df (DataFrame): DataFrame with country data
-    metric (str): Metric to sort by
-    year (int): Optional specific year to consider
-    top_n (int): Number of top countries to return
-    ascending (bool): Sort order
-    use_iso (bool): Whether to return ISO codes or country names
-    
-    Returns:
-    list: List of top country identifiers (ISO or name)
-    """
-    if year:
-        filtered_df = df[df['year'] == year]
-    else:
-        # Get the most recent year for each country
-        filtered_df = df.sort_values('year', ascending=False).drop_duplicates('ISO')
-    
-    if metric not in filtered_df.columns:
-        print(f"Error: Metric {metric} not found in data")
-        return []
-    
-    # Drop countries with missing values for the metric
-    filtered_df = filtered_df.dropna(subset=[metric])
-    
-    # Sort and get top N
-    id_column = 'ISO' if use_iso else 'country'
-    top_countries = filtered_df.sort_values(by=metric, ascending=ascending)[id_column].head(top_n).tolist()
-    
-    return top_countries
-
-# Prepares country data for dimensionality reduction by filtering and cleaning the dataset
-def prepare_for_dimensionality_reduction(df, indicators=None, countries=None, min_year=None, max_year=None, use_iso=True):
-    """
-    Prepare data for dimensionality reduction by extracting a clean matrix
-    
-    Parameters:
-    df (DataFrame): DataFrame with country data
-    indicators (list): List of indicators to include
-    countries (list): Optional list of country ISO codes to include
-    min_year (int): Optional minimum year to include
-    max_year (int): Optional maximum year to include
-    use_iso (bool): Whether to use ISO codes or country names for identification
-    
-    Returns:
-    tuple: (data_matrix, feature_names, row_labels)
-    """
-    # Filter by countries if specified
-    if countries:
-        id_column = 'ISO' if use_iso else 'country'
-        df = df[df[id_column].isin(countries)]
-    
-    # Filter by year range if specified
-    if min_year:
-        df = df[df['year'] >= min_year]
-    if max_year:
-        df = df[df['year'] <= max_year]
-    
-    # If no indicators specified, use all numeric columns except metadata
-    if not indicators:
-        indicators = [col for col in df.columns 
-                    if col not in ['country', 'ISO', 'year'] 
-                    and pd.api.types.is_numeric_dtype(df[col])]
-    else:
-        # Ensure all specified indicators exist in the dataframe
-        indicators = [ind for ind in indicators if ind in df.columns]
-    
-    # Create row labels with country identifier and year
-    id_column = 'ISO' if use_iso else 'country'
-    df['row_label'] = df[id_column] + " (" + df['year'].astype(str) + ")"
-    
-    # Extract only the indicators we're interested in
-    data_df = df[indicators].copy()
-    
-    # Drop rows with any missing values
-    complete_indices = data_df.dropna().index
-    data_df = data_df.loc[complete_indices]
-    row_labels = df.loc[complete_indices, 'row_label'].tolist()
-    
-    # Convert to numpy array for dimensionality reduction
-    data_matrix = data_df.to_numpy()
-    
-    return data_matrix, indicators, row_labels
-
-# Performs Principal Component Analysis to reduce data dimensions while preserving variance
-def perform_pca(data_matrix, n_components=2):
-    """
-    Perform PCA dimensionality reduction
-    
-    Parameters:
-    data_matrix (numpy.ndarray): Matrix of data for dimensionality reduction
-    n_components (int): Number of components to reduce to
-    
-    Returns:
-    tuple: (reduced_data, explained_variance_ratio)
-    """
-    # Standardize the data
-    scaler = StandardScaler()
-    scaled_data = scaler.fit_transform(data_matrix)
-    
-    # Initialize PCA with the specified number of components
-    pca = PCA(n_components=n_components)
-    
-    # Fit PCA to the data and transform
-    reduced_data = pca.fit_transform(scaled_data)
-    
-    # Get the explained variance ratio
-    explained_variance_ratio = pca.explained_variance_ratio_
-    
-    return reduced_data, explained_variance_ratio
-
-# Performs t-SNE dimensionality reduction for non-linear data visualization
-def perform_tsne(data_matrix, n_components=2, perplexity=30, n_iter=1000, random_state=42):
-    """
-    Perform t-SNE dimensionality reduction
-    
-    Parameters:
-    data_matrix (numpy.ndarray): Matrix of data for dimensionality reduction
-    n_components (int): Number of components to reduce to
-    perplexity (float): The perplexity parameter for t-SNE
-    n_iter (int): Number of iterations for optimization
-    random_state (int): Random seed for reproducibility
-    
-    Returns:
-    numpy.ndarray: Reduced data
-    """
-    # Standardize the data
-    scaler = StandardScaler()
-    scaled_data = scaler.fit_transform(data_matrix)
-    
-    # Initialize t-SNE with the specified parameters
-    tsne = TSNE(
-        n_components=n_components,
-        perplexity=perplexity,
-        n_iter=n_iter,
-        random_state=random_state
-    )
-    
-    # Fit t-SNE to the data and transform
-    reduced_data = tsne.fit_transform(scaled_data)
-    
-    return reduced_data
-
-# Performs UMAP dimensionality reduction, which often preserves global structure better than t-SNE
-def perform_umap_reduction(data_matrix, n_components=2, n_neighbors=15, min_dist=0.1, random_state=42):
-    """
-    Perform UMAP dimensionality reduction
-    
-    Parameters:
-    data_matrix (numpy.ndarray): Matrix of data for dimensionality reduction
-    n_components (int): Number of components to reduce to
-    n_neighbors (int): Number of neighbors to consider
-    min_dist (float): Minimum distance parameter for UMAP
-    random_state (int): Random seed for reproducibility
-    
-    Returns:
-    numpy.ndarray: Reduced data
-    """
-    # Standardize the data
-    scaler = StandardScaler()
-    scaled_data = scaler.fit_transform(data_matrix)
-    
-    # Initialize UMAP with the specified parameters
-    reducer = umap.UMAP(
-        n_components=n_components,
-        n_neighbors=n_neighbors,
-        min_dist=min_dist,
-        random_state=random_state
-    )
-    
-    # Fit UMAP to the data and transform
-    reduced_data = reducer.fit_transform(scaled_data)
-    
-    return reduced_data
-
-# Creates visualizations of the dimensionally reduced data with labeled points
-def visualize_reduced_data(reduced_data, row_labels, title=None, technique='PCA', show_country_names=False):
-    """
-    Visualize the reduced data in a scatter plot
-    
-    Parameters:
-    reduced_data (numpy.ndarray): The reduced data from a dimensionality reduction technique
-    row_labels (list): Labels for each data point (ISO codes with year)
-    title (str): Optional title for the plot
-    technique (str): The technique used for dimensionality reduction (for the title)
-    show_country_names (bool): Whether to show full country names instead of ISO codes
-    """
-    plt.figure(figsize=(12, 10))
-    
-    # Create a scatter plot
-    plt.scatter(reduced_data[:, 0], reduced_data[:, 1], s=50, alpha=0.7)
-    
-    # Add labels for each point
-    for i, label in enumerate(row_labels):
-        # If needed, convert ISO codes to country names
-        if show_country_names and "(" in label:
-            iso_code = label.split(" (")[0]
-            year = label.split("(")[1].rstrip(")")
-            if iso_code in ISO_TO_NAME:
-                label = f"{ISO_TO_NAME[iso_code]} ({year})"
+        # Extract only the indicators we're interested in
+        data_df = work_df[indicators].copy()
         
-        plt.annotate(label, 
-                    (reduced_data[i, 0], reduced_data[i, 1]),
-                    textcoords="offset points",
-                    xytext=(0, 5),
-                    ha='center',
-                    fontsize=8)
+        # Handle missing values
+        if impute_missing:
+            # Simple imputation (interpolation) with the midpoint between the previous and next valid values
+            data_df = data_df.interpolate(limit_direction='both')
+            # Fill any remaining missing values with the column mean
+            data_df = data_df.fillna(data_df.mean())
+            complete_indices = data_df.index
+            print(f"Missing values imputed with interpolation and column means.")
+        else:
+            # Drop rows with any missing values
+            complete_indices = data_df.dropna().index
+            data_df = data_df.loc[complete_indices]
+            
+        # Get row labels for the final dataset
+        row_labels = work_df.loc[complete_indices, 'row_label'].tolist()
+        country_codes = work_df.loc[complete_indices, 'ISO'].tolist()
+        years = work_df.loc[complete_indices, 'year'].tolist()
+        
+        print(f"Final dataset has {len(row_labels)} rows with complete data.")
+        
+        # Convert to numpy array for dimensionality reduction
+        if len(data_df) > 0:
+            data_matrix = data_df.to_numpy()
+        else:
+            print("Warning: No complete rows found. Returning empty matrix.")
+            data_matrix = np.zeros((0, len(indicators)))
+        
+        self.data_matrix = data_matrix
+        self.indicators = indicators
+        self.row_labels = row_labels
+        self.country_codes = country_codes
+        self.years = years
+        
+        return data_matrix, indicators, row_labels, country_codes, years
     
-    plt.title(title or f"{technique} Visualization")
-    plt.xlabel(f"{technique} Component 1")
-    plt.ylabel(f"{technique} Component 2")
-    plt.grid(True, linestyle='--', alpha=0.7)
-    plt.tight_layout()
-    plt.show()
+    def perform_pca(self, n_components=2):
+        """
+        Perform PCA dimensionality reduction
+        
+        Parameters:
+        n_components (int): Number of components to reduce to (2 or 3 for visualization)
+        
+        Returns:
+        tuple: (reduced_data, explained_variance_ratio, loadings)
+        """
+        # Standardize the data
+        scaler = StandardScaler()
+        scaled_data = scaler.fit_transform(self.data_matrix)
+        
+        # Initialize PCA with the specified number of components
+        pca = PCA(n_components=n_components)
+        
+        # Fit PCA to the data and transform
+        reduced_data = pca.fit_transform(scaled_data)
+        
+        # collect the loadings
+        loadings = pca.components_
 
-# -------------------------------------------------------------------------
-# Example execution section to demonstrate usage
-# -------------------------------------------------------------------------
+        # Get the explained variance ratio
+        explained_variance_ratio = pca.explained_variance_ratio_
+        
+        self.pca_results = {
+            'reduced_data': reduced_data,
+            'explained_variance_ratio': explained_variance_ratio,
+            'loadings': loadings
+        }
+        
+        print(f"PCA explained variance: {explained_variance_ratio}")
+        
+        return reduced_data, explained_variance_ratio, loadings
+    
+    def perform_tsne(self, n_components=2, perplexity=30, n_iter=1000, random_state=42):
+        """
+        Perform t-SNE dimensionality reduction
+        
+        Parameters:
+        n_components (int): Number of components to reduce to
+        perplexity (float): The perplexity parameter for t-SNE
+        n_iter (int): Number of iterations for optimization
+        random_state (int): Random seed for reproducibility
+        
+        Returns:
+        numpy.ndarray: Reduced data
+        """
+        # Standardize the data
+        scaler = StandardScaler()
+        scaled_data = scaler.fit_transform(self.data_matrix)
+        
+        # Initialize t-SNE with the specified parameters
+        tsne = TSNE(
+            n_components=n_components,
+            perplexity=perplexity,
+            n_iter=n_iter,
+            random_state=random_state
+        )
+        
+        # Fit t-SNE to the data and transform
+        reduced_data = tsne.fit_transform(scaled_data)
+        
+        self.tsne_results = {
+            'reduced_data': reduced_data
+        }
+        
+        print(f"t-SNE completed with {n_components} components")
+        
+        return reduced_data
+    
+    def visualize_reduced_data(self, reduced_data=None, technique='PCA', title=None, 
+                             show_country_names=True, plot_3d=False, save_path=None,
+                             display_plot=True):
+        """
+        Visualize the reduced data in a scatter plot with countries colored consistently
+        
+        Parameters:
+        reduced_data (numpy.ndarray): The reduced data from a dimensionality reduction technique
+        technique (str): The technique used for dimensionality reduction (for the title)
+        title (str): Optional title for the plot
+        show_country_names (bool): Whether to show full country names instead of ISO codes
+        plot_3d (bool): Whether to create a 3D plot (requires reduced_data to have 3 columns)
+        save_path (str): Optional path to save the visualization
+        display_plot (bool): Whether to display the plot interactively
+        """
+        if reduced_data is None:
+            # Try to get results from previous runs - normalize technique name for attribute lookups
+            technique_attr = technique.lower().replace('-', '')  # Convert 't-SNE' to 'tsne'
+            
+            if technique_attr == 'pca' and hasattr(self, 'pca_results'):
+                reduced_data = self.pca_results['reduced_data']
+            elif technique_attr == 'tsne' and hasattr(self, 'tsne_results'):
+                reduced_data = self.tsne_results['reduced_data']
+            elif technique_attr == 'umap' and hasattr(self, 'umap_results'):
+                reduced_data = self.umap_results['reduced_data']
+            else:
+                raise ValueError(f"No {technique} results found. Run perform_{technique_attr} first.")
+        
+        # Check if we have enough components for 3D plotting
+        if plot_3d and reduced_data.shape[1] < 3:
+            print("Warning: 3D plot requested but data has fewer than 3 components. Falling back to 2D.")
+            plot_3d = False
+        
+        # Create a DataFrame for easier plotting
+        plot_df = pd.DataFrame({
+            'x': reduced_data[:, 0],
+            'y': reduced_data[:, 1],
+            'country': self.country_codes,
+            'year': self.years,
+            'label': self.row_labels
+        })
+        
+        if plot_3d:
+            plot_df['z'] = reduced_data[:, 2]  # Add the third component
+            
+            # Create 3D plot
+            fig = plt.figure(figsize=(14, 12))
+            ax = fig.add_subplot(111, projection='3d')
+            
+            # Get unique countries for consistent coloring
+            unique_countries = list(set(self.country_codes))
+            cmap = plt.cm.get_cmap('tab20' if len(unique_countries) <= 20 else 'rainbow')
+            colors = {country: cmap(i/len(unique_countries)) for i, country in enumerate(unique_countries)}
+            
+            # Plot each country with its own color
+            for country in unique_countries:
+                country_data = plot_df[plot_df['country'] == country]
+                ax.scatter(country_data['x'], country_data['y'], country_data['z'], 
+                          label=country, 
+                          alpha=0.7, 
+                          s=80)
+            
+            # Add labels
+            ax.set_xlabel(f"{technique} Component 1")
+            ax.set_ylabel(f"{technique} Component 2")
+            ax.set_zlabel(f"{technique} Component 3")
+            
+            # Use country names instead of ISO codes in the legend if requested
+            if show_country_names:
+                handles, labels = ax.get_legend_handles_labels()
+                new_labels = [ISO_TO_NAME.get(label, label) for label in labels]
+                ax.legend(handles, new_labels)
+            else:
+                ax.legend()
+            
+            # Improve readability
+            ax.grid(True)
+            plt.title(title or f"{technique} 3D Visualization")
+            
+        else:
+            # Create 2D plot (original behavior)
+            plt.figure(figsize=(12, 10))
+            scatter_plot = sns.scatterplot(
+                data=plot_df,
+                x='x', 
+                y='y',
+                hue='country',
+                palette='tab20',
+                s=100,
+                alpha=0.7
+            )
+            
+            # Use country names instead of ISO codes in the legend if requested
+            if show_country_names:
+                handles, labels = scatter_plot.get_legend_handles_labels()
+                new_labels = [ISO_TO_NAME.get(label, label) for label in labels]
+                plt.legend(handles, new_labels)
+            
+            plt.xlabel(f"{technique} Component 1")
+            plt.ylabel(f"{technique} Component 2")
+            plt.grid(True, linestyle='--', alpha=0.7)
+            
+            plt.title(title or f"{technique} 2D Visualization")
+        
+        plt.tight_layout()
+        
+        if save_path:
+            plt.savefig(save_path, dpi=300, bbox_inches='tight')
+            print(f"Visualization saved to {save_path}")
+        
+        if display_plot:
+            plt.show()
+        else:
+            plt.close()
+        
+    def plot_pca_loadings(self, components=None, n_components=2, save_path=None, display_plot=True):
+        """
+        Visualize the PCA loadings to understand which features contribute to each component
+        
+        Parameters:
+        components (numpy.ndarray): PCA components/loadings
+        n_components (int): Number of components to visualize
+        save_path (str): Optional path to save the visualization
+        display_plot (bool): Whether to display the plot interactively
+        """
+        if components is None:
+            if hasattr(self, 'pca_results'):
+                components = self.pca_results['loadings']
+            else:
+                raise ValueError("No PCA results found. Run perform_pca first.")
+        
+        # Limit to requested number of components
+        components = components[:n_components]
+        
+        plt.figure(figsize=(14, n_components * 4))
+        
+        for i, component in enumerate(components):
+            plt.subplot(n_components, 1, i + 1)
+            # Sort loadings by absolute value for better visualization
+            indices = np.argsort(np.abs(component))[::-1]
+            
+            plt.barh(range(len(indices)), component[indices], color='skyblue')
+            plt.yticks(range(len(indices)), [self.indicators[idx] for idx in indices])
+            plt.title(f"Component {i+1} Loadings")
+            plt.axvline(x=0, color='k', linestyle='-', alpha=0.3)
+            plt.grid(True, alpha=0.3)
+            plt.tight_layout()
+        
+        if save_path:
+            plt.savefig(save_path, dpi=300, bbox_inches='tight')
+            print(f"PCA loadings visualization saved to {save_path}")
+        
+        if display_plot:
+            plt.show()
+        else:
+            plt.close()
 
+    def export_results(self, export_dir, prefix='dim_reduction'):
+        """
+        Export dimensionality reduction results to files
+        
+        Parameters:
+        export_dir (str): Directory to save files
+        prefix (str): Prefix for filenames
+        """
+        os.makedirs(export_dir, exist_ok=True)
+        
+        # Create metadata about the analysis
+        metadata = {
+            'indicators_used': self.indicators,
+            'num_data_points': len(self.row_labels),
+            'countries_included': list(set(self.country_codes))
+        }
+        
+        # Export metadata
+        with open(os.path.join(export_dir, f"{prefix}_metadata.json"), 'w') as f:
+            json.dump(metadata, f, indent=2)
+        
+        # Export PCA results if available
+        if hasattr(self, 'pca_results'):
+            pca_results = {
+                'explained_variance_ratio': self.pca_results['explained_variance_ratio'].tolist(),
+                'data': []
+            }
+            
+            for i, label in enumerate(self.row_labels):
+                country = self.country_codes[i]
+                year = self.years[i]
+                coords = self.pca_results['reduced_data'][i].tolist()
+                
+                pca_results['data'].append({
+                    'country': country,
+                    'country_name': ISO_TO_NAME.get(country, country),
+                    'year': year,
+                    'coordinates': coords
+                })
+            
+            with open(os.path.join(export_dir, f"{prefix}_pca_results.json"), 'w') as f:
+                json.dump(pca_results, f, indent=2)
+        
+        # Export t-SNE results if available
+        if hasattr(self, 'tsne_results'):
+            tsne_results = {'data': []}
+            
+            for i, label in enumerate(self.row_labels):
+                country = self.country_codes[i]
+                year = self.years[i]
+                coords = self.tsne_results['reduced_data'][i].tolist()
+                
+                tsne_results['data'].append({
+                    'country': country,
+                    'country_name': ISO_TO_NAME.get(country, country),
+                    'year': year,
+                    'coordinates': coords
+                })
+            
+            with open(os.path.join(export_dir, f"{prefix}_tsne_results.json"), 'w') as f:
+                json.dump(tsne_results, f, indent=2)
+        print(f"Results exported to {export_dir}")
+
+    # save plots to export directory
+    def save_plots(self, export_dir, prefix='dim_reduction'):
+        """
+        Save the PCA and t-SNE plots to the export directory without displaying them
+        
+        Parameters:
+        export_dir (str): Directory to save files
+        prefix (str): Prefix for filenames
+        """
+        os.makedirs(export_dir, exist_ok=True)
+        
+        # Save PCA plot if available
+        if hasattr(self, 'pca_results'):
+            pca_plot_path = os.path.join(export_dir, f"{prefix}_pca_plot.png")
+            self.visualize_reduced_data(
+                technique='PCA', 
+                show_country_names=True, 
+                save_path=pca_plot_path,
+                display_plot=False
+            )
+            
+            # Also save PCA loadings for 2 components
+            pca_loadings_path = os.path.join(export_dir, f"{prefix}_pca_loadings_2d.png")
+            self.plot_pca_loadings(
+                save_path=pca_loadings_path,
+                display_plot=False
+            )
+
+            # save pca loadings with 3 components
+            pca_loadings_3d_path = os.path.join(export_dir, f"{prefix}_pca_loadings_3d.png")
+            self.plot_pca_loadings(
+                n_components=3,
+                save_path=pca_loadings_3d_path,
+                display_plot=False
+            )
+
+
+        # Save t-SNE plot if available
+        if hasattr(self, 'tsne_results'):
+            tsne_plot_path = os.path.join(export_dir, f"{prefix}_tsne_plot.png")
+            self.visualize_reduced_data(
+                technique='t-SNE', 
+                show_country_names=True, 
+                save_path=tsne_plot_path,
+                display_plot=False
+            )
+        
+        # Save 3D PCA plot if available and it has 3 components
+        if hasattr(self, 'pca_results') and self.pca_results['reduced_data'].shape[1] >= 3:
+            pca_3d_plot_path = os.path.join(export_dir, f"{prefix}_pca_3d_plot.png")
+            self.visualize_reduced_data(
+                technique='PCA',
+                show_country_names=True,
+                plot_3d=True,
+                save_path=pca_3d_plot_path,
+                display_plot=False
+            )
+        
+        # Save 3D t-SNE plot if available and it has 3 components
+        if hasattr(self, 'tsne_results') and self.tsne_results['reduced_data'].shape[1] >= 3:
+            tsne_3d_plot_path = os.path.join(export_dir, f"{prefix}_tsne_3d_plot.png")
+            self.visualize_reduced_data(
+                technique='t-SNE',
+                show_country_names=True,
+                plot_3d=True,
+                save_path=tsne_3d_plot_path,
+                display_plot=False
+            )
+
+        print(f"Plots saved to {export_dir}")
+
+# Example usage
 if __name__ == "__main__":
-    # Load the merged dataset
-    print("Loading data...")
-    data = load_data()
+    # Path to the data file - adjust as needed
+    data_path = "data/all_data_merged_cleaned.json"
     
-    # Extract G20 countries for analysis
-    print("Extracting G20 countries...")
-    g20_data = extract_g20_countries(data)
-    print(f"Found {len(g20_data)} G20 countries in the dataset")
+    # Initialize the dimensionality reducer
+    reducer = DimensionalityReducer(data_path)
     
-    # Convert to DataFrame for easier analysis
-    print("Converting to DataFrame...")
-    df = convert_to_dataframe(g20_data)
-    print(f"DataFrame shape: {df.shape}")
+    # Filter years
+    reducer.filter_years(1990, 2019)
     
-    # Example 1: Create a scatter plot of military expenditure vs GDP
-    print("\nExample 1: Creating scatter plot")
-    mil_exp_indicator = "Military expenditure (% of GDP)"
-    gdp_indicator = "GDP (current US$)"
-    analysis_year = 2019  # Choose a recent year with good data coverage
-    create_scatter_plot(df, mil_exp_indicator, gdp_indicator, year=analysis_year, 
-                         title="Military Expenditure vs GDP for G20 Countries")
+    # Check for missing data
+    reducer.check_missing_data()
     
-    # Example 2: Get top military spenders
-    print("\nExample 2: Finding top military spenders")
-    top_spenders = get_top_countries_by_metric(df, mil_exp_indicator, year=analysis_year, top_n=5)
-    print(f"Top 5 G20 military spenders (% of GDP): {[ISO_TO_NAME.get(iso, iso) for iso in top_spenders]}")
+    # Prepare for dimensionality reduction
+    reducer.prepare_for_dimensionality_reduction(impute_missing=True, min_non_null_ratio=0.7)
     
-    # Example 3: Calculate correlations for a specific country
-    print("\nExample 3: Calculating correlations for USA")
-    usa_corr = calculate_pearson_correlation(df, "USA", 
-                                            indicators=[mil_exp_indicator, gdp_indicator,  
-                                                       "Population, total", "Arms exports (SIPRI trend indicator values)"])
-    print("Correlation matrix for USA:")
-    print(usa_corr)
+    # Perform PCA
+    pca_2d, explained_var, loadings = reducer.perform_pca(n_components=2)
     
-    # Example 4: Dimensionality reduction with PCA
-    print("\nExample 4: Running PCA dimensionality reduction")
-    # Select key economic and military indicators
-    key_indicators = [
-        mil_exp_indicator,
-        gdp_indicator,
-        "Arms exports (SIPRI trend indicator values)",
-        "Arms imports (SIPRI trend indicator values)",
-        "GDP per capita (current US$)",
-        "Population, total"
-    ]
+    # Perform PCA with 3 components
+    pca_3d, explained_var_3d, loadings_3d = reducer.perform_pca(n_components=3)
     
-    # Prepare data for top military spenders over recent years
-    matrix, features, labels = prepare_for_dimensionality_reduction(
-        df, indicators=key_indicators, countries=top_spenders, min_year=2010
-    )
+    # Perform t-SNE
+    tsne_data = reducer.perform_tsne(n_components=2, perplexity=30)
+
+    # perform t-SNE with 3 components
+    tsne_data_3d = reducer.perform_tsne(n_components=3, perplexity=30)
     
-    if matrix.shape[0] > 0:
-        # Perform PCA
-        reduced_data, explained_variance = perform_pca(matrix)
-        print(f"PCA explained variance: {explained_variance}")
-        
-        # Visualize PCA results
-        visualize_reduced_data(reduced_data, labels, 
-                              title="PCA Analysis of Top Military Spenders (2010-present)", 
-                              show_country_names=True)
-    else:
-        print("Not enough data available for PCA analysis with selected parameters")
+    # Create and save all visualizations
+    export_dir = 'data/dimensionality_reduction_g20'
+    reducer.save_plots(export_dir)
     
-    print("\nAnalysis complete!")
+    # Export results to JSON files
+    reducer.export_results(export_dir)
+    
+    print("Analysis complete. All results saved to:", export_dir)
+    
+    # Optionally show one plot interactively at the end if running in interactive mode
+    #reducer.visualize_reduced_data(technique='PCA', show_country_names=True)
