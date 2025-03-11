@@ -8,6 +8,8 @@ import pandas as pd
 import json
 import uvicorn
 from enum import Enum
+import os
+from prepare_arms_trade_matrix import prepare_arms_trade_matrix
 
 # Define DataMode enum for type safety
 class DataMode(str, Enum):
@@ -213,6 +215,25 @@ def get_country_by_iso(
         return country_data
     else:
         raise HTTPException(status_code=500, detail="Data not available in this format")
+
+@app.get("/arms_trade_matrix/{year}", response_model=Dict[str, Any])
+def get_arms_trade_matrix(year: int) -> Dict[str, Any]:
+    """
+    Returns the arms trade matrix for the specified year.
+    
+    Parameters:
+    - year: The year to get the arms trade matrix for
+    """
+    # Check if we have a pre-generated matrix file
+    matrix_file = f'../data/arms_trade_matrices/arms_trade_matrix_{year}.json'
+    
+    if os.path.exists(matrix_file):
+        # Load the pre-generated matrix
+        with open(matrix_file, 'r') as f:
+            return json.load(f)
+    else:
+        # Generate the matrix on-the-fly
+        return prepare_arms_trade_matrix(year)
 
 if __name__ == "__main__":
     uvicorn.run(app, host="127.0.0.1", port=8000)
