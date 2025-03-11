@@ -45,19 +45,26 @@ G20_ALTERNATIVE_NAMES = {
 ISO_TO_NAME = {iso: name for name, iso in G20_COUNTRIES.items()}
 
 class DimensionalityReducer:
-    def __init__(self, data_path=None, data=None):
+    def __init__(self, data_path=None, data=None, g20_only=True):
         """
         Initialize the DimensionalityReducer class
         
         Parameters:
         data_path (str): Path to the JSON data file
         data (DataFrame): Optional pre-loaded pandas DataFrame
+        g20_only (bool): Whether to filter for only G20 countries or use all countries
         """
         if data is not None:
             self.df = data
         elif data_path:
             self.data = self.load_data(data_path)
-            self.df = self.convert_to_dataframe(self.extract_g20_countries(self.data))
+            
+            if g20_only:
+                # Filter for G20 countries only
+                self.df = self.convert_to_dataframe(self.extract_g20_countries(self.data))
+            else:
+                # Use all countries
+                self.df = self.convert_to_dataframe(self.extract_all_countries(self.data))
         else:
             raise ValueError("Either data_path or data must be provided")
     
@@ -102,6 +109,11 @@ class DimensionalityReducer:
                 g20_data.append(country_copy)
         
         return g20_data
+
+    def extract_all_countries(self, data):
+        """Extract all countries from the dataset"""
+        # Simply return all countries without filtering
+        return data.get('countries', [])
     
     def convert_to_dataframe(self, countries_data):
         """Convert the time series data for countries into a pandas DataFrame"""
@@ -589,7 +601,7 @@ class DimensionalityReducer:
                 save_path=tsne_3d_plot_path,
                 display_plot=False
             )
-            
+
         print(f"Plots saved to {export_dir}")
 
 # Example usage
@@ -622,7 +634,7 @@ if __name__ == "__main__":
     tsne_data_3d = reducer.perform_tsne(n_components=3, perplexity=30)
     
     # Create and save all visualizations
-    export_dir = 'data/dimensionality_reduction'
+    export_dir = 'data/dimensionality_reduction_g20'
     reducer.save_plots(export_dir)
     
     # Export results to JSON files
