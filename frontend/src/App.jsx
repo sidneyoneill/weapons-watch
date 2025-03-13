@@ -1,11 +1,14 @@
 // src/App.jsx
 import React, { useState } from "react";
+import { BrowserRouter as Router, Routes, Route, NavLink } from "react-router-dom";
 import MapComponent from "./components/MapComponent";
 import ChartComponent from "./components/ChartComponent";
 import axios from "axios";
 import CountryExpenditureComponent from "./components/CountryExpidentureComponent";
 import ExpenditureMapComponent from "./components/ExpidentureMapComponent";
 import DataModeToggle from "./components/DataModeToggle";
+import ArmsTradeDashboard from "./components/ArmsTradeDashboard";
+import './index.css';
 
 function App() {
   const [selectedCountry, setSelectedCountry] = useState(null);
@@ -72,35 +75,52 @@ function App() {
   };
 
   return (
-    <div className="App" style={{ padding: "20px" }}>
-      <h1>Arms Trade Dashboard</h1>
-      
-      {/* Data Mode Toggle */}
-      <DataModeToggle 
-        currentMode={dataMode} 
-        onModeChange={handleDataModeChange} 
-      />
-      
-      {error && (
-        <div style={{ color: "red", marginBottom: "10px" }}>{error}</div>
-      )}
-      
-      {/* <div style={{ padding: "20px" }}> */}
-        {/* <div style={{ marginBottom: "20px" }}>
-          <MapComponent onCountrySelect={handleCountrySelect} />
-        </div>
-        {loading && <div>Loading data...</div>}
-        {selectedCountry && timeSeriesData.length > 0 && !loading && (
-          <ChartComponent
-            timeSeriesData={timeSeriesData}
-            selectedCountry={selectedCountry}
-            dataMode={dataMode}
-          />
-        )} */}
-        {/* <CountryExpenditureComponent /> */}
-        <ExpenditureMapComponent dataMode={dataMode} />
-      {/* </div> */}
-    </div>
+    <Router>
+      <div className="app-container">
+        <header className="app-header">
+          <h1>Defense Data Dashboard</h1>
+          <nav className="main-nav">
+            <NavLink 
+              to="/" 
+              className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}
+              end
+            >
+              Military Expenditure
+            </NavLink>
+            <NavLink 
+              to="/arms-trade" 
+              className={({ isActive }) => `nav-link ${isActive ? 'active' : ''}`}
+            >
+              Arms Trade
+            </NavLink>
+          </nav>
+          {/* Only show mode toggle on military expenditure page */}
+          <Routes>
+            <Route path="/" element={
+              <div className="mode-toggle">
+                <button onClick={handleDataModeChange} className="toggle-button">
+                  {dataMode === 'total' ? 'Switch to % of GDP' : 'Switch to Total Expenditure'}
+                </button>
+              </div>
+            } />
+          </Routes>
+        </header>
+        
+        <Routes>
+          <Route path="/" element={
+            <>
+              {error && (
+                <div style={{ color: "red", marginBottom: "10px" }}>{error}</div>
+              )}
+              
+              <ExpenditureMapComponent dataMode={dataMode} />
+            </>
+          } />
+          
+          <Route path="/arms-trade" element={<ArmsTradeDashboard />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
