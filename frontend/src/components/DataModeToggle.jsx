@@ -1,5 +1,17 @@
 import React from 'react';
 
+// Theme colors to match App.jsx
+const theme = {
+  background: '#000000',
+  secondaryBg: '#111111',
+  accent: '#ea580c', // Orange accent matching the globe
+  text: {
+    primary: '#ffffff',
+    secondary: '#cccccc',
+  },
+  borders: '#333333',
+};
+
 /**
  * A toggle component that allows users to switch between "Total" and "% of GDP" data modes
  * 
@@ -10,7 +22,7 @@ import React from 'react';
 const DataModeToggle = ({ currentMode, onModeChange }) => {
   return (
     <div className="data-mode-toggle" style={styles.container}>
-      <div style={styles.label}>Data Display Mode:</div>
+      <div style={styles.label}>Data View:</div>
       <div style={styles.buttonGroup}>
         <button
           style={{
@@ -19,7 +31,7 @@ const DataModeToggle = ({ currentMode, onModeChange }) => {
           }}
           onClick={() => onModeChange('total')}
         >
-          Total Expenditure
+          Total
         </button>
         <button
           style={{
@@ -28,7 +40,7 @@ const DataModeToggle = ({ currentMode, onModeChange }) => {
           }}
           onClick={() => onModeChange('gdp')}
         >
-          % of GDP
+          % GDP
         </button>
       </div>
     </div>
@@ -40,32 +52,39 @@ const styles = {
   container: {
     display: 'flex',
     alignItems: 'center',
-    marginBottom: '20px',
     gap: '10px'
   },
   label: {
-    fontWeight: 'bold',
-    marginRight: '10px'
+    fontWeight: '500',
+    color: theme.text.secondary,
+    fontSize: '14px'
   },
   buttonGroup: {
     display: 'flex',
     borderRadius: '4px',
-    overflow: 'hidden'
+    overflow: 'hidden',
+    border: `1px solid ${theme.borders}`,
   },
   button: {
-    padding: '8px 16px',
-    border: '1px solid #ccc',
-    background: '#f8f8f8',
+    padding: '6px 12px',
+    border: 'none',
+    borderRight: `1px solid ${theme.borders}`,
+    background: 'rgba(20, 20, 20, 0.6)',
+    color: theme.text.secondary,
     cursor: 'pointer',
     transition: 'all 0.2s ease',
-    fontSize: '14px',
-    outline: 'none'
+    fontSize: '13px',
+    fontWeight: '500',
+    outline: 'none',
+    '&:last-child': {
+      borderRight: 'none'
+    }
   },
   activeButton: {
-    background: '#4285f4',
+    background: theme.accent,
     color: 'white',
-    borderColor: '#4285f4'
+    boxShadow: '0 0 10px rgba(234, 88, 12, 0.5)'
   }
 };
 
-export default DataModeToggle; 
+export default DataModeToggle;
