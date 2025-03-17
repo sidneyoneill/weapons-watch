@@ -47,14 +47,14 @@ data_cache = {
 }
 
 # Base path for data files
-BASE_PATH = '/Users/marwansorour/Desktop/arms-trade-dashboard/data'
+BASE_PATH = '/Users/karimmohamed/Desktop/arms-trade-dashboard/data'
 
 # Function to load data based on mode
 def load_data(mode: DataMode = DataMode.TOTAL):
     """Load data based on the specified mode (total or gdp)"""
     if data_cache[mode]["json"] is None:
         try:
-            # Load JSON data - use absolute paths for all files
+            # Load JSON data - use BASE_PATH for all files
             if mode == DataMode.TOTAL:
                 json_file = os.path.join(BASE_PATH, 'sipri_milex_data_nested.json')
             else:

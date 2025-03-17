@@ -119,7 +119,7 @@ function App() {
         backgroundColor: "rgba(17, 17, 17, 0.8)",
         backdropFilter: "blur(10px)",
         borderBottom: `1px solid ${theme.borders}`,
-        zIndex: 1000,
+        zIndex: 100,  // Adjusted to be above globe but below error messages
         display: "flex",
         justifyContent: "space-between",
         alignItems: "center",
@@ -163,7 +163,7 @@ function App() {
           borderRadius: "8px",
           backdropFilter: "blur(5px)",
           border: "1px solid #ff3333",
-          zIndex: 1001,
+          zIndex: 200,  // Adjusted to be above header
           boxShadow: "0 4px 12px rgba(255, 0, 0, 0.2)"
         }}>
           {error}
@@ -171,13 +171,13 @@ function App() {
       )}
       
       {/* 3D Interactive Globe - Fill the entire viewport */}
-      <div style={{ 
-        position: "absolute", 
-        top: 0, 
-        left: 0, 
-        width: "100vw", 
+      <div className="globe-container" style={{
+        position: "absolute",
+        top: 0,
+        left: 0,
+        width: "100vw",
         height: "100vh",
-        overflow: "hidden"
+        zIndex: 0  // Set to 0 to be below everything
       }}>
         <GlobeComponent dataMode={dataMode} />
       </div>

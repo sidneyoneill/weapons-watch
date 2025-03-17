@@ -17,6 +17,7 @@ const GlobeComponent = ({ dataMode = 'total' }) => {
   const [selectedCountry, setSelectedCountry] = useState(null); // Track clicked country
   const [countryHistoryData, setCountryHistoryData] = useState([]); // Store historical data
   const [altitude, setAltitude] = useState(1.5); // Adjust zoom level
+  // Fixed visualization settings that cannot be changed by user
   const [visualizationMode, setVisualizationMode] = useState('dots'); // 'dots', 'pulse', 'rings'
   const [showLabels, setShowLabels] = useState(false); // Toggle for country labels
   const [topCountries, setTopCountries] = useState([]);
@@ -24,9 +25,13 @@ const GlobeComponent = ({ dataMode = 'total' }) => {
   const [ringsData, setRingsData] = useState([]);
   const [pulsesData, setPulsesData] = useState([]);
   const [pointsData, setPointsData] = useState([]);
-  const [dotSize, setDotSize] = useState(1.2); // Increased default dot size from 0.5 to 1.2
+  const [dotSize, setDotSize] = useState(1.2); // Fixed default dot size
   const [arcsData, setArcsData] = useState([]);
   const [labelData, setLabelData] = useState([]);
+  // New state for top trade relationships
+  const [topTradeRelationships, setTopTradeRelationships] = useState([]);
+  // State for trade relationships
+  const [tradePartners, setTradePartners] = useState([]);
   
   // All refs after state hooks
   const globeRef = useRef();
@@ -698,11 +703,20 @@ const GlobeComponent = ({ dataMode = 'total' }) => {
       if (!response.data || response.data.length === 0) {
         console.log(`No trade partner data returned for ${countryName}`);
         setArcsData([]);
+        setTopTradeRelationships([]);
         return;
       }
       
       const tradeData = response.data;
       console.log(`Received ${tradeData.length} trade partners for ${countryName}`);
+      
+      // Process the trade relationships to get top 5
+      const processedTradeData = tradeData
+        .filter(partner => partner.country !== countryName) // Exclude self-references
+        .sort((a, b) => b.value - a.value) // Sort by value (descending)
+        .slice(0, 5); // Take top 5
+      
+      setTopTradeRelationships(processedTradeData);
 
       // Convert trade data into arc format
       const srcCoords = getCountryCoordinates(countryName);
@@ -784,6 +798,140 @@ const GlobeComponent = ({ dataMode = 'total' }) => {
         console.error('API error response:', error.response.data);
       }
       setArcsData([]); // Clear previous arcs if there's an error
+      setTopTradeRelationships([]); // Clear top trade relationships if there's an error
+    }
+
+    try {
+      console.log(`Fetching trade partners for: ${countryName}`);
+      const response = await axios.get(
+        `http://localhost:8000/trade_partners/${encodeURIComponent(countryName)}`
+      );
+      
+      console.log("API response:", response);
+      
+      // Check if the response has data
+      if (!response.data || response.data.length === 0) {
+        console.log(`No trade partner data returned for ${countryName}`);
+        setArcsData([]);
+        setTradePartners([]);
+        return;
+      }
+      
+      const tradeData = response.data;
+      console.log(`Received ${tradeData.length} trade partners for ${countryName}`);
+      
+      // Process and organize the trade data by partner country
+      const partnerMap = new Map();
+      
+      tradeData.forEach(partner => {
+        if (partner.country === countryName) return; // Skip self-references
+        
+        if (!partnerMap.has(partner.country)) {
+          partnerMap.set(partner.country, {
+            country: partner.country,
+            imports: 0,
+            exports: 0,
+            total: 0
+          });
+        }
+        
+        const currentData = partnerMap.get(partner.country);
+        
+        if (partner.type === 'import') {
+          currentData.imports += partner.value;
+        } else if (partner.type === 'export') {
+          currentData.exports += partner.value;
+        }
+        
+        currentData.total += partner.value;
+        partnerMap.set(partner.country, currentData);
+      });
+      
+      // Convert to array and sort by total trade value
+      const processedTradeData = Array.from(partnerMap.values())
+        .sort((a, b) => b.total - a.total)
+        .slice(0, 5); // Take top 5
+      
+      setTradePartners(processedTradeData);
+
+      // Convert trade data into arc format
+      const srcCoords = getCountryCoordinates(countryName);
+      if (!srcCoords) {
+        console.warn(`Could not find coordinates for source country: ${countryName}`);
+        return;
+      }
+      // Try with both "United States" and "United States of America" for better matching
+      const alternativeNames = {
+        "United States": "United States of America",
+        "United States of America": "United States",
+        "Russia": "Soviet Union",
+        "Soviet Union": "Russia"
+      };
+      // First set empty arcs to clear any existing ones
+      setArcsData([]);
+      
+      // Then after a short delay, add the new arcs to create the animation effect
+      setTimeout(() => {
+        const newArcs = tradeData
+          .filter(partner => partner.country !== countryName) // Exclude self-references
+          .map(partner => {
+            let targetCoords = getCountryCoordinates(partner.country);
+            
+            // If not found, try alternative name
+            if (!targetCoords && alternativeNames[partner.country]) {
+              console.log(`Trying alternative name: ${alternativeNames[partner.country]}`);
+              targetCoords = getCountryCoordinates(alternativeNames[partner.country]);
+            }
+            
+            if (!targetCoords) {
+              console.warn(`Could not find coordinates for trade partner: ${partner.country}`);
+              return null;
+            }
+            
+            // Brighter orange color with higher base opacity
+            const opacity = Math.min(0.5 + partner.value / 10000, 0.95);
+            const lineColor = `rgba(249, 115, 22, ${opacity})`; // Brighter orange color
+            
+            return {
+              startLat: srcCoords[0],
+              startLng: srcCoords[1],
+              endLat: targetCoords[0],
+              endLng: targetCoords[1],
+              color: lineColor,
+              value: partner.value,
+              tradePartner: partner.country,
+              tradeValue: partner.value,
+              tradeType: partner.type
+            };
+          })
+          .filter(arc => arc !== null);
+        console.log(`Generated ${newArcs.length} trade arcs for ${countryName}`);
+        setArcsData(newArcs);
+        
+        // Update the labels to show only selected country and partners
+        if (showLabels) {
+          const partnerCountries = newArcs.map(arc => arc.tradePartner);
+          const filteredLabelData = generateLabelData([countryName, ...partnerCountries]);
+          setLabelData(filteredLabelData);
+        }
+      }, 100);
+      
+      // Animate to the selected country with a slightly higher altitude to see connections
+      if (globeRef.current) {
+        // Use srcCoords directly since we've already validated it exists
+        globeRef.current.pointOfView({ 
+          lat: srcCoords[0], 
+          lng: srcCoords[1], 
+          altitude: 2.2 
+        }, 1000);
+      }
+    } catch (error) {
+      console.error('Error fetching trade partners:', error);
+      if (error.response) {
+        console.error('API error response:', error.response.data);
+      }
+      setArcsData([]); // Clear previous arcs if there's an error
+      setTradePartners([]); // Clear trade partners if there's an error
     }
   };
 
@@ -792,6 +940,8 @@ const GlobeComponent = ({ dataMode = 'total' }) => {
     setSelectedCountry(null);
     setCountryHistoryData([]);
     setArcsData([]); // Clear arc data when closing the panel
+    setTopTradeRelationships([]); // Clear trade relationships when closing the panel
+    setTradePartners([]); // Clear trade relationships when closing the panel
     
     // Restore all country labels when closing history panel
     if (showLabels) {
@@ -847,42 +997,6 @@ const GlobeComponent = ({ dataMode = 'total' }) => {
     }
   };
 
-  // Toggle country labels
-  const toggleLabels = () => {
-    const newShowLabels = !showLabels;
-    setShowLabels(newShowLabels);
-  };
-
-  // Change visualization mode
-  const changeVisualizationMode = (mode) => {
-    console.log("Changing visualization mode to:", mode);
-    setVisualizationMode(mode);
-    
-    // If switching to pulse or rings mode, generate the appropriate data
-    if (mode === 'pulse' || mode === 'rings') {
-      generateVisualizationData(mode);
-    } else if (mode === 'dots') {
-      generatePointsData();
-    }
-  };
-  
-  // Change color scheme
-  const changeColorScheme = (scheme) => {
-    setColorScheme(scheme);
-    // Update visualizations with new color scheme
-    if (visualizationMode === 'dots') {
-      generatePointsData();
-    } else if (visualizationMode === 'pulse' || visualizationMode === 'rings') {
-      generateVisualizationData(visualizationMode);
-    }
-  };
-  
-  // Change dot size
-  const changeDotSize = (size) => {
-    setDotSize(size);
-    generatePointsData();
-  };
-
   if (loading) return <div>Loading globe data...</div>;
   if (error) return <div>Error: {error}</div>;
 
@@ -903,13 +1017,16 @@ const GlobeComponent = ({ dataMode = 'total' }) => {
         backgroundColor: "#000", // Keep black background
         overflow: "hidden", // Prevent scrollbars
         margin: 0,
-        padding: 0
+        padding: 0,
+        zIndex: 0 // Ensure the globe container is at the base layer
       }}
     >
       {geoData && (
         <Globe
           ref={globeRef}
           globeImageUrl="//unpkg.com/three-globe/example/img/earth-dark.jpg" // Using dark earth as base
+          bumpImageUrl="//unpkg.com/three-globe/example/img/earth-topology.png"
+          backgroundImageUrl={null}
           backgroundColor="#000000" // Black background
           lineHoverPrecision={0}
           
@@ -979,7 +1096,7 @@ const GlobeComponent = ({ dataMode = 'total' }) => {
           // Important: Make sure the Globe fills the entire viewport
           rendererConfig={{ 
             antialias: true, 
-            alpha: false,
+            alpha: true,
             preserveDrawingBuffer: false,
             precision: 'highp'
           }}
@@ -1047,199 +1164,6 @@ const GlobeComponent = ({ dataMode = 'total' }) => {
         />
       </div>
 
-      {/* Visualization controls - updated to dark theme with orange accents */}
-      <div
-        style={{
-          position: "absolute",
-          top: "70px", 
-          right: "20px",
-          background: "rgba(17, 17, 17, 0.8)",
-          padding: "15px",
-          borderRadius: "8px",
-          boxShadow: "0 0 15px rgba(0, 0, 0, 0.5)",
-          border: "1px solid #333333",
-          zIndex: 1000,
-          maxWidth: "320px",
-          maxHeight: "80vh",
-          overflowY: "auto",
-          color: "#ffffff",
-          fontFamily: "Arial, sans-serif",
-          backdropFilter: "blur(5px)"
-        }}
-      >
-        <h3 style={{ margin: "0 0 15px 0", textAlign: "center", color: "#ea580c" }}>Visualization Controls</h3>
-        
-        <div style={{ marginBottom: "15px" }}>
-          <div style={{ fontWeight: "bold", marginBottom: "5px", color: "#cccccc" }}>Data Type:</div>
-          <div style={{ display: "flex", gap: "10px" }}>
-            <button
-              onClick={() => window.dispatchEvent(new CustomEvent('setDataMode', { detail: 'total' }))}
-              style={{
-                padding: "5px 10px",
-                backgroundColor: dataMode === 'total' ? "#ea580c" : "#333333",
-                color: "white",
-                border: "1px solid #444444",
-                borderRadius: "4px",
-                cursor: "pointer",
-                flex: 1,
-                textAlign: "center"
-              }}
-            >
-              Total Expenditure
-            </button>
-            <button
-              onClick={() => window.dispatchEvent(new CustomEvent('setDataMode', { detail: 'gdp' }))}
-              style={{
-                padding: "5px 10px",
-                backgroundColor: dataMode === 'gdp' ? "#ea580c" : "#333333",
-                color: "white",
-                border: "1px solid #444444",
-                borderRadius: "4px",
-                cursor: "pointer",
-                flex: 1,
-                textAlign: "center"
-              }}
-            >
-              % of GDP
-            </button>
-          </div>
-        </div>
-        
-        <div style={{ marginBottom: "15px" }}>
-          <div style={{ fontWeight: "bold", marginBottom: "5px", color: "#cccccc" }}>Visual Style:</div>
-          <div style={{ display: "flex", flexWrap: "wrap", gap: "10px", marginBottom: "10px" }}>
-            <button
-              onClick={() => changeVisualizationMode('dots')}
-              style={{
-                padding: "5px 10px",
-                backgroundColor: visualizationMode === 'dots' ? "#ea580c" : "#333333",
-                color: "white",
-                border: "1px solid #444444",
-                borderRadius: "4px",
-                cursor: "pointer",
-                flex: 1,
-                textAlign: "center"
-              }}
-            >
-              Dots
-            </button>
-            <button
-              onClick={() => changeVisualizationMode('pulse')}
-              style={{
-                padding: "5px 10px",
-                backgroundColor: visualizationMode === 'pulse' ? "#ea580c" : "#333333",
-                color: "white",
-                border: "1px solid #444444",
-                borderRadius: "4px",
-                cursor: "pointer",
-                flex: 1,
-                textAlign: "center"
-              }}
-            >
-              Pulse Effect
-            </button>
-            <button
-              onClick={() => changeVisualizationMode('rings')}
-              style={{
-                padding: "5px 10px",
-                backgroundColor: visualizationMode === 'rings' ? "#ea580c" : "#333333",
-                color: "white",
-                border: "1px solid #444444",
-                borderRadius: "4px",
-                cursor: "pointer",
-                flex: 1,
-                textAlign: "center"
-              }}
-            >
-              Ring Effect
-            </button>
-          </div>
-        </div>
-        
-        {/* Dot size control - updated colors */}
-        {visualizationMode === 'dots' && (
-          <div style={{ marginBottom: "15px" }}>
-            <div style={{ fontWeight: "bold", marginBottom: "5px", color: "#cccccc" }}>Dot Size:</div>
-            <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-              <input
-                type="range"
-                min="0.5"
-                max="4"
-                step="0.1"
-                value={dotSize}
-                onChange={(e) => changeDotSize(parseFloat(e.target.value))}
-                style={{ flexGrow: 1, accentColor: "#ea580c", background: "#333333" }}
-              />
-              <span style={{ color: "#cccccc" }}>{dotSize.toFixed(1)}x</span>
-            </div>
-          </div>
-        )}
-        
-        <div style={{ marginBottom: "15px" }}>
-          <div style={{ fontWeight: "bold", marginBottom: "5px", color: "#cccccc" }}>Color Scheme:</div>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: "10px" }}>
-            {Object.entries(colorSchemes).map(([name, colors]) => (
-              <button
-                key={name}
-                onClick={() => changeColorScheme(name)}
-                style={{
-                  padding: "5px",
-                  background: colorScheme === name ? "#333333" : "#222222",
-                  border: colorScheme === name ? "2px solid #ea580c" : "1px solid #444444",
-                  borderRadius: "4px",
-                  cursor: "pointer",
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center"
-                }}
-              >
-                <div style={{ 
-                  width: "100%", 
-                  height: "20px", 
-                  background: `linear-gradient(to right, ${colors.join(", ")})`,
-                  borderRadius: "2px",
-                  marginBottom: "2px"
-                }} />
-                <div style={{ fontSize: "0.8rem", textTransform: "capitalize", color: "#cccccc" }}>{name}</div>
-              </button>
-            ))}
-          </div>
-        </div>
-        
-        <div style={{ marginBottom: "15px" }}>
-          <div style={{ display: "flex", alignItems: "center" }}>
-            <input
-              type="checkbox"
-              id="showLabels"
-              checked={showLabels}
-              onChange={toggleLabels}
-              style={{ marginRight: "10px", accentColor: "#ea580c" }}
-            />
-            <label htmlFor="showLabels" style={{ color: "#cccccc" }}>Show Country Labels</label>
-          </div>
-        </div>
-        
-        <div>
-          <div style={{ fontWeight: "bold", marginBottom: "5px", color: "#cccccc" }}>
-            {dataMode === 'gdp' ? 'Military Expenditure (% of GDP)' : 'Military Expenditure ($ millions)'}
-          </div>
-          <div 
-            style={{ 
-              height: "20px", 
-              width: "100%", 
-              background: `linear-gradient(to right, ${colorSchemes[colorScheme].join(", ")})`,
-              marginBottom: "5px",
-              borderRadius: "4px",
-              border: "1px solid #444444"
-            }}
-          />
-          <div style={{ display: "flex", justifyContent: "space-between", fontSize: "0.85rem", color: "#cccccc" }}>
-            <span>Low</span>
-            <span>High</span>
-          </div>
-        </div>
-      </div>
-
       {/* Top countries panel - updated to dark theme with orange accents */}
       <div
         style={{
@@ -1282,6 +1206,178 @@ const GlobeComponent = ({ dataMode = 'total' }) => {
           ))}
         </div>
       </div>
+
+      {/* New Top 5 Trade Relationships Panel */}
+      {selectedCountry && topTradeRelationships.length > 0 && (
+        <div
+          style={{
+            position: "absolute",
+            top: "70px",
+            right: "20px",
+            background: "rgba(17, 17, 17, 0.8)",
+            padding: "15px",
+            borderRadius: "8px",
+            boxShadow: "0 0 15px rgba(0, 0, 0, 0.5)",
+            border: "1px solid #333333",
+            zIndex: 1000,
+            width: "300px",
+            color: "#ffffff",
+            fontFamily: "Arial, sans-serif",
+            backdropFilter: "blur(5px)"
+          }}
+        >
+          <h3 style={{ margin: "0 0 15px 0", textAlign: "center", color: "#ea580c" }}>
+            Top 5 Trade Relationships
+          </h3>
+          <div style={{ maxHeight: "400px", overflowY: "auto" }}>
+            {topTradeRelationships.map((item, index) => (
+              <div 
+                key={index}
+                style={{ 
+                  display: "flex", 
+                  flexDirection: "column",
+                  marginBottom: "12px",
+                  padding: "10px",
+                  borderRadius: "4px",
+                  backgroundColor: index % 2 === 0 ? "rgba(51, 51, 51, 0.5)" : "rgba(34, 34, 34, 0.5)",
+                  border: "1px solid #444444"
+                }}
+              >
+                <div style={{ 
+                  display: "flex", 
+                  justifyContent: "space-between",
+                  marginBottom: "5px",
+                  borderBottom: "1px solid #444",
+                  paddingBottom: "5px"
+                }}>
+                  <div style={{ color: "#ffffff", fontWeight: "bold" }}>{index + 1}. {item.country}</div>
+                  <div style={{ fontWeight: "bold", color: "#ea580c" }}>
+                    ${item.value.toLocaleString()} million
+                  </div>
+                </div>
+                <div style={{ 
+                  display: "flex",
+                  justifyContent: "space-between",
+                  fontSize: "0.9em"
+                }}>
+                  <div style={{ color: "#cccccc" }}>Type:</div>
+                  <div style={{ color: "#ffffff", textTransform: "capitalize" }}>{item.type}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Trade Partners Panel - Shows top 5 arms trade relationships */}
+      {selectedCountry && tradePartners.length > 0 && (
+        <div
+          style={{
+            position: "absolute",
+            top: "70px",
+            right: "20px",
+            background: "rgba(17, 17, 17, 0.8)",
+            padding: "15px",
+            borderRadius: "8px",
+            boxShadow: "0 0 15px rgba(0, 0, 0, 0.5)",
+            border: "1px solid #333333",
+            zIndex: 1000,
+            width: "360px",
+            color: "#ffffff",
+            fontFamily: "Arial, sans-serif",
+            backdropFilter: "blur(5px)"
+          }}
+        >
+          <h3 style={{ margin: "0 0 15px 0", textAlign: "center", color: "#ea580c" }}>
+            Top 5 Arms Trade Partners
+          </h3>
+          <div style={{ maxHeight: "400px", overflowY: "auto" }}>
+            {tradePartners.map((partner, index) => (
+              <div 
+                key={index}
+                style={{ 
+                  display: "flex", 
+                  flexDirection: "column",
+                  marginBottom: "15px",
+                  padding: "12px",
+                  borderRadius: "4px",
+                  backgroundColor: index % 2 === 0 ? "rgba(51, 51, 51, 0.5)" : "rgba(34, 34, 34, 0.5)",
+                  border: "1px solid #444444"
+                }}
+              >
+                <div style={{ 
+                  display: "flex", 
+                  justifyContent: "space-between",
+                  marginBottom: "10px",
+                  borderBottom: "1px solid #444",
+                  paddingBottom: "8px"
+                }}>
+                  <div style={{ color: "#ffffff", fontWeight: "bold", fontSize: "1.1em" }}>
+                    {index + 1}. {partner.country}
+                  </div>
+                  <div style={{ fontWeight: "bold", color: "#ea580c" }}>
+                    ${partner.total.toLocaleString()} million
+                  </div>
+                </div>
+                <div style={{ 
+                  display: "flex",
+                  justifyContent: "space-between",
+                  marginBottom: "5px",
+                  padding: "5px 0"
+                }}>
+                  <div style={{ color: "#cccccc" }}>Imports from {partner.country}:</div>
+                  <div style={{ color: "#ffffff", fontWeight: "bold" }}>
+                    ${partner.imports.toLocaleString()} million
+                  </div>
+                </div>
+                <div style={{ 
+                  display: "flex",
+                  justifyContent: "space-between",
+                  padding: "5px 0"
+                }}>
+                  <div style={{ color: "#cccccc" }}>Exports to {partner.country}:</div>
+                  <div style={{ color: "#ffffff", fontWeight: "bold" }}>
+                    ${partner.exports.toLocaleString()} million
+                  </div>
+                </div>
+                {/* Visual bar showing the import/export ratio */}
+                <div style={{ 
+                  display: "flex", 
+                  height: "8px", 
+                  marginTop: "10px",
+                  backgroundColor: "#222", 
+                  borderRadius: "4px", 
+                  overflow: "hidden" 
+                }}>
+                  <div 
+                    style={{ 
+                      width: `${partner.total > 0 ? (partner.imports / partner.total) * 100 : 0}%`,
+                      backgroundColor: "#3b82f6", // blue for imports
+                      height: "100%" 
+                    }} 
+                  />
+                  <div 
+                    style={{ 
+                      width: `${partner.total > 0 ? (partner.exports / partner.total) * 100 : 0}%`,
+                      backgroundColor: "#ea580c", // orange for exports
+                      height: "100%" 
+                    }} 
+                  />
+                </div>
+                <div style={{ 
+                  display: "flex", 
+                  justifyContent: "space-between", 
+                  fontSize: "0.8em",
+                  marginTop: "3px"
+                }}>
+                  <span style={{ color: "#3b82f6" }}>Imports</span>
+                  <span style={{ color: "#ea580c" }}>Exports</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
 
       {/* Country history panel - updated to dark theme with orange accents */}
       {selectedCountry && (

@@ -60,4 +60,17 @@ h1, h2 {
   overflow: hidden;
   margin: 0;
   padding: 0;
+  z-index: 1; /* Adding z-index to ensure proper stacking */
+}
+
+/* Controls and overlays should be above the globe */
+.controls-overlay {
+  z-index: 2;
+  position: relative;
+}
+
+/* Ensure tooltip and popups are always on top */
+.tooltip-overlay {
+  z-index: 3;
+  position: relative;
 }
