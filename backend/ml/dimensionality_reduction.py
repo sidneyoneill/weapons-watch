@@ -9,6 +9,7 @@ import umap
 from sklearn.preprocessing import StandardScaler
 from scipy.stats import pearsonr
 import os
+import itertools  # Add this import
 
 # G20 countries with ISO codes
 G20_COUNTRIES = {
@@ -43,6 +44,51 @@ G20_ALTERNATIVE_NAMES = {
 
 # Reverse mapping from ISO to standard name for visualization
 ISO_TO_NAME = {iso: name for name, iso in G20_COUNTRIES.items()}
+
+# Theme mapping for indicators
+INDICATOR_THEMES = {
+    # Military & Security indicators
+    'military_expenditure': 'Military & Security',
+    'military_expenditure_gdp': 'Military & Security',
+    'arms_exports_sipri_trend_indicator_values': 'Military & Security',
+    'arms_imports_sipri_trend_indicator_values': 'Military & Security',
+    'armed_forces_personnel_total': 'Military & Security',
+    
+    # Economic indicators
+    'gdp_growth_annual_percent': 'Economic',
+    'foreign_direct_investment_net_outflows_percent_of_gdp': 'Economic',
+    'tax_revenue_percent_of_gdp': 'Economic',
+    'tariff_rate_applied_simple_mean_all_products_percent': 'Economic',
+    'ores_and_metals_exports_percent_of_merchandise_exports': 'Economic',
+    
+    # Social Development indicators
+    'income_share_held_by_highest_10percent': 'Inequality & Development',
+    'income_share_held_by_lowest_10percent': 'Inequality & Development',
+    'individuals_using_the_internet_percent_of_population': 'Inequality & Development',
+    'rural_population_percent_of_total_population': 'Inequality & Development',
+    
+    # Political & Migration indicators
+    'political_stability_and_absence_of_violenceterrorism_percentile_rank': 'Political & Migration',
+    'refugee_population_by_country_or_territory_of_origin': 'Political & Migration',
+    'internally_displaced_persons_total_displaced_by_conflict_and_violence_number_of_people': 'Political & Migration',
+    'international_migrant_stock_percent_of_population': 'Political & Migration',
+    
+    # Energy & Environment indicators
+    'fossil_fuel_energy_consumption_percent_of_total': 'Energy & Environment'
+}
+
+# Default theme for unmapped indicators
+DEFAULT_THEME = 'Other'
+
+# Theme colors for consistent visualization
+THEME_COLORS = {
+    'Military & Security': '#ff7f0e',       # Orange
+    'Economic': '#1f77b4',                  # Blue
+    'Inequality & Development': '#2ca02c',  # Green
+    'Political & Migration': '#d62728',     # Red
+    'Energy & Environment': '#9467bd',      # Purple
+    'Other': '#8c564b'                      # Brown
+}
 
 class DimensionalityReducer:
     def __init__(self, data_path=None, data=None, g20_only=True):
@@ -561,6 +607,26 @@ class DimensionalityReducer:
                 display_plot=False
             )
 
+            # New themed visualizations
+            try:
+                # Themed loadings analysis
+                themed_loadings_path = os.path.join(export_dir, f"{prefix}_pca_themed_loadings.png")
+                self.analyze_themed_loadings(
+                    n_components=min(3, len(self.pca_results['loadings'])), 
+                    save_path=themed_loadings_path,
+                    display_plot=False
+                )
+                
+                # Themed biplot
+                themed_biplot_path = os.path.join(export_dir, f"{prefix}_pca_themed_biplot.png")
+                self.plot_themed_biplot(
+                    save_path=themed_biplot_path,
+                    display_plot=False
+                )
+            except Exception as e:
+                print(f"Warning: Could not generate themed visualizations: {e}")
+
+
             # save pca loadings with 3 components
             pca_loadings_3d_path = os.path.join(export_dir, f"{prefix}_pca_loadings_3d.png")
             self.plot_pca_loadings(
@@ -604,8 +670,379 @@ class DimensionalityReducer:
 
         print(f"Plots saved to {export_dir}")
 
+    def export_thematic_insights(self, export_dir, prefix='dim_reduction'):
+        """
+        Export thematic insights from PCA analysis to a JSON file
+        
+        Parameters:
+        export_dir (str): Directory to save files
+        prefix (str): Prefix for filenames
+        """
+        os.makedirs(export_dir, exist_ok=True)
+        
+        if not hasattr(self, 'pca_results'):
+            raise ValueError("No PCA results found. Run perform_pca first.")
+        
+        # Generate thematic analysis
+        try:
+            # Use display_plot=False to avoid showing plots during analysis
+            component_themes = self.analyze_themed_loadings(
+                n_components=min(3, len(self.pca_results['loadings'])),
+                display_plot=False
+            )
+            
+            # Create component descriptions using thematic information
+            component_descriptions = {}
+            for comp_name, comp_info in component_themes.items():
+                dominant_theme = comp_info['dominant_theme']
+                theme_percentages = comp_info['theme_percentages']
+                
+                # Format key indicators for this component
+                key_indicators_text = []
+                for theme, indicators in comp_info['key_indicators'].items():
+                    indicator_texts = [f"{ind['Indicator']} ({ind['Loading']:.2f})" 
+                                    for ind in indicators[:3]]  # Top 3 indicators
+                    key_indicators_text.append(f"{theme}: {', '.join(indicator_texts)}")
+                
+                # Create a narrative description
+                description = f"Component primarily represents {dominant_theme} ({theme_percentages[dominant_theme]:.1f}% of variance) "
+                
+                # Add secondary themes if they contribute significantly
+                secondary_themes = [t for t, p in theme_percentages.items() 
+                                if t != dominant_theme and p > 10.0]
+                if secondary_themes:
+                    description += f"with contributions from {', '.join(secondary_themes)}"
+                
+                # Add direction information
+                direction = comp_info['direction'].get(dominant_theme, 'neutral')
+                if direction == 'positive':
+                    description += ". Higher values indicate stronger presence of these factors."
+                elif direction == 'negative':
+                    description += ". Lower values indicate stronger presence of these factors."
+                
+                component_descriptions[comp_name] = {
+                    "description": description,
+                    "key_indicators": key_indicators_text,
+                    "thematic_composition": {k: f"{v:.1f}%" for k, v in theme_percentages.items()}
+                }
+            
+            # Save thematic insights to JSON
+            insights = {
+                "component_themes": component_themes,
+                "component_descriptions": component_descriptions,
+                "themes_overview": {
+                    theme: list(indicators) 
+                    for theme, indicators in itertools.groupby(
+                        sorted(INDICATOR_THEMES.items(), key=lambda x: x[1]), 
+                        key=lambda x: x[1]
+                    )
+                }
+            }
+            
+            insights_path = os.path.join(export_dir, f"{prefix}_thematic_insights.json")
+            with open(insights_path, 'w') as f:
+                json.dump(insights, f, indent=2)
+            
+            print(f"Thematic insights exported to {insights_path}")
+            
+        except Exception as e:
+            print(f"Warning: Could not export thematic insights: {e}")
+            
+    def analyze_themed_loadings(self, n_components=2, display_plot=True, save_path=None):
+        """
+        Analyze and visualize PCA loadings grouped by themes
+        
+        Parameters:
+        n_components (int): Number of components to analyze
+        display_plot (bool): Whether to display the plot interactively
+        save_path (str): Optional path to save the visualization
+        
+        Returns:
+        dict: Information about thematic composition of each component
+        """
+        if not hasattr(self, 'pca_results'):
+            raise ValueError("No PCA results found. Run perform_pca first.")
+        
+        # Get components and indicators
+        components = self.pca_results['loadings'][:n_components]
+        indicators = self.indicators
+        
+        # Create a figure with a subplot for each component
+        fig, axes = plt.subplots(n_components, 1, figsize=(12, 5 * n_components))
+        if n_components == 1:
+            axes = [axes]
+        
+        component_themes = {}
+        
+        for i, component in enumerate(components):
+            # Create a DataFrame with indicators and their loadings for this component
+            loadings_df = pd.DataFrame({
+                'Indicator': indicators,
+                'Loading': component,
+                'Abs_Loading': np.abs(component)
+            })
+            
+            # Sort by absolute loading value for importance
+            loadings_df = loadings_df.sort_values('Abs_Loading', ascending=False)
+            
+            # Add theme information
+            loadings_df['Theme'] = loadings_df['Indicator'].map(
+                lambda x: INDICATOR_THEMES.get(x, DEFAULT_THEME)
+            )
+            
+            # Get thematic contribution for this component
+            # Sum the absolute loadings by theme to measure theme importance
+            theme_importance = loadings_df.groupby('Theme')['Abs_Loading'].sum()
+            total_importance = theme_importance.sum()
+            theme_percentages = (theme_importance / total_importance * 100).round(1)
+            
+            # Sort themes by importance
+            theme_percentages = theme_percentages.sort_values(ascending=False)
+            
+            # Store the dominant themes for this component
+            component_themes[f"Component_{i+1}"] = {
+                'dominant_theme': theme_percentages.index[0] if not theme_percentages.empty else 'Unknown',
+                'theme_percentages': theme_percentages.to_dict(),
+                'direction': {},
+                'key_indicators': {}
+            }
+            
+            # For each theme, determine if it contributes positively or negatively
+            for theme in theme_percentages.index:
+                theme_indicators = loadings_df[loadings_df['Theme'] == theme]
+                
+                # Get the sum of loadings (with signs) to determine direction
+                direction_sum = theme_indicators['Loading'].sum()
+                direction = 'positive' if direction_sum >= 0 else 'negative'
+                
+                # Store the direction and key indicators
+                component_themes[f"Component_{i+1}"]['direction'][theme] = direction
+                
+                # Get top 3 indicators for this theme
+                top_indicators = theme_indicators.head(3)[['Indicator', 'Loading']].to_dict('records')
+                component_themes[f"Component_{i+1}"]['key_indicators'][theme] = top_indicators
+            
+            # Visualization for this component
+            ax = axes[i]
+            
+            # Use consistent colors for themes
+            theme_colors = {theme: THEME_COLORS.get(theme, '#333333') for theme in loadings_df['Theme'].unique()}
+            
+            # Plot the loadings, colored by theme
+            bar_positions = np.arange(len(loadings_df))
+            for theme in loadings_df['Theme'].unique():
+                theme_mask = loadings_df['Theme'] == theme
+                ax.bar(
+                    bar_positions[theme_mask], 
+                    loadings_df.loc[theme_mask, 'Loading'],
+                    label=f"{theme} ({theme_percentages.get(theme, 0)}%)",
+                    color=theme_colors[theme],
+                    alpha=0.7
+                )
+            
+            # Add labels and customize the plot
+            ax.set_xticks(bar_positions)
+            ax.set_xticklabels(loadings_df['Indicator'], rotation=90)
+            ax.set_title(f"Component {i+1} - Dominant Theme: {component_themes[f'Component_{i+1}']['dominant_theme']} "
+                        f"({theme_percentages.iloc[0]}%)")
+            ax.axhline(y=0, color='black', linestyle='-', alpha=0.3)
+            ax.set_ylabel('Loading Value')
+            ax.grid(True, alpha=0.3)
+            ax.legend(loc='upper right')
+        
+        plt.tight_layout()
+        
+        # Save the plot if a path is provided
+        if save_path:
+            plt.savefig(save_path, dpi=300, bbox_inches='tight')
+            print(f"Themed loadings plot saved to {save_path}")
+        
+        # Display or close the plot
+        if display_plot:
+            plt.show()
+        else:
+            plt.close()
+        
+        # Create a readable summary
+        print("\n==== THEMATIC COMPONENT ANALYSIS ====")
+        for comp, info in component_themes.items():
+            print(f"\n{comp}: Primary theme is {info['dominant_theme']}")
+            for theme, percentage in info['theme_percentages'].items():
+                direction = info['direction'].get(theme, 'neutral')
+                print(f"  - {theme}: {percentage}% ({direction} direction)")
+                
+                # Show top indicators for this theme
+                if theme in info['key_indicators']:
+                    print("    Top indicators:")
+                    for idx, ind_info in enumerate(info['key_indicators'][theme], 1):
+                        print(f"    {idx}. {ind_info['Indicator']}: {ind_info['Loading']:.3f}")
+        
+        return component_themes
+
+    def plot_g20_themed_biplot(self, display_plot=True, save_path=None):
+        """
+        Create a themed biplot specifically for G20 countries with loadings in top right
+
+        Parameters:
+        display_plot (bool): Whether to display the plot interactively
+        save_path (str): Optional path to save the visualization
+
+        Returns:
+        matplotlib.figure.Figure: The figure object
+        """
+        if not hasattr(self, 'pca_results'):
+            raise ValueError("No PCA results found. Run perform_pca first.")
+
+        # Get the PCA results
+        reduced_data = self.pca_results['reduced_data']
+        loadings = self.pca_results['loadings']
+        explained_variance_ratio = self.pca_results['explained_variance_ratio']
+
+        # Create a figure with a main axis for the scatter plot
+        fig = plt.figure(figsize=(14, 10))
+        ax_main = plt.subplot(111)
+
+        # Filter to only G20 countries
+        g20_iso_codes = set(G20_COUNTRIES.values())
+        unique_countries = [country for country in set(self.country_codes) if country in g20_iso_codes]
+
+        # Create a colormap with distinct colors for G20 countries
+        cmap = plt.cm.get_cmap('tab20', len(unique_countries))
+        colors = {country: cmap(i) for i, country in enumerate(unique_countries)}
+
+        # Create a dictionary to track which countries are plotted for the legend
+        plotted_countries = {}
+
+        # Plot each G20 country
+        for country in unique_countries:
+            country_mask = np.array(self.country_codes) == country
+            # Skip if no data points for this country
+            if not np.any(country_mask):
+                continue
+                
+            # Get the country's full name
+            country_name = ISO_TO_NAME.get(country, country)
+            
+            # Plot the country data points
+            scatter = ax_main.scatter(
+                reduced_data[country_mask, 0],
+                reduced_data[country_mask, 1],
+                label=country_name,
+                color=colors[country],
+                alpha=0.7,
+                s=80
+            )
+            plotted_countries[country] = country_name
+
+        # Add country and year labels to data points
+        for i, (x, y, label, year) in enumerate(zip(reduced_data[:, 0], reduced_data[:, 1], 
+                                                self.country_codes, self.years)):
+            # Only label G20 countries
+            if label in g20_iso_codes:
+                if i % 3 == 0:  # Label every 3rd point to reduce clutter
+                    ax_main.annotate(
+                        f"{label} {year}",
+                        (x, y),
+                        textcoords="offset points",
+                        xytext=(0, 5),
+                        fontsize=8,
+                        alpha=0.7
+                    )
+
+        # Create an inset axes for the loadings in the top right corner
+        ax_inset = fig.add_axes([0.6, 0.65, 0.35, 0.3], facecolor='#f9f9f9')
+
+        # Draw a border around the inset
+        for spine in ax_inset.spines.values():
+            spine.set_visible(True)
+            spine.set_color('gray')
+            spine.set_linewidth(0.5)
+
+        # Create a DataFrame with indicator loadings and themes
+        loadings_df = pd.DataFrame({
+            'Indicator': self.indicators,
+            'PC1': loadings[0],
+            'PC2': loadings[1],
+            'Theme': [INDICATOR_THEMES.get(ind, DEFAULT_THEME) for ind in self.indicators]
+        })
+
+        # Add feature vectors colored by theme to the inset axis
+        for _, row in loadings_df.iterrows():
+            ax_inset.arrow(
+                0, 0,
+                row['PC1'],
+                row['PC2'],
+                color=THEME_COLORS.get(row['Theme'], '#333333'),
+                alpha=0.7,
+                width=0.01,
+                head_width=0.05,
+                length_includes_head=True
+            )
+            
+            # Add feature labels with colors matching themes
+            ax_inset.annotate(
+                row['Indicator'],
+                (row['PC1'] * 1.1, row['PC2'] * 1.1),
+                color=THEME_COLORS.get(row['Theme'], '#333333'),
+                fontsize=8
+            )
+
+        # Configure the inset axis
+        ax_inset.axhline(y=0, color='gray', linestyle='-', alpha=0.3)
+        ax_inset.axvline(x=0, color='gray', linestyle='-', alpha=0.3)
+        ax_inset.set_xlim(-1.1, 1.1)
+        ax_inset.set_ylim(-1.1, 1.1)
+        ax_inset.set_title("Feature Loadings by Theme", fontsize=10)
+        ax_inset.set_xlabel(f"PC1", fontsize=8)
+        ax_inset.set_ylabel(f"PC2", fontsize=8)
+        ax_inset.grid(True, linestyle='--', alpha=0.3)
+
+        # Add a legend for themes in the inset
+        theme_legend_elements = [plt.Line2D([0], [0], color=color, lw=4, label=theme) 
+                                for theme, color in THEME_COLORS.items() 
+                                if theme in loadings_df['Theme'].values]
+
+        ax_inset.legend(handles=theme_legend_elements, title="Indicator Themes", 
+                        loc='best', fontsize=7, title_fontsize=8)
+
+        # Configure the main axis
+        ax_main.set_xlabel(f"PC1 ({explained_variance_ratio[0]*100:.1f}%)")
+        ax_main.set_ylabel(f"PC2 ({explained_variance_ratio[1]*100:.1f}%)")
+        ax_main.grid(True, alpha=0.3)
+        ax_main.set_title("G20 Countries in PCA Space with Themed Indicators", fontsize=14)
+
+        # Create the legend for countries 
+        handles, labels = ax_main.get_legend_handles_labels()
+
+        # Place the legend outside the plot to avoid overlapping with data points
+        country_legend = ax_main.legend(
+            handles, labels,
+            title="G20 Countries", 
+            loc='center left', 
+            bbox_to_anchor=(1.01, 0.5),
+            fontsize=9,
+            framealpha=0.9
+        )
+        country_legend.get_frame().set_facecolor('white')
+
+        plt.tight_layout()
+
+        # Save the plot if a path is provided
+        if save_path:
+            plt.savefig(save_path, dpi=300, bbox_inches='tight')
+            print(f"G20 themed biplot saved to {save_path}")
+
+        # Display or close the plot
+        if display_plot:
+            plt.show()
+        else:
+            plt.close()
+
+        return fig
+
 # Example usage
 if __name__ == "__main__":
+    
     # Path to the data file - adjust as needed
     data_path = "data/all_data_merged_cleaned.json"
     
@@ -613,7 +1050,7 @@ if __name__ == "__main__":
     reducer = DimensionalityReducer(data_path)
     
     # Filter years
-    reducer.filter_years(1990, 2019)
+    reducer.filter_years(1970, 2025)
     
     # Check for missing data
     reducer.check_missing_data()
@@ -624,23 +1061,20 @@ if __name__ == "__main__":
     # Perform PCA
     pca_2d, explained_var, loadings = reducer.perform_pca(n_components=2)
     
-    # Perform PCA with 3 components
-    pca_3d, explained_var_3d, loadings_3d = reducer.perform_pca(n_components=3)
-    
-    # Perform t-SNE
-    tsne_data = reducer.perform_tsne(n_components=2, perplexity=30)
-
-    # perform t-SNE with 3 components
-    tsne_data_3d = reducer.perform_tsne(n_components=3, perplexity=30)
-    
-    # Create and save all visualizations
+    # Create and save all visualizations including themed analysis
     export_dir = 'data/dimensionality_reduction_g20'
     reducer.save_plots(export_dir)
+    
+    # Export thematic insights
+    reducer.export_thematic_insights(export_dir)
+
+    reducer.plot_g20_themed_biplot(display_plot=True, save_path='data/dimensionality_reduction_g20/g20_themed_biplot.png')
     
     # Export results to JSON files
     reducer.export_results(export_dir)
     
     print("Analysis complete. All results saved to:", export_dir)
     
-    # Optionally show one plot interactively at the end if running in interactive mode
-    #reducer.visualize_reduced_data(technique='PCA', show_country_names=True)
+    # Display themed analysis interactively (if running in notebook)
+    # reducer.analyze_themed_loadings(n_components=2)
+    # reducer.plot_themed_biplot()
