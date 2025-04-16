@@ -513,6 +513,80 @@ class TrajectoryAnalyzer:
         
         print(f"Cluster results exported to {export_dir}")
 
+    def compute_yearly_volatility(self):
+        """
+        Compute the magnitude of movement vectors between consecutive years for each country
+        
+        Returns:
+        dict: JSON-ready nested dictionary with countries, years, and volatility magnitudes
+        """
+        if self.df is None:
+            raise ValueError("No data available. Load data first.")
+        
+        # Get the t-SNE dimensions
+        tsne_cols = [col for col in self.df.columns if col.startswith('tsne_')]
+        
+        # Group by country
+        country_groups = self.df.groupby('country_code')
+        
+        # Dictionary to store results
+        volatility_data = {"countries": []}
+        
+        for country_code, group in country_groups:
+            # Sort by year to ensure correct trajectory computation
+            group = group.sort_values('year')
+            
+            # Skip countries with too few observations
+            if len(group) < 2:  # Need at least 2 years to compute a vector
+                print(f"Skipping {country_code}: insufficient years")
+                continue
+            
+            # Get the country name
+            country_name = group['country_name'].iloc[0]
+            
+            # Extract years and coordinates
+            years = group['year'].tolist()
+            coords = group[tsne_cols].values
+            
+            # Compute vectors between consecutive years
+            vectors = np.diff(coords, axis=0)
+            
+            # Compute magnitudes of each vector (distance moved each year)
+            magnitudes = np.linalg.norm(vectors, axis=1).tolist()
+            
+            # Create year-to-magnitude mapping (starting from the second year)
+            year_volatility = []
+            for i, year in enumerate(years[1:]):
+                year_volatility.append({
+                    "year": int(year),
+                    "volatility": round(magnitudes[i], 6)  # Round to 6 decimal places
+                })
+            
+            # Add to the result
+            country_data = {
+                "country_code": country_code,
+                "country_name": country_name,
+                "yearly_volatility": year_volatility
+            }
+            volatility_data["countries"].append(country_data)
+        
+        return volatility_data
+
+    def export_yearly_volatility(self, output_path):
+        """
+        Export the yearly volatility data to a JSON file
+        
+        Parameters:
+        output_path (str): Path to save the JSON file
+        """
+        volatility_data = self.compute_yearly_volatility()
+        
+        os.makedirs(os.path.dirname(output_path), exist_ok=True)
+        with open(output_path, 'w') as f:
+            json.dump(volatility_data, f, indent=2)
+        
+        print(f"Yearly volatility data exported to {output_path}")
+        return volatility_data
 
 # Example usage
 if __name__ == "__main__":
@@ -535,8 +609,10 @@ if __name__ == "__main__":
                                'net_displacement_magnitude', 'efficiency']].describe()
     print(stats)
     
+    '''
     # Cluster the trajectories with different methods
     analyzer.cluster_trajectories(method='kmeans', n_clusters=5)
+    
     
     # Visualize trajectories by cluster
     analyzer.visualize_trajectories(
@@ -561,6 +637,7 @@ if __name__ == "__main__":
         max_countries_per_plot=15
     )
     
+    
     # Visualize feature distributions by cluster
     analyzer.visualize_cluster_features(
         save_path=os.path.join(export_dir, "cluster_feature_distributions.png")
@@ -570,7 +647,12 @@ if __name__ == "__main__":
     analyzer.visualize_cluster_radar(
         save_path=os.path.join(export_dir, "cluster_radar_profiles.png")
     )
-    
+    '''
+    # Export the yearly volatility data
+    volatility_data = analyzer.export_yearly_volatility(
+        os.path.join(export_dir, "country_yearly_volatility.json")
+    )
+
     # Export cluster results
     analyzer.export_cluster_results(export_dir)
     
