@@ -32,6 +32,8 @@ const GlobeComponent = ({ dataMode = 'total' }) => {
   const [topTradeRelationships, setTopTradeRelationships] = useState([]);
   // State for trade relationships
   const [tradePartners, setTradePartners] = useState([]);
+  // New state for trade view mode: 'all', 'import', 'export'
+  const [tradeViewMode, setTradeViewMode] = useState('all');
   
   // All refs after state hooks
   const globeRef = useRef();
@@ -245,6 +247,13 @@ const GlobeComponent = ({ dataMode = 'total' }) => {
     };
   }, []);
 
+  // Effect to update arcs when tradeViewMode changes
+  useEffect(() => {
+    if (selectedCountry && tradePartners.length > 0) {
+      updateTradeArcs();
+    }
+  }, [tradeViewMode]);
+
   // Fetch expenditure data for all countries
   const fetchExpenditureData = async (mode) => {
     try {
@@ -377,7 +386,14 @@ const GlobeComponent = ({ dataMode = 'total' }) => {
       if (!feature.properties || !feature.properties.Country) return;
       
       const countryName = feature.properties.Country;
-      const value = currentYearData[countryName];
+      let value = currentYearData[countryName];
+      
+      // Special case for United States to handle different naming conventions
+      if (countryName === "United States" && !value) {
+        value = currentYearData["United States of America"];
+      } else if (countryName === "United States of America" && !value) {
+        value = currentYearData["United States"];
+      }
       
       if (!value || !feature.geometry) return;
       
@@ -729,6 +745,7 @@ const GlobeComponent = ({ dataMode = 'total' }) => {
       const alternativeNames = {
         "United States": "United States of America",
         "United States of America": "United States",
+        "USA": "United States",
         "Russia": "Soviet Union",
         "Soviet Union": "Russia"
       };
@@ -864,6 +881,7 @@ const GlobeComponent = ({ dataMode = 'total' }) => {
       const alternativeNames = {
         "United States": "United States of America",
         "United States of America": "United States",
+        "USA": "United States",
         "Russia": "Soviet Union",
         "Soviet Union": "Russia"
       };
@@ -933,6 +951,83 @@ const GlobeComponent = ({ dataMode = 'total' }) => {
       setArcsData([]); // Clear previous arcs if there's an error
       setTradePartners([]); // Clear trade partners if there's an error
     }
+  };
+
+  // Function to update trade arcs based on the trade view mode
+  const updateTradeArcs = () => {
+    const srcCoords = getCountryCoordinates(selectedCountry);
+    if (!srcCoords) return;
+    
+    // First set empty arcs to clear any existing ones
+    setArcsData([]);
+    
+    // Get all trade data for the country
+    axios.get(`http://localhost:8000/trade_partners/${encodeURIComponent(selectedCountry)}`)
+      .then(response => {
+        if (!response.data || response.data.length === 0) return;
+        
+        const tradeData = response.data;
+        
+        // Filter based on tradeViewMode
+        const filteredTradeData = tradeData.filter(partner => {
+          if (tradeViewMode === 'all') return true;
+          return partner.type === tradeViewMode;
+        });
+        
+        // Process and create arcs with a short delay for animation effect
+        setTimeout(() => {
+          const alternativeNames = {
+            "United States": "United States of America",
+            "United States of America": "United States",
+            "USA": "United States",
+            "Russia": "Soviet Union",
+            "Soviet Union": "Russia"
+          };
+          
+          const newArcs = filteredTradeData
+            .filter(partner => partner.country !== selectedCountry) // Exclude self-references
+            .map(partner => {
+              let targetCoords = getCountryCoordinates(partner.country);
+              
+              // If not found, try alternative name
+              if (!targetCoords && alternativeNames[partner.country]) {
+                targetCoords = getCountryCoordinates(alternativeNames[partner.country]);
+              }
+              
+              if (!targetCoords) return null;
+              
+              // Colors based on trade type - blue for imports, orange for exports
+              const baseColor = partner.type === 'import' ? '#3b82f6' : '#ea580c';
+              const opacity = Math.min(0.5 + partner.value / 10000, 0.95);
+              const lineColor = `${baseColor}${Math.floor(opacity * 255).toString(16).padStart(2, '0')}`;
+              
+              return {
+                startLat: srcCoords[0],
+                startLng: srcCoords[1],
+                endLat: targetCoords[0],
+                endLng: targetCoords[1],
+                color: lineColor,
+                value: partner.value,
+                tradePartner: partner.country,
+                tradeValue: partner.value,
+                tradeType: partner.type
+              };
+            })
+            .filter(arc => arc !== null);
+            
+          setArcsData(newArcs);
+          
+          // Update the labels to show only selected country and partners
+          if (showLabels) {
+            const partnerCountries = newArcs.map(arc => arc.tradePartner);
+            const filteredLabelData = generateLabelData([selectedCountry, ...partnerCountries]);
+            setLabelData(filteredLabelData);
+          }
+        }, 100);
+      })
+      .catch(error => {
+        console.error('Error fetching trade partners:', error);
+      });
   };
 
   // Close the history panel and clear arcs
@@ -1510,6 +1605,83 @@ const GlobeComponent = ({ dataMode = 'total' }) => {
           </button>
         </div>
       </div>
+
+      {/* Trade view toggle button - only visible when a country is selected */}
+      {selectedCountry && (
+        <div
+          style={{
+            position: "absolute",
+            bottom: "20px",
+            right: "20px",
+            background: "rgba(17, 17, 17, 0.85)",
+            padding: "10px 15px",
+            borderRadius: "8px",
+            boxShadow: "0 0 15px rgba(0, 0, 0, 0.5)",
+            border: "1px solid #333333",
+            zIndex: 1000,
+            backdropFilter: "blur(5px)",
+            fontFamily: "Arial, sans-serif",
+          }}
+        >
+          <div style={{ marginBottom: "8px", color: "#cccccc", fontSize: "14px", textAlign: "center" }}>
+            Trade View
+          </div>
+          <div style={{ 
+            display: "flex", 
+            borderRadius: "4px", 
+            overflow: "hidden", 
+            border: "1px solid #444444" 
+          }}>
+            <button
+              onClick={() => setTradeViewMode('all')}
+              style={{
+                padding: "6px 12px",
+                backgroundColor: tradeViewMode === 'all' ? "#ea580c" : "#333333",
+                color: "white",
+                border: "none",
+                borderRight: "1px solid #444444",
+                cursor: "pointer",
+                fontSize: "13px",
+                flex: 1,
+                whiteSpace: "nowrap",
+              }}
+            >
+              All
+            </button>
+            <button
+              onClick={() => setTradeViewMode('import')}
+              style={{
+                padding: "6px 12px",
+                backgroundColor: tradeViewMode === 'import' ? "#3b82f6" : "#333333",
+                color: "white",
+                border: "none",
+                borderRight: "1px solid #444444",
+                cursor: "pointer",
+                fontSize: "13px",
+                flex: 1,
+                whiteSpace: "nowrap",
+              }}
+            >
+              Imports
+            </button>
+            <button
+              onClick={() => setTradeViewMode('export')}
+              style={{
+                padding: "6px 12px",
+                backgroundColor: tradeViewMode === 'export' ? "#ea580c" : "#333333",
+                color: "white",
+                border: "none",
+                cursor: "pointer",
+                fontSize: "13px",
+                flex: 1,
+                whiteSpace: "nowrap",
+              }}
+            >
+              Exports
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

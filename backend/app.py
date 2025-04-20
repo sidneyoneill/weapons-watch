@@ -48,7 +48,9 @@ data_cache = {
 }
 
 # Base path for data files
-BASE_PATH = '/Users/marwansorour/Desktop/arms-trade-dashboard/data'
+BASE_PATH = "/Users/karimmohamed/Desktop/arms-trade-dashboard/data"
+
+print(f"Using data path: {BASE_PATH}")
 
 # Function to load data based on mode
 def load_data(mode: DataMode = DataMode.TOTAL):
@@ -122,12 +124,29 @@ def load_trade_data():
     return data_cache["trade"]
 
 # Load default data at startup
-load_data(DataMode.TOTAL)
 try:
-    load_data(DataMode.GDP)
-    load_trade_data()
+    print("Loading 'total' data...")
+    load_data(DataMode.TOTAL)
+    print("Successfully loaded 'total' data")
 except Exception as e:
-    print(f"Error loading data at startup: {e}")
+    print(f"Error loading 'total' data at startup: {e}")
+    print("The application will continue, but some endpoints may not work properly")
+    
+try:
+    print("Loading 'gdp' data...")
+    load_data(DataMode.GDP)
+    print("Successfully loaded 'gdp' data")
+except Exception as e:
+    print(f"Error loading 'gdp' data at startup: {e}")
+    print("The application will continue, but GDP-related endpoints may not work properly")
+
+try:
+    print("Loading trade data...")
+    load_trade_data()
+    print("Successfully loaded trade data")
+except Exception as e:
+    print(f"Error loading trade data at startup: {e}")
+    print("The application will continue, but trade-related endpoints may not work properly")
 
 @app.get("/countries", response_model=Dict[str, List[str]])
 def get_countries() -> Dict[str, List[str]]:
