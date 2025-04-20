@@ -18,7 +18,7 @@ const GlobeComponent = ({ dataMode = 'total' }) => {
   const [countryHistoryData, setCountryHistoryData] = useState([]); // Store historical data
   const [altitude, setAltitude] = useState(1.5); // Adjust zoom level
   // Fixed visualization settings that cannot be changed by user
-  const [visualizationMode, setVisualizationMode] = useState('dots'); // 'dots', 'pulse', 'rings'
+  const [visualizationMode, setVisualizationMode] = useState('country-color'); // Changed to country-color mode
   const [showLabels, setShowLabels] = useState(false); // Toggle for country labels
   const [topCountries, setTopCountries] = useState([]);
   const [colorScheme, setColorScheme] = useState('orangeHeat'); // 'viridis', 'inferno', 'plasma', 'magma', 'greens', 'emerald'
@@ -32,10 +32,12 @@ const GlobeComponent = ({ dataMode = 'total' }) => {
   const [topTradeRelationships, setTopTradeRelationships] = useState([]);
   // State for trade relationships
   const [tradePartners, setTradePartners] = useState([]);
+  // New state for country color data
+  const [countryColors, setCountryColors] = useState({});
   
   // All refs after state hooks
   const globeRef = useRef();
-
+  
   // Function to generate label data for specific countries or all if none specified
   const generateLabelData = (countryFilter = null) => {
     if (!geoData) return [];
@@ -141,7 +143,11 @@ const GlobeComponent = ({ dataMode = 'total' }) => {
     // Only proceed when both data and geo information are loaded
     if (!loading && geoData && Object.keys(expenditureData).length > 0) {
       console.log("All data loaded, initializing visualization");
-      generatePointsData();
+      if (visualizationMode === 'country-color') {
+        generateCountryColors();
+      } else if (visualizationMode === 'dots') {
+        generatePointsData();
+      }
     }
   }, [loading, geoData, expenditureData, gdpData]);
 
@@ -149,7 +155,9 @@ const GlobeComponent = ({ dataMode = 'total' }) => {
   useEffect(() => {
     if (!loading && geoData && Object.keys(expenditureData).length > 0) {
       console.log("Year or dataMode changed, updating visualization");
-      if (visualizationMode === 'dots') {
+      if (visualizationMode === 'country-color') {
+        generateCountryColors();
+      } else if (visualizationMode === 'dots') {
         generatePointsData();
       } else if (visualizationMode === 'pulse' || visualizationMode === 'rings') {
         generateVisualizationData(visualizationMode);
@@ -295,6 +303,96 @@ const GlobeComponent = ({ dataMode = 'total' }) => {
       console.error(`Error fetching ${mode} expenditure data:`, error);
       setLoading(false);
     }
+  };
+
+  // NEW FUNCTION: Generate country colors based on military expenditure
+  const generateCountryColors = () => {
+    if (!geoData) {
+      console.warn("Cannot generate country colors: geoData is null");
+      return;
+    }
+    
+    const dataSource = dataMode === 'gdp' ? gdpData : expenditureData;
+    const currentYearData = dataSource[selectedYear] || {};
+    
+    console.log("Generating country colors for year:", selectedYear);
+    console.log("Countries with data:", Object.keys(currentYearData).length);
+    
+    if (Object.keys(currentYearData).length === 0) {
+      console.warn("No data available for selected year:", selectedYear);
+      setCountryColors({});
+      return;
+    }
+    
+    const maxValue = dataMode === 'gdp' ? maxGdpPercentage : maxExpenditure;
+    
+    // Find all values for percentile calculations
+    const allValues = [];
+    geoData.features.forEach(feature => {
+      if (!feature.properties || !feature.properties.Country) return;
+      
+      const countryName = feature.properties.Country;
+      const value = currentYearData[countryName];
+      
+      if (value) {
+        allValues.push(value);
+      }
+    });
+    
+    // Sort values for percentile calculations
+    allValues.sort((a, b) => a - b);
+    
+    // Helper function to find percentile
+    const getPercentile = (arr, p) => {
+      const index = Math.floor(arr.length * p);
+      return arr[index];
+    };
+    
+    // Calculate percentile thresholds
+    const p25 = getPercentile(allValues, 0.25);
+    const p50 = getPercentile(allValues, 0.50);
+    const p75 = getPercentile(allValues, 0.75);
+    const p90 = getPercentile(allValues, 0.90);
+    const p95 = getPercentile(allValues, 0.95);
+    
+    console.log("Value distribution:", {
+      min: allValues[0],
+      p25,
+      p50,
+      p75,
+      p90,
+      p95,
+      max: allValues[allValues.length - 1]
+    });
+    
+    // Create color mapping for each country
+    const colors = {};
+    
+    geoData.features.forEach(feature => {
+      if (!feature.properties || !feature.properties.Country) return;
+      
+      const countryName = feature.properties.Country;
+      const value = currentYearData[countryName];
+      
+      if (!value) {
+        // No data, use dark gray
+        colors[countryName] = "#333333";
+        return;
+      }
+      
+      // Determine color category based on percentile
+      let colorCategory;
+      if (value >= p95) colorCategory = 5;       // Top 5% - darkest/most intense
+      else if (value >= p90) colorCategory = 4;  // 90-95 percentile
+      else if (value >= p75) colorCategory = 3;  // 75-90 percentile
+      else if (value >= p50) colorCategory = 2;  // 50-75 percentile
+      else if (value >= p25) colorCategory = 1;  // 25-50 percentile
+      else colorCategory = 0;                    // Bottom 25% - lightest
+      
+      colors[countryName] = getCountryColorByCategory(colorCategory);
+    });
+    
+    setCountryColors(colors);
   };
 
   // Generate points data for visualization on the globe
@@ -987,6 +1085,12 @@ const GlobeComponent = ({ dataMode = 'total' }) => {
     return colors[Math.min(category - 1, colors.length - 1)];
   };
 
+  // NEW FUNCTION: Get color for country based on category (0-5, with 5 being highest)
+  const getCountryColorByCategory = (category) => {
+    const colors = colorSchemes[colorScheme];
+    return colors[Math.min(category, colors.length - 1)];
+  };
+
   // Format expenditure value based on data mode
   const formatExpenditureValue = (value, mode = dataMode) => {
     if (!value) return "No data";
@@ -1030,13 +1134,36 @@ const GlobeComponent = ({ dataMode = 'total' }) => {
           backgroundColor="#000000" // Black background
           lineHoverPrecision={0}
           
-          // Custom appearance for black water, dark grey countries
+          // Custom appearance for countries using orange intensity color
           polygonsData={geoData.features}
-          polygonCapColor={() => "#333333"} // Dark grey countries
+          polygonCapColor={feature => {
+            if (!feature.properties || !feature.properties.Country) return "#333333";
+            const country = feature.properties.Country;
+            return countryColors[country] || "#333333";
+          }}
           polygonSideColor={() => "#222222"} // Slightly darker sides
           polygonStrokeColor={() => "#444444"} // Light grey borders
+          polygonLabel={feature => {
+            if (!feature.properties || !feature.properties.Country) return "";
+            const country = feature.properties.Country;
+            const value = dataMode === 'gdp' ? 
+              yearGdpPercentages[country] : 
+              yearExpenditures[country];
+            
+            if (!value) return `<div>${country}: No data</div>`;
+            
+            return `
+              <div style="text-align:center;background:white;color:black;padding:8px;border-radius:4px;box-shadow:0 0 5px rgba(0,0,0,0.3);font-family:Arial,sans-serif;">
+                <b>${country}</b><br />
+                Year: ${selectedYear}<br />
+                ${dataMode === 'gdp' ? '% of GDP' : 'Military Expenditure'}:<br />
+                ${formatExpenditureValue(value)}
+              </div>
+            `;
+          }}
+          onPolygonClick={handleCountryClick}
           
-          // Points for dots visualization
+          // Points for dots visualization (hidden in country-color mode)
           pointsData={visualizationMode === 'dots' ? pointsData : []}
           pointColor={d => d.color}
           pointAltitude={0.01}
@@ -1162,6 +1289,145 @@ const GlobeComponent = ({ dataMode = 'total' }) => {
             transition: "opacity 0.2s"
           }}
         />
+      </div>
+
+      {/* Legend for country colors */}
+      <div
+        style={{
+          position: "absolute",
+          top: "20px",
+          left: "20px",
+          background: "rgba(17, 17, 17, 0.8)",
+          padding: "15px",
+          borderRadius: "8px",
+          boxShadow: "0 0 15px rgba(0, 0, 0, 0.5)",
+          border: "1px solid #333333",
+          zIndex: 1000,
+          color: "#ffffff",
+          fontFamily: "Arial, sans-serif",
+          backdropFilter: "blur(5px)",
+          display: selectedCountry ? "none" : "block"
+        }}
+      >
+        <h3 style={{ margin: "0 0 15px 0", textAlign: "center", color: "#ea580c" }}>
+          Military Expenditure
+        </h3>
+        <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
+          {[5, 4, 3, 2, 1, 0].map(category => (
+            <div 
+              key={`legend-${category}`}
+              style={{ 
+                display: "flex", 
+                alignItems: "center",
+                gap: "10px"
+              }}
+            >
+              <div
+                style={{
+                  width: "20px",
+                  height: "20px",
+                  backgroundColor: getCountryColorByCategory(category),
+                  borderRadius: "3px"
+                }}
+              ></div>
+              <span>
+                {category === 5 ? "Top 5%" : 
+                 category === 4 ? "90-95 percentile" :
+                 category === 3 ? "75-90 percentile" :
+                 category === 2 ? "50-75 percentile" :
+                 category === 1 ? "25-50 percentile" :
+                 "Bottom 25%"}
+              </span>
+            </div>
+          ))}
+          <div 
+            style={{ 
+              display: "flex", 
+              alignItems: "center",
+              gap: "10px",
+              marginTop: "5px"
+            }}
+          >
+            <div
+              style={{
+                width: "20px",
+                height: "20px",
+                backgroundColor: "#333333",
+                borderRadius: "3px"
+              }}
+            ></div>
+            <span>No data</span>
+          </div>
+        </div>
+      </div>
+
+      {/* Legend for country colors - always visible */}
+      <div
+        style={{
+          position: "absolute",
+          bottom: "180px",
+          left: "20px",
+          background: "rgba(17, 17, 17, 0.8)",
+          padding: "15px",
+          borderRadius: "8px",
+          boxShadow: "0 0 15px rgba(0, 0, 0, 0.5)",
+          border: "1px solid #333333",
+          zIndex: 1000,
+          color: "#ffffff",
+          fontFamily: "Arial, sans-serif",
+          backdropFilter: "blur(5px)"
+        }}
+      >
+        <h3 style={{ margin: "0 0 15px 0", textAlign: "center", color: "#ea580c" }}>
+          Military Expenditure
+        </h3>
+        <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
+          {[5, 4, 3, 2, 1, 0].map(category => (
+            <div 
+              key={`legend-${category}`}
+              style={{ 
+                display: "flex", 
+                alignItems: "center",
+                gap: "10px"
+              }}
+            >
+              <div
+                style={{
+                  width: "20px",
+                  height: "20px",
+                  backgroundColor: getCountryColorByCategory(category),
+                  borderRadius: "3px"
+                }}
+              ></div>
+              <span>
+                {category === 5 ? "Top 5%" : 
+                 category === 4 ? "90-95 percentile" :
+                 category === 3 ? "75-90 percentile" :
+                 category === 2 ? "50-75 percentile" :
+                 category === 1 ? "25-50 percentile" :
+                 "Bottom 25%"}
+              </span>
+            </div>
+          ))}
+          <div 
+            style={{ 
+              display: "flex", 
+              alignItems: "center",
+              gap: "10px",
+              marginTop: "5px"
+            }}
+          >
+            <div
+              style={{
+                width: "20px",
+                height: "20px",
+                backgroundColor: "#333333",
+                borderRadius: "3px"
+              }}
+            ></div>
+            <span>No data</span>
+          </div>
+        </div>
       </div>
 
       {/* Top countries panel - updated to dark theme with orange accents */}
@@ -1508,6 +1774,75 @@ const GlobeComponent = ({ dataMode = 'total' }) => {
           >
             Zoom In
           </button>
+        </div>
+      </div>
+
+      {/* Legend for country colors - always visible */}
+      <div
+        style={{
+          position: "absolute",
+          bottom: "180px",
+          left: "20px",
+          background: "rgba(17, 17, 17, 0.8)",
+          padding: "15px",
+          borderRadius: "8px",
+          boxShadow: "0 0 15px rgba(0, 0, 0, 0.5)",
+          border: "1px solid #333333",
+          zIndex: 1000,
+          color: "#ffffff",
+          fontFamily: "Arial, sans-serif",
+          backdropFilter: "blur(5px)"
+        }}
+      >
+        <h3 style={{ margin: "0 0 15px 0", textAlign: "center", color: "#ea580c" }}>
+          Military Expenditure
+        </h3>
+        <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
+          {[5, 4, 3, 2, 1, 0].map(category => (
+            <div 
+              key={`legend-${category}`}
+              style={{ 
+                display: "flex", 
+                alignItems: "center",
+                gap: "10px"
+              }}
+            >
+              <div
+                style={{
+                  width: "20px",
+                  height: "20px",
+                  backgroundColor: getCountryColorByCategory(category),
+                  borderRadius: "3px"
+                }}
+              ></div>
+              <span>
+                {category === 5 ? "Top 5%" : 
+                 category === 4 ? "90-95 percentile" :
+                 category === 3 ? "75-90 percentile" :
+                 category === 2 ? "50-75 percentile" :
+                 category === 1 ? "25-50 percentile" :
+                 "Bottom 25%"}
+              </span>
+            </div>
+          ))}
+          <div 
+            style={{ 
+              display: "flex", 
+              alignItems: "center",
+              gap: "10px",
+              marginTop: "5px"
+            }}
+          >
+            <div
+              style={{
+                width: "20px",
+                height: "20px",
+                backgroundColor: "#333333",
+                borderRadius: "3px"
+              }}
+            ></div>
+            <span>No data</span>
+          </div>
         </div>
       </div>
     </div>
