@@ -15,6 +15,7 @@ class DataMode(str, Enum):
     TOTAL = "total"
     GDP = "gdp"
 
+# Initialize FastAPI app
 app = FastAPI()
 
 # Add CORS middleware with updated configuration
@@ -47,7 +48,7 @@ data_cache = {
 }
 
 # Base path for data files
-BASE_PATH = '/Users/karimmohamed/Desktop/arms-trade-dashboard/data'
+BASE_PATH = '/Users/marwansorour/Desktop/arms-trade-dashboard/data'
 
 # Function to load data based on mode
 def load_data(mode: DataMode = DataMode.TOTAL):
