@@ -588,6 +588,84 @@ class TrajectoryAnalyzer:
         print(f"Yearly volatility data exported to {output_path}")
         return volatility_data
 
+    def compute_yearly_vectors(self):
+        """
+        Compute the movement vectors between consecutive years for each country
+        
+        Returns:
+        dict: JSON-ready nested dictionary with countries, years, and movement vectors
+        """
+        if self.df is None:
+            raise ValueError("No data available. Load data first.")
+        
+        # Get the t-SNE dimensions
+        tsne_cols = [col for col in self.df.columns if col.startswith('tsne_')]
+        n_dims = len(tsne_cols)
+        
+        # Group by country
+        country_groups = self.df.groupby('country_code')
+        
+        # Dictionary to store results
+        vector_data = {"metadata": {"dimensions": n_dims}, "countries": []}
+        
+        for country_code, group in country_groups:
+            # Sort by year to ensure correct trajectory computation
+            group = group.sort_values('year')
+            
+            # Skip countries with too few observations
+            if len(group) < 2:  # Need at least 2 years to compute a vector
+                print(f"Skipping {country_code}: insufficient years")
+                continue
+            
+            # Get the country name
+            country_name = group['country_name'].iloc[0]
+            
+            # Extract years and coordinates
+            years = group['year'].tolist()
+            coords = group[tsne_cols].values
+            
+            # Compute vectors between consecutive years
+            vectors = np.diff(coords, axis=0)
+            
+            # Store vectors with their corresponding years
+            yearly_vectors = []
+            for i, year in enumerate(years[1:]):
+                vector_entry = {
+                    "year": int(year),
+                    "from_year": int(years[i]),
+                    "vector": [round(float(v), 6) for v in vectors[i]]
+                }
+                yearly_vectors.append(vector_entry)
+            
+            # Add to the result
+            country_data = {
+                "country_code": country_code,
+                "country_name": country_name,
+                "yearly_vectors": yearly_vectors
+            }
+            vector_data["countries"].append(country_data)
+        
+        return vector_data
+
+    def export_yearly_vectors(self, output_path):
+        """
+        Export the yearly movement vectors to a JSON file
+        
+        Parameters:
+        output_path (str): Path to save the JSON file
+        
+        Returns:
+        dict: The exported vector data
+        """
+        vector_data = self.compute_yearly_vectors()
+        
+        os.makedirs(os.path.dirname(output_path), exist_ok=True)
+        with open(output_path, 'w') as f:
+            json.dump(vector_data, f, indent=2)
+        
+        print(f"Yearly movement vectors exported to {output_path}")
+        return vector_data
+
 # Example usage
 if __name__ == "__main__":
     # Path to the t-SNE data
@@ -651,6 +729,11 @@ if __name__ == "__main__":
     # Export the yearly volatility data
     volatility_data = analyzer.export_yearly_volatility(
         os.path.join(export_dir, "country_yearly_volatility.json")
+    )
+
+    # Export yearly movement vectors
+    vector_data = analyzer.export_yearly_vectors(
+        os.path.join(export_dir, "country_yearly_vectors.json")
     )
 
     # Export cluster results
