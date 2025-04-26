@@ -1,0 +1,238 @@
+{
+  "component_themes": {
+    "Component_1": {
+      "dominant_theme": "Military & Security",
+      "theme_percentages": {
+        "Military & Security": 56.1,
+        "Economic": 25.7,
+        "Energy & Environment": 10.9,
+        "Inequality & Development": 7.3
+      },
+      "direction": {
+        "Military & Security": "positive",
+        "Economic": "negative",
+        "Energy & Environment": "positive",
+        "Inequality & Development": "negative"
+      },
+      "key_indicators": {
+        "Military & Security": [
+          {
+            "Indicator": "military_expenditure",
+            "Loading": 0.5413909540311508
+          },
+          {
+            "Indicator": "arms_exports_sipri_trend_indicator_values",
+            "Loading": 0.5280239603267187
+          },
+          {
+            "Indicator": "military_expenditure_gdp",
+            "Loading": 0.35009976996443337
+          }
+        ],
+        "Economic": [
+          {
+            "Indicator": "ores_and_metals_exports_percent_of_merchandise_exports",
+            "Loading": -0.29612537429801883
+          },
+          {
+            "Indicator": "tax_revenue_percent_of_gdp",
+            "Loading": -0.27894320761015673
+          },
+          {
+            "Indicator": "gdp_growth_annual_percent",
+            "Loading": -0.0597940481971464
+          }
+        ],
+        "Energy & Environment": [
+          {
+            "Indicator": "fossil_fuel_energy_consumption_percent_of_total",
+            "Loading": 0.29431103876565307
+          }
+        ],
+        "Inequality & Development": [
+          {
+            "Indicator": "rural_population_percent_of_total_population",
+            "Loading": -0.19728598685391405
+          }
+        ]
+      }
+    },
+    "Component_2": {
+      "dominant_theme": "Economic",
+      "theme_percentages": {
+        "Economic": 44.3,
+        "Military & Security": 32.5,
+        "Inequality & Development": 17.5,
+        "Energy & Environment": 5.8
+      },
+      "direction": {
+        "Economic": "negative",
+        "Military & Security": "positive",
+        "Inequality & Development": "positive",
+        "Energy & Environment": "negative"
+      },
+      "key_indicators": {
+        "Economic": [
+          {
+            "Indicator": "tax_revenue_percent_of_gdp",
+            "Loading": -0.3872845630731861
+          },
+          {
+            "Indicator": "gdp_growth_annual_percent",
+            "Loading": 0.33225168487873613
+          },
+          {
+            "Indicator": "foreign_direct_investment_net_outflows_percent_of_gdp",
+            "Loading": -0.32719013892058446
+          }
+        ],
+        "Military & Security": [
+          {
+            "Indicator": "arms_imports_sipri_trend_indicator_values",
+            "Loading": 0.46166449986267954
+          },
+          {
+            "Indicator": "military_expenditure_gdp",
+            "Loading": 0.25069976175524356
+          },
+          {
+            "Indicator": "arms_exports_sipri_trend_indicator_values",
+            "Loading": -0.1484192411044171
+          }
+        ],
+        "Inequality & Development": [
+          {
+            "Indicator": "rural_population_percent_of_total_population",
+            "Loading": 0.501251526750114
+          }
+        ],
+        "Energy & Environment": [
+          {
+            "Indicator": "fossil_fuel_energy_consumption_percent_of_total",
+            "Loading": -0.16702106913736237
+          }
+        ]
+      }
+    }
+  },
+  "component_descriptions": {
+    "Component_1": {
+      "description": "Component primarily represents Military & Security (56.1% of variance) with contributions from Economic, Energy & Environment. Higher values indicate stronger presence of these factors.",
+      "key_indicators": [
+        "Military & Security: military_expenditure (0.54), arms_exports_sipri_trend_indicator_values (0.53), military_expenditure_gdp (0.35)",
+        "Economic: ores_and_metals_exports_percent_of_merchandise_exports (-0.30), tax_revenue_percent_of_gdp (-0.28), gdp_growth_annual_percent (-0.06)",
+        "Energy & Environment: fossil_fuel_energy_consumption_percent_of_total (0.29)",
+        "Inequality & Development: rural_population_percent_of_total_population (-0.20)"
+      ],
+      "thematic_composition": {
+        "Military & Security": "56.1%",
+        "Economic": "25.7%",
+        "Energy & Environment": "10.9%",
+        "Inequality & Development": "7.3%"
+      }
+    },
+    "Component_2": {
+      "description": "Component primarily represents Economic (44.3% of variance) with contributions from Military & Security, Inequality & Development. Lower values indicate stronger presence of these factors.",
+      "key_indicators": [
+        "Economic: tax_revenue_percent_of_gdp (-0.39), gdp_growth_annual_percent (0.33), foreign_direct_investment_net_outflows_percent_of_gdp (-0.33)",
+        "Military & Security: arms_imports_sipri_trend_indicator_values (0.46), military_expenditure_gdp (0.25), arms_exports_sipri_trend_indicator_values (-0.15)",
+        "Inequality & Development: rural_population_percent_of_total_population (0.50)",
+        "Energy & Environment: fossil_fuel_energy_consumption_percent_of_total (-0.17)"
+      ],
+      "thematic_composition": {
+        "Economic": "44.3%",
+        "Military & Security": "32.5%",
+        "Inequality & Development": "17.5%",
+        "Energy & Environment": "5.8%"
+      }
+    }
+  },
+  "themes_overview": {
+    "Economic": [
+      [
+        "gdp_growth_annual_percent",
+        "Economic"
+      ],
+      [
+        "foreign_direct_investment_net_outflows_percent_of_gdp",
+        "Economic"
+      ],
+      [
+        "tax_revenue_percent_of_gdp",
+        "Economic"
+      ],
+      [
+        "tariff_rate_applied_simple_mean_all_products_percent",
+        "Economic"
+      ],
+      [
+        "ores_and_metals_exports_percent_of_merchandise_exports",
+        "Economic"
+      ]
+    ],
+    "Energy & Environment": [
+      [
+        "fossil_fuel_energy_consumption_percent_of_total",
+        "Energy & Environment"
+      ]
+    ],
+    "Inequality & Development": [
+      [
+        "income_share_held_by_highest_10percent",
+        "Inequality & Development"
+      ],
+      [
+        "income_share_held_by_lowest_10percent",
+        "Inequality & Development"
+      ],
+      [
+        "individuals_using_the_internet_percent_of_population",
+        "Inequality & Development"
+      ],
+      [
+        "rural_population_percent_of_total_population",
+        "Inequality & Development"
+      ]
+    ],
+    "Military & Security": [
+      [
+        "military_expenditure",
+        "Military & Security"
+      ],
+      [
+        "military_expenditure_gdp",
+        "Military & Security"
+      ],
+      [
+        "arms_exports_sipri_trend_indicator_values",
+        "Military & Security"
+      ],
+      [
+        "arms_imports_sipri_trend_indicator_values",
+        "Military & Security"
+      ],
+      [
+        "armed_forces_personnel_total",
+        "Military & Security"
+      ]
+    ],
+    "Political & Migration": [
+      [
+        "political_stability_and_absence_of_violenceterrorism_percentile_rank",
+        "Political & Migration"
+      ],
+      [
+        "refugee_population_by_country_or_territory_of_origin",
+        "Political & Migration"
+      ],
+      [
+        "internally_displaced_persons_total_displaced_by_conflict_and_violence_number_of_people",
+        "Political & Migration"
+      ],
+      [
+        "international_migrant_stock_percent_of_population",
+        "Political & Migration"
+      ]
+    ]
+  }
+}

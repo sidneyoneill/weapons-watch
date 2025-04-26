@@ -7,6 +7,8 @@ import CountryExpenditureComponent from "./components/CountryExpidentureComponen
 import ExpenditureMapComponent from "./components/ExpidentureMapComponent";
 import GlobeComponent from "./components/GlobeComponent";
 import DataModeToggle from "./components/DataModeToggle";
+import ArmsTradeDashboard from "./components/ArmsTradeDashboard";
+import './index.css';
 
 // Define consistent theme colors
 const theme = {

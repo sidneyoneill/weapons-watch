@@ -1,0 +1,36 @@
+{
+  "indicators_used": [
+    "military_expenditure",
+    "military_expenditure_gdp",
+    "arms_exports_sipri_trend_indicator_values",
+    "rural_population_percent_of_total_population",
+    "arms_imports_sipri_trend_indicator_values",
+    "gdp_growth_annual_percent",
+    "foreign_direct_investment_net_outflows_percent_of_gdp",
+    "tax_revenue_percent_of_gdp",
+    "fossil_fuel_energy_consumption_percent_of_total",
+    "ores_and_metals_exports_percent_of_merchandise_exports"
+  ],
+  "num_data_points": 977,
+  "countries_included": [
+    "IDN",
+    "KOR",
+    "DEU",
+    "ITA",
+    "JPN",
+    "AUS",
+    "RUS",
+    "IND",
+    "SAU",
+    "USA",
+    "GBR",
+    "ARG",
+    "FRA",
+    "BRA",
+    "CAN",
+    "CHN",
+    "MEX",
+    "ZAF",
+    "TUR"
+  ]
+}

@@ -1,0 +1,8801 @@
+{
+  "explained_variance_ratio": [
+    0.2254438177749137,
+    0.20085275739577238
+  ],
+  "data": [
+    {
+      "country": "ARG",
+      "country_name": "Argentina",
+      "year": 1970,
+      "coordinates": [
+        0.41461475928826974,
+        0.4060978844366048
+      ]
+    },
+    {
+      "country": "ARG",
+      "country_name": "Argentina",
+      "year": 1971,
+      "coordinates": [
+        0.384482672978641,
+        0.6541033837882076
+      ]
+    },
+    {
+      "country": "ARG",
+      "country_name": "Argentina",
+      "year": 1972,
+      "coordinates": [
+        0.4648047884158392,
+        0.3498075776759471
+      ]
+    },
+    {
+      "country": "ARG",
+      "country_name": "Argentina",
+      "year": 1973,
+      "coordinates": [
+        0.44428918809849743,
+        0.3395479329446303
+      ]
+    },
+    {
+      "country": "ARG",
+      "country_name": "Argentina",
+      "year": 1974,
+      "coordinates": [
+        0.3669521754424368,
+        0.6637277214586618
+      ]
+    },
+    {
+      "country": "ARG",
+      "country_name": "Argentina",
+      "year": 1975,
+      "coordinates": [
+        0.4969744566553959,
+        0.14625618399606957
+      ]
+    },
+    {
+      "country": "ARG",
+      "country_name": "Argentina",
+      "year": 1976,
+      "coordinates": [
+        0.8307596099807614,
+        0.29313131038486206
+      ]
+    },
+    {
+      "country": "ARG",
+      "country_name": "Argentina",
+      "year": 1977,
+      "coordinates": [
+        0.7155156359607672,
+        0.8224567824095149
+      ]
+    },
+    {
+      "country": "ARG",
+      "country_name": "Argentina",
+      "year": 1978,
+      "coordinates": [
+        0.971148081108341,
+        0.14073609342452825
+      ]
+    },
+    {
+      "country": "ARG",
+      "country_name": "Argentina",
+      "year": 1979,
+      "coordinates": [
+        0.7545790925858504,
+        1.282535222018963
+      ]
+    },
+    {
+      "country": "ARG",
+      "country_name": "Argentina",
+      "year": 1980,
+      "coordinates": [
+        0.5741501428639012,
+        0.41123757504990205
+      ]
+    },
+    {
+      "country": "ARG",
+      "country_name": "Argentina",
+      "year": 1981,
+      "coordinates": [
+        0.7934521050758352,
+        0.1637297554751997
+      ]
+    },
+    {
+      "country": "ARG",
+      "country_name": "Argentina",
+      "year": 1982,
+      "coordinates": [
+        0.5850952672937203,
+        0.14070072148873816
+      ]
+    },
+    {
+      "country": "ARG",
+      "country_name": "Argentina",
+      "year": 1983,
+      "coordinates": [
+        0.623487999807724,
+        1.1037687463269403
+      ]
+    },
+    {
+      "country": "ARG",
+      "country_name": "Argentina",
+      "year": 1984,
+      "coordinates": [
+        0.49410183422567616,
+        0.4550158809042797
+      ]
+    },
+    {
+      "country": "ARG",
+      "country_name": "Argentina",
+      "year": 1985,
+      "coordinates": [
+        0.5396830011767902,
+        -0.22105510784872706
+      ]
+    },
+    {
+      "country": "ARG",
+      "country_name": "Argentina",
+      "year": 1986,
+      "coordinates": [
+        0.37450899476803184,
+        0.4816937908532914
+      ]
+    },
+    {
+      "country": "ARG",
+      "country_name": "Argentina",
+      "year": 1987,
+      "coordinates": [
+        0.3930922973998514,
+        0.17324938456388195
+      ]
+    },
+    {
+      "country": "ARG",
+      "country_name": "Argentina",
+      "year": 1988,
+      "coordinates": [
+        0.4584437624453155,
+        -0.2435171237122864
+      ]
+    },
+    {
+      "country": "ARG",
+      "country_name": "Argentina",
+      "year": 1989,
+      "coordinates": [
+        0.5381951229857963,
+        -0.8194596871896117
+      ]
+    },
+    {
+      "country": "ARG",
+      "country_name": "Argentina",
+      "year": 1990,
+      "coordinates": [
+        0.38139749299511827,
+        -0.36122177885233253
+      ]
+    },
+    {
+      "country": "ARG",
+      "country_name": "Argentina",
+      "year": 1991,
+      "coordinates": [
+        0.2273569793013616,
+        0.49624523316481056
+      ]
+    },
+    {
+      "country": "ARG",
+      "country_name": "Argentina",
+      "year": 1992,
+      "coordinates": [
+        0.22641033343185654,
+        0.22296663669593045
+      ]
+    },
+    {
+      "country": "ARG",
+      "country_name": "Argentina",
+      "year": 1993,
+      "coordinates": [
+        0.08660840058680339,
+        0.1804165606675322
+      ]
+    },
+    {
+      "country": "ARG",
+      "country_name": "Argentina",
+      "year": 1994,
+      "coordinates": [
+        0.11516823921936524,
+        0.024991381974609584
+      ]
+    },
+    {
+      "country": "ARG",
+      "country_name": "Argentina",
+      "year": 1995,
+      "coordinates": [
+        0.21978960839203193,
+        -0.8050402787828824
+      ]
+    },
+    {
+      "country": "ARG",
+      "country_name": "Argentina",
+      "year": 1996,
+      "coordinates": [
+        0.09304487338814865,
+        -0.19356256875287928
+      ]
+    },
+    {
+      "country": "ARG",
+      "country_name": "Argentina",
+      "year": 1997,
+      "coordinates": [
+        0.018541926964730043,
+        -0.12428733552063528
+      ]
+    },
+    {
+      "country": "ARG",
+      "country_name": "Argentina",
+      "year": 1998,
+      "coordinates": [
+        0.002290030359324086,
+        -0.39118104220284694
+      ]
+    },
+    {
+      "country": "ARG",
+      "country_name": "Argentina",
+      "year": 1999,
+      "coordinates": [
+        0.1288476862301413,
+        -0.8943284915726842
+      ]
+    },
+    {
+      "country": "ARG",
+      "country_name": "Argentina",
+      "year": 2000,
+      "coordinates": [
+        0.054843925452036695,
+        -0.7158226871406471
+      ]
+    },
+    {
+      "country": "ARG",
+      "country_name": "Argentina",
+      "year": 2001,
+      "coordinates": [
+        0.04365464821055999,
+        -1.0316007411448467
+      ]
+    },
+    {
+      "country": "ARG",
+      "country_name": "Argentina",
+      "year": 2002,
+      "coordinates": [
+        0.03632465911459631,
+        -1.4679619539686575
+      ]
+    },
+    {
+      "country": "ARG",
+      "country_name": "Argentina",
+      "year": 2003,
+      "coordinates": [
+        -0.29373233871216525,
+        -0.3387601245859198
+      ]
+    },
+    {
+      "country": "ARG",
+      "country_name": "Argentina",
+      "year": 2004,
+      "coordinates": [
+        -0.31158845972582067,
+        -0.3219375936741145
+      ]
+    },
+    {
+      "country": "ARG",
+      "country_name": "Argentina",
+      "year": 2005,
+      "coordinates": [
+        -0.2970932287719598,
+        -0.4656223600456188
+      ]
+    },
+    {
+      "country": "ARG",
+      "country_name": "Argentina",
+      "year": 2006,
+      "coordinates": [
+        -0.31859337737904514,
+        -0.6259617668736637
+      ]
+    },
+    {
+      "country": "ARG",
+      "country_name": "Argentina",
+      "year": 2007,
+      "coordinates": [
+        -0.2942786799491591,
+        -0.40579464757999706
+      ]
+    },
+    {
+      "country": "ARG",
+      "country_name": "Argentina",
+      "year": 2008,
+      "coordinates": [
+        -0.22024424824049613,
+        -0.8307080250000267
+      ]
+    },
+    {
+      "country": "ARG",
+      "country_name": "Argentina",
+      "year": 2009,
+      "coordinates": [
+        -0.06404759635805143,
+        -1.5166578831416055
+      ]
+    },
+    {
+      "country": "ARG",
+      "country_name": "Argentina",
+      "year": 2010,
+      "coordinates": [
+        -0.3471403676431837,
+        -0.3261736757679253
+      ]
+    },
+    {
+      "country": "ARG",
+      "country_name": "Argentina",
+      "year": 2011,
+      "coordinates": [
+        -0.28076602750007545,
+        -0.6337338558584179
+      ]
+    },
+    {
+      "country": "ARG",
+      "country_name": "Argentina",
+      "year": 2012,
+      "coordinates": [
+        -0.19753817519007938,
+        -1.2009988130091194
+      ]
+    },
+    {
+      "country": "ARG",
+      "country_name": "Argentina",
+      "year": 2013,
+      "coordinates": [
+        -0.17333496428235776,
+        -0.8559337579770936
+      ]
+    },
+    {
+      "country": "ARG",
+      "country_name": "Argentina",
+      "year": 2014,
+      "coordinates": [
+        -0.1259530578085514,
+        -1.2850449803858377
+      ]
+    },
+    {
+      "country": "ARG",
+      "country_name": "Argentina",
+      "year": 2015,
+      "coordinates": [
+        -0.16455141623541705,
+        -0.7974272049343248
+      ]
+    },
+    {
+      "country": "ARG",
+      "country_name": "Argentina",
+      "year": 2016,
+      "coordinates": [
+        -0.09703655950073153,
+        -1.2217638858426716
+      ]
+    },
+    {
+      "country": "ARG",
+      "country_name": "Argentina",
+      "year": 2017,
+      "coordinates": [
+        -0.09345570391870864,
+        -0.717337759351596
+      ]
+    },
+    {
+      "country": "ARG",
+      "country_name": "Argentina",
+      "year": 2018,
+      "coordinates": [
+        0.13956628193564846,
+        -1.0553844125211425
+      ]
+    },
+    {
+      "country": "ARG",
+      "country_name": "Argentina",
+      "year": 2019,
+      "coordinates": [
+        0.11008195129038714,
+        -1.0403641882488321
+      ]
+    },
+    {
+      "country": "ARG",
+      "country_name": "Argentina",
+      "year": 2020,
+      "coordinates": [
+        0.22449151006385726,
+        -1.6933032246749726
+      ]
+    },
+    {
+      "country": "ARG",
+      "country_name": "Argentina",
+      "year": 2021,
+      "coordinates": [
+        -0.0835517166959504,
+        -0.11613719399687779
+      ]
+    },
+    {
+      "country": "ARG",
+      "country_name": "Argentina",
+      "year": 2022,
+      "coordinates": [
+        0.013458194909316256,
+        -0.5272030774237223
+      ]
+    },
+    {
+      "country": "ARG",
+      "country_name": "Argentina",
+      "year": 2023,
+      "coordinates": [
+        -0.0019157204117710674,
+        -1.2525474744049365
+      ]
+    },
+    {
+      "country": "AUS",
+      "country_name": "Australia",
+      "year": 1970,
+      "coordinates": [
+        -0.8587735050164953,
+        -0.7484959506653878
+      ]
+    },
+    {
+      "country": "AUS",
+      "country_name": "Australia",
+      "year": 1971,
+      "coordinates": [
+        -0.878139836849375,
+        -1.0440046825667104
+      ]
+    },
+    {
+      "country": "AUS",
+      "country_name": "Australia",
+      "year": 1972,
+      "coordinates": [
+        -0.8873585837255408,
+        -1.2496811660822151
+      ]
+    },
+    {
+      "country": "AUS",
+      "country_name": "Australia",
+      "year": 1973,
+      "coordinates": [
+        -0.6889887160159385,
+        -0.914562366955122
+      ]
+    },
+    {
+      "country": "AUS",
+      "country_name": "Australia",
+      "year": 1974,
+      "coordinates": [
+        -0.8976226132163098,
+        -0.8492137575504988
+      ]
+    },
+    {
+      "country": "AUS",
+      "country_name": "Australia",
+      "year": 1975,
+      "coordinates": [
+        -1.1190581563992819,
+        -1.7273237514019675
+      ]
+    },
+    {
+      "country": "AUS",
+      "country_name": "Australia",
+      "year": 1976,
+      "coordinates": [
+        -1.0458644879567949,
+        -1.6075665831579125
+      ]
+    },
+    {
+      "country": "AUS",
+      "country_name": "Australia",
+      "year": 1977,
+      "coordinates": [
+        -1.060300102720473,
+        -1.4504442641601145
+      ]
+    },
+    {
+      "country": "AUS",
+      "country_name": "Australia",
+      "year": 1978,
+      "coordinates": [
+        -0.7300289391097649,
+        -1.0269080839531983
+      ]
+    },
+    {
+      "country": "AUS",
+      "country_name": "Australia",
+      "year": 1979,
+      "coordinates": [
+        -0.8295038221909404,
+        -1.2677149354900388
+      ]
+    },
+    {
+      "country": "AUS",
+      "country_name": "Australia",
+      "year": 1980,
+      "coordinates": [
+        -0.899437759105174,
+        -1.345908232546806
+      ]
+    },
+    {
+      "country": "AUS",
+      "country_name": "Australia",
+      "year": 1981,
+      "coordinates": [
+        -0.9442627060304318,
+        -1.3834536319549111
+      ]
+    },
+    {
+      "country": "AUS",
+      "country_name": "Australia",
+      "year": 1982,
+      "coordinates": [
+        -1.0510225258623576,
+        -1.632832303685474
+      ]
+    },
+    {
+      "country": "AUS",
+      "country_name": "Australia",
+      "year": 1983,
+      "coordinates": [
+        -0.9385651709085714,
+        -1.764877789848527
+      ]
+    },
+    {
+      "country": "AUS",
+      "country_name": "Australia",
+      "year": 1984,
+      "coordinates": [
+        -0.910365906247804,
+        -1.2342607649129715
+      ]
+    },
+    {
+      "country": "AUS",
+      "country_name": "Australia",
+      "year": 1985,
+      "coordinates": [
+        -0.9812025631696246,
+        -1.3844939653226307
+      ]
+    },
+    {
+      "country": "AUS",
+      "country_name": "Australia",
+      "year": 1986,
+      "coordinates": [
+        -0.8815906793773581,
+        -1.474561661416932
+      ]
+    },
+    {
+      "country": "AUS",
+      "country_name": "Australia",
+      "year": 1987,
+      "coordinates": [
+        -0.8897457412587846,
+        -1.9375244792077064
+      ]
+    },
+    {
+      "country": "AUS",
+      "country_name": "Australia",
+      "year": 1988,
+      "coordinates": [
+        -1.2185954047330194,
+        -1.8434207498073454
+      ]
+    },
+    {
+      "country": "AUS",
+      "country_name": "Australia",
+      "year": 1989,
+      "coordinates": [
+        -1.3438708896587255,
+        -1.7018467637550776
+      ]
+    },
+    {
+      "country": "AUS",
+      "country_name": "Australia",
+      "year": 1990,
+      "coordinates": [
+        -1.3308345201541525,
+        -1.7436391229884087
+      ]
+    },
+    {
+      "country": "AUS",
+      "country_name": "Australia",
+      "year": 1991,
+      "coordinates": [
+        -1.233363225105066,
+        -1.945357852012149
+      ]
+    },
+    {
+      "country": "AUS",
+      "country_name": "Australia",
+      "year": 1992,
+      "coordinates": [
+        -0.9874015423139748,
+        -1.9047950653317933
+      ]
+    },
+    {
+      "country": "AUS",
+      "country_name": "Australia",
+      "year": 1993,
+      "coordinates": [
+        -0.9700218230164729,
+        -1.3995884034841217
+      ]
+    },
+    {
+      "country": "AUS",
+      "country_name": "Australia",
+      "year": 1994,
+      "coordinates": [
+        -0.9092269007786201,
+        -1.4029245522197697
+      ]
+    },
+    {
+      "country": "AUS",
+      "country_name": "Australia",
+      "year": 1995,
+      "coordinates": [
+        -1.0956325414665304,
+        -1.8033420038181178
+      ]
+    },
+    {
+      "country": "AUS",
+      "country_name": "Australia",
+      "year": 1996,
+      "coordinates": [
+        -1.0214144309343978,
+        -1.5075570124909372
+      ]
+    },
+    {
+      "country": "AUS",
+      "country_name": "Australia",
+      "year": 1997,
+      "coordinates": [
+        -1.1147910166652857,
+        -1.912575137762842
+      ]
+    },
+    {
+      "country": "AUS",
+      "country_name": "Australia",
+      "year": 1998,
+      "coordinates": [
+        -1.1202901364427829,
+        -1.5297639628617785
+      ]
+    },
+    {
+      "country": "AUS",
+      "country_name": "Australia",
+      "year": 1999,
+      "coordinates": [
+        -1.1843583581143255,
+        -1.238681105402358
+      ]
+    },
+    {
+      "country": "AUS",
+      "country_name": "Australia",
+      "year": 2000,
+      "coordinates": [
+        -1.2522537059399448,
+        -1.6726769317358414
+      ]
+    },
+    {
+      "country": "AUS",
+      "country_name": "Australia",
+      "year": 2001,
+      "coordinates": [
+        -0.9326747237445691,
+        -1.9769690086989335
+      ]
+    },
+    {
+      "country": "AUS",
+      "country_name": "Australia",
+      "year": 2002,
+      "coordinates": [
+        -1.0132189669972915,
+        -1.686910293148807
+      ]
+    },
+    {
+      "country": "AUS",
+      "country_name": "Australia",
+      "year": 2003,
+      "coordinates": [
+        -1.0022291241536714,
+        -2.1527712051512955
+      ]
+    },
+    {
+      "country": "AUS",
+      "country_name": "Australia",
+      "year": 2004,
+      "coordinates": [
+        -1.1904805494440864,
+        -1.828762602079506
+      ]
+    },
+    {
+      "country": "AUS",
+      "country_name": "Australia",
+      "year": 2005,
+      "coordinates": [
+        -1.5368075755417385,
+        -0.8210094544546334
+      ]
+    },
+    {
+      "country": "AUS",
+      "country_name": "Australia",
+      "year": 2006,
+      "coordinates": [
+        -1.4064368538264995,
+        -2.374452620124972
+      ]
+    },
+    {
+      "country": "AUS",
+      "country_name": "Australia",
+      "year": 2007,
+      "coordinates": [
+        -1.5218401099576573,
+        -2.064234671813734
+      ]
+    },
+    {
+      "country": "AUS",
+      "country_name": "Australia",
+      "year": 2008,
+      "coordinates": [
+        -1.4531712366446246,
+        -2.469552510289023
+      ]
+    },
+    {
+      "country": "AUS",
+      "country_name": "Australia",
+      "year": 2009,
+      "coordinates": [
+        -1.2785882769767698,
+        -1.8691374390960869
+      ]
+    },
+    {
+      "country": "AUS",
+      "country_name": "Australia",
+      "year": 2010,
+      "coordinates": [
+        -1.3969623095011865,
+        -1.5476362475228396
+      ]
+    },
+    {
+      "country": "AUS",
+      "country_name": "Australia",
+      "year": 2011,
+      "coordinates": [
+        -1.5496983510337952,
+        -1.4132465328590713
+      ]
+    },
+    {
+      "country": "AUS",
+      "country_name": "Australia",
+      "year": 2012,
+      "coordinates": [
+        -1.6366008637251934,
+        -1.7210071108491825
+      ]
+    },
+    {
+      "country": "AUS",
+      "country_name": "Australia",
+      "year": 2013,
+      "coordinates": [
+        -1.9337806621153533,
+        -2.283291091073156
+      ]
+    },
+    {
+      "country": "AUS",
+      "country_name": "Australia",
+      "year": 2014,
+      "coordinates": [
+        -1.722599046593925,
+        -2.149103272962891
+      ]
+    },
+    {
+      "country": "AUS",
+      "country_name": "Australia",
+      "year": 2015,
+      "coordinates": [
+        -1.5045193513785835,
+        -1.401328577069519
+      ]
+    },
+    {
+      "country": "AUS",
+      "country_name": "Australia",
+      "year": 2016,
+      "coordinates": [
+        -1.6366421387856747,
+        -1.4059338205251084
+      ]
+    },
+    {
+      "country": "AUS",
+      "country_name": "Australia",
+      "year": 2017,
+      "coordinates": [
+        -1.615129560701847,
+        -1.1936583743920732
+      ]
+    },
+    {
+      "country": "AUS",
+      "country_name": "Australia",
+      "year": 2018,
+      "coordinates": [
+        -1.756443573832086,
+        -1.0423805017319632
+      ]
+    },
+    {
+      "country": "AUS",
+      "country_name": "Australia",
+      "year": 2019,
+      "coordinates": [
+        -2.054517775360304,
+        -1.5867280607070477
+      ]
+    },
+    {
+      "country": "AUS",
+      "country_name": "Australia",
+      "year": 2020,
+      "coordinates": [
+        -2.214435331611034,
+        -1.5628726468556242
+      ]
+    },
+    {
+      "country": "AUS",
+      "country_name": "Australia",
+      "year": 2021,
+      "coordinates": [
+        -2.5482040777836312,
+        -1.683205687723365
+      ]
+    },
+    {
+      "country": "AUS",
+      "country_name": "Australia",
+      "year": 2022,
+      "coordinates": [
+        -1.9998560650759503,
+        -2.6978186437359986
+      ]
+    },
+    {
+      "country": "AUS",
+      "country_name": "Australia",
+      "year": 2023,
+      "coordinates": [
+        -2.554809781091315,
+        -1.8646740159673036
+      ]
+    },
+    {
+      "country": "BRA",
+      "country_name": "Brazil",
+      "year": 1970,
+      "coordinates": [
+        -2.0017398440436365,
+        0.6491200654866377
+      ]
+    },
+    {
+      "country": "BRA",
+      "country_name": "Brazil",
+      "year": 1971,
+      "coordinates": [
+        -2.1504387893037418,
+        0.7037541874791929
+      ]
+    },
+    {
+      "country": "BRA",
+      "country_name": "Brazil",
+      "year": 1972,
+      "coordinates": [
+        -1.9426122060382938,
+        1.0062682580060522
+      ]
+    },
+    {
+      "country": "BRA",
+      "country_name": "Brazil",
+      "year": 1973,
+      "coordinates": [
+        -1.8775154328984363,
+        1.1429290312470992
+      ]
+    },
+    {
+      "country": "BRA",
+      "country_name": "Brazil",
+      "year": 1974,
+      "coordinates": [
+        -1.892158967075981,
+        0.3609629584658997
+      ]
+    },
+    {
+      "country": "BRA",
+      "country_name": "Brazil",
+      "year": 1975,
+      "coordinates": [
+        -1.9159744815939121,
+        0.14832150213326042
+      ]
+    },
+    {
+      "country": "BRA",
+      "country_name": "Brazil",
+      "year": 1976,
+      "coordinates": [
+        -1.844093798185722,
+        0.5706960967012181
+      ]
+    },
+    {
+      "country": "BRA",
+      "country_name": "Brazil",
+      "year": 1977,
+      "coordinates": [
+        -1.6773588146503449,
+        0.1853425448111365
+      ]
+    },
+    {
+      "country": "BRA",
+      "country_name": "Brazil",
+      "year": 1978,
+      "coordinates": [
+        -1.6211049754937368,
+        0.31463976784817044
+      ]
+    },
+    {
+      "country": "BRA",
+      "country_name": "Brazil",
+      "year": 1979,
+      "coordinates": [
+        -1.7411602328773474,
+        0.11913138432388125
+      ]
+    },
+    {
+      "country": "BRA",
+      "country_name": "Brazil",
+      "year": 1980,
+      "coordinates": [
+        -1.8029882150719017,
+        0.25357680499280694
+      ]
+    },
+    {
+      "country": "BRA",
+      "country_name": "Brazil",
+      "year": 1981,
+      "coordinates": [
+        -1.6818686225641362,
+        -0.9488961149099867
+      ]
+    },
+    {
+      "country": "BRA",
+      "country_name": "Brazil",
+      "year": 1982,
+      "coordinates": [
+        -1.748929069801302,
+        -0.5872450658846112
+      ]
+    },
+    {
+      "country": "BRA",
+      "country_name": "Brazil",
+      "year": 1983,
+      "coordinates": [
+        -1.6884962313450662,
+        -0.8244951361584756
+      ]
+    },
+    {
+      "country": "BRA",
+      "country_name": "Brazil",
+      "year": 1984,
+      "coordinates": [
+        -1.7862710902333607,
+        -0.10712401314139984
+      ]
+    },
+    {
+      "country": "BRA",
+      "country_name": "Brazil",
+      "year": 1985,
+      "coordinates": [
+        -1.781670453419963,
+        0.050886622365905305
+      ]
+    },
+    {
+      "country": "BRA",
+      "country_name": "Brazil",
+      "year": 1986,
+      "coordinates": [
+        -1.825669863880204,
+        -0.04446113941886095
+      ]
+    },
+    {
+      "country": "BRA",
+      "country_name": "Brazil",
+      "year": 1987,
+      "coordinates": [
+        -1.6190533702069496,
+        -0.22762571174403087
+      ]
+    },
+    {
+      "country": "BRA",
+      "country_name": "Brazil",
+      "year": 1988,
+      "coordinates": [
+        -1.5327825414540477,
+        -0.5833729552786878
+      ]
+    },
+    {
+      "country": "BRA",
+      "country_name": "Brazil",
+      "year": 1989,
+      "coordinates": [
+        -1.4754862908827917,
+        0.0595920574029728
+      ]
+    },
+    {
+      "country": "BRA",
+      "country_name": "Brazil",
+      "year": 1990,
+      "coordinates": [
+        -1.5012950711446789,
+        -1.0080730870912022
+      ]
+    },
+    {
+      "country": "BRA",
+      "country_name": "Brazil",
+      "year": 1991,
+      "coordinates": [
+        -1.6268121534875426,
+        -0.681922925743799
+      ]
+    },
+    {
+      "country": "BRA",
+      "country_name": "Brazil",
+      "year": 1992,
+      "coordinates": [
+        -1.5572038930659453,
+        -0.7748326428114489
+      ]
+    },
+    {
+      "country": "BRA",
+      "country_name": "Brazil",
+      "year": 1993,
+      "coordinates": [
+        -1.4923862885536745,
+        -0.3126535902585638
+      ]
+    },
+    {
+      "country": "BRA",
+      "country_name": "Brazil",
+      "year": 1994,
+      "coordinates": [
+        -1.3888758471738674,
+        -0.06406349214329152
+      ]
+    },
+    {
+      "country": "BRA",
+      "country_name": "Brazil",
+      "year": 1995,
+      "coordinates": [
+        -1.3759438579317458,
+        -0.284693762119822
+      ]
+    },
+    {
+      "country": "BRA",
+      "country_name": "Brazil",
+      "year": 1996,
+      "coordinates": [
+        -1.2883474766173018,
+        -0.2804010020409399
+      ]
+    },
+    {
+      "country": "BRA",
+      "country_name": "Brazil",
+      "year": 1997,
+      "coordinates": [
+        -1.271659227660267,
+        -0.23592475058841372
+      ]
+    },
+    {
+      "country": "BRA",
+      "country_name": "Brazil",
+      "year": 1998,
+      "coordinates": [
+        -1.2270075109757888,
+        -0.6820897535843368
+      ]
+    },
+    {
+      "country": "BRA",
+      "country_name": "Brazil",
+      "year": 1999,
+      "coordinates": [
+        -1.2043756197225346,
+        -0.5789582215097699
+      ]
+    },
+    {
+      "country": "BRA",
+      "country_name": "Brazil",
+      "year": 2000,
+      "coordinates": [
+        -1.2272528716012783,
+        -0.4511602858877786
+      ]
+    },
+    {
+      "country": "BRA",
+      "country_name": "Brazil",
+      "year": 2001,
+      "coordinates": [
+        -1.0129806547873212,
+        -0.1843778547965658
+      ]
+    },
+    {
+      "country": "BRA",
+      "country_name": "Brazil",
+      "year": 2002,
+      "coordinates": [
+        -1.09362127189211,
+        -0.44003747114027925
+      ]
+    },
+    {
+      "country": "BRA",
+      "country_name": "Brazil",
+      "year": 2003,
+      "coordinates": [
+        -1.186615671641493,
+        -0.5704376095614666
+      ]
+    },
+    {
+      "country": "BRA",
+      "country_name": "Brazil",
+      "year": 2004,
+      "coordinates": [
+        -1.2103086234082012,
+        -0.5191094956631376
+      ]
+    },
+    {
+      "country": "BRA",
+      "country_name": "Brazil",
+      "year": 2005,
+      "coordinates": [
+        -1.2320684266213784,
+        -0.4241438552776319
+      ]
+    },
+    {
+      "country": "BRA",
+      "country_name": "Brazil",
+      "year": 2006,
+      "coordinates": [
+        -1.234946448376351,
+        -0.8824480325969527
+      ]
+    },
+    {
+      "country": "BRA",
+      "country_name": "Brazil",
+      "year": 2007,
+      "coordinates": [
+        -1.3190674712022683,
+        -0.4370142670705596
+      ]
+    },
+    {
+      "country": "BRA",
+      "country_name": "Brazil",
+      "year": 2008,
+      "coordinates": [
+        -1.3229180476385614,
+        -0.6164490932335347
+      ]
+    },
+    {
+      "country": "BRA",
+      "country_name": "Brazil",
+      "year": 2009,
+      "coordinates": [
+        -1.296921490266098,
+        -0.647592034529133
+      ]
+    },
+    {
+      "country": "BRA",
+      "country_name": "Brazil",
+      "year": 2010,
+      "coordinates": [
+        -1.499557891659504,
+        -0.4752366165412292
+      ]
+    },
+    {
+      "country": "BRA",
+      "country_name": "Brazil",
+      "year": 2011,
+      "coordinates": [
+        -1.6050633596461,
+        -0.7786584162532463
+      ]
+    },
+    {
+      "country": "BRA",
+      "country_name": "Brazil",
+      "year": 2012,
+      "coordinates": [
+        -1.3551343831996068,
+        -0.659879371565786
+      ]
+    },
+    {
+      "country": "BRA",
+      "country_name": "Brazil",
+      "year": 2013,
+      "coordinates": [
+        -1.3823021897540082,
+        -0.7974640713699255
+      ]
+    },
+    {
+      "country": "BRA",
+      "country_name": "Brazil",
+      "year": 2014,
+      "coordinates": [
+        -1.1950360259721315,
+        -0.9513811547636095
+      ]
+    },
+    {
+      "country": "BRA",
+      "country_name": "Brazil",
+      "year": 2015,
+      "coordinates": [
+        -0.9599150914686817,
+        -1.0663925186286713
+      ]
+    },
+    {
+      "country": "BRA",
+      "country_name": "Brazil",
+      "year": 2016,
+      "coordinates": [
+        -0.8828537274768076,
+        -1.2709042292023047
+      ]
+    },
+    {
+      "country": "BRA",
+      "country_name": "Brazil",
+      "year": 2017,
+      "coordinates": [
+        -0.9428262394731621,
+        -1.0242905415491645
+      ]
+    },
+    {
+      "country": "BRA",
+      "country_name": "Brazil",
+      "year": 2018,
+      "coordinates": [
+        -0.8782366223048712,
+        -0.7438020087697488
+      ]
+    },
+    {
+      "country": "BRA",
+      "country_name": "Brazil",
+      "year": 2019,
+      "coordinates": [
+        -0.8839930910605664,
+        -1.1671668077310644
+      ]
+    },
+    {
+      "country": "BRA",
+      "country_name": "Brazil",
+      "year": 2020,
+      "coordinates": [
+        -0.8354076887779022,
+        -1.2724145710850352
+      ]
+    },
+    {
+      "country": "BRA",
+      "country_name": "Brazil",
+      "year": 2021,
+      "coordinates": [
+        -1.112254708186339,
+        -1.079758211480923
+      ]
+    },
+    {
+      "country": "BRA",
+      "country_name": "Brazil",
+      "year": 2022,
+      "coordinates": [
+        -0.7053517322970909,
+        -1.0368981498632197
+      ]
+    },
+    {
+      "country": "BRA",
+      "country_name": "Brazil",
+      "year": 2023,
+      "coordinates": [
+        -0.6872762187358961,
+        -1.1547894845366582
+      ]
+    },
+    {
+      "country": "CAN",
+      "country_name": "Canada",
+      "year": 1970,
+      "coordinates": [
+        -0.9177647919309517,
+        -0.6698769266757951
+      ]
+    },
+    {
+      "country": "CAN",
+      "country_name": "Canada",
+      "year": 1971,
+      "coordinates": [
+        -0.8191149226650452,
+        -0.4775159316286744
+      ]
+    },
+    {
+      "country": "CAN",
+      "country_name": "Canada",
+      "year": 1972,
+      "coordinates": [
+        -0.8050068338287817,
+        -0.28678840991000437
+      ]
+    },
+    {
+      "country": "CAN",
+      "country_name": "Canada",
+      "year": 1973,
+      "coordinates": [
+        -0.9553293161974822,
+        -0.5521214689291816
+      ]
+    },
+    {
+      "country": "CAN",
+      "country_name": "Canada",
+      "year": 1974,
+      "coordinates": [
+        -0.8773020082735161,
+        -0.6879692953786408
+      ]
+    },
+    {
+      "country": "CAN",
+      "country_name": "Canada",
+      "year": 1975,
+      "coordinates": [
+        -0.7431802754359613,
+        -0.7745113245825386
+      ]
+    },
+    {
+      "country": "CAN",
+      "country_name": "Canada",
+      "year": 1976,
+      "coordinates": [
+        -0.8227180394154762,
+        -0.48438152440550064
+      ]
+    },
+    {
+      "country": "CAN",
+      "country_name": "Canada",
+      "year": 1977,
+      "coordinates": [
+        -0.7854803301486503,
+        -0.6676063137879844
+      ]
+    },
+    {
+      "country": "CAN",
+      "country_name": "Canada",
+      "year": 1978,
+      "coordinates": [
+        -0.725107721899651,
+        -0.6213792978307179
+      ]
+    },
+    {
+      "country": "CAN",
+      "country_name": "Canada",
+      "year": 1979,
+      "coordinates": [
+        -0.737318858621591,
+        -0.7203182206932482
+      ]
+    },
+    {
+      "country": "CAN",
+      "country_name": "Canada",
+      "year": 1980,
+      "coordinates": [
+        -0.7709269971748762,
+        -0.7080372114093544
+      ]
+    },
+    {
+      "country": "CAN",
+      "country_name": "Canada",
+      "year": 1981,
+      "coordinates": [
+        -0.7167606855456178,
+        -0.5894219057262275
+      ]
+    },
+    {
+      "country": "CAN",
+      "country_name": "Canada",
+      "year": 1982,
+      "coordinates": [
+        -0.5360338346274016,
+        -0.9234465567403344
+      ]
+    },
+    {
+      "country": "CAN",
+      "country_name": "Canada",
+      "year": 1983,
+      "coordinates": [
+        -0.5680498866457433,
+        -0.3435505577892602
+      ]
+    },
+    {
+      "country": "CAN",
+      "country_name": "Canada",
+      "year": 1984,
+      "coordinates": [
+        -0.6035597222051685,
+        -0.020675743450051565
+      ]
+    },
+    {
+      "country": "CAN",
+      "country_name": "Canada",
+      "year": 1985,
+      "coordinates": [
+        -0.5812865527367977,
+        0.08578694182130951
+      ]
+    },
+    {
+      "country": "CAN",
+      "country_name": "Canada",
+      "year": 1986,
+      "coordinates": [
+        -0.5550956955731592,
+        -0.10622984059752705
+      ]
+    },
+    {
+      "country": "CAN",
+      "country_name": "Canada",
+      "year": 1987,
+      "coordinates": [
+        -0.5578321391276498,
+        -0.14969303532860775
+      ]
+    },
+    {
+      "country": "CAN",
+      "country_name": "Canada",
+      "year": 1988,
+      "coordinates": [
+        -0.6166214484012583,
+        -0.11620294898014046
+      ]
+    },
+    {
+      "country": "CAN",
+      "country_name": "Canada",
+      "year": 1989,
+      "coordinates": [
+        -0.7005305573702963,
+        -0.6597687346564146
+      ]
+    },
+    {
+      "country": "CAN",
+      "country_name": "Canada",
+      "year": 1990,
+      "coordinates": [
+        -0.650819141207063,
+        -0.6990876705535322
+      ]
+    },
+    {
+      "country": "CAN",
+      "country_name": "Canada",
+      "year": 1991,
+      "coordinates": [
+        -0.563996190516629,
+        -0.5025820500238742
+      ]
+    },
+    {
+      "country": "CAN",
+      "country_name": "Canada",
+      "year": 1992,
+      "coordinates": [
+        -0.5934158633390072,
+        -0.4691529846684071
+      ]
+    },
+    {
+      "country": "CAN",
+      "country_name": "Canada",
+      "year": 1993,
+      "coordinates": [
+        -0.5818982693049427,
+        -0.36363577259273877
+      ]
+    },
+    {
+      "country": "CAN",
+      "country_name": "Canada",
+      "year": 1994,
+      "coordinates": [
+        -0.5383638479502817,
+        -0.20264538170463853
+      ]
+    },
+    {
+      "country": "CAN",
+      "country_name": "Canada",
+      "year": 1995,
+      "coordinates": [
+        -0.5270396032468808,
+        -0.6174490148025377
+      ]
+    },
+    {
+      "country": "CAN",
+      "country_name": "Canada",
+      "year": 1996,
+      "coordinates": [
+        -0.5680605903060727,
+        -0.6019089895533082
+      ]
+    },
+    {
+      "country": "CAN",
+      "country_name": "Canada",
+      "year": 1997,
+      "coordinates": [
+        -0.5701695593834418,
+        -0.9439110891729816
+      ]
+    },
+    {
+      "country": "CAN",
+      "country_name": "Canada",
+      "year": 1998,
+      "coordinates": [
+        -0.4967686451896197,
+        -1.4523685990084139
+      ]
+    },
+    {
+      "country": "CAN",
+      "country_name": "Canada",
+      "year": 1999,
+      "coordinates": [
+        -0.5548780478305237,
+        -0.7410925677046378
+      ]
+    },
+    {
+      "country": "CAN",
+      "country_name": "Canada",
+      "year": 2000,
+      "coordinates": [
+        -0.42115113251500197,
+        -1.205071683999424
+      ]
+    },
+    {
+      "country": "CAN",
+      "country_name": "Canada",
+      "year": 2001,
+      "coordinates": [
+        -0.3698680223779137,
+        -1.1950690723638049
+      ]
+    },
+    {
+      "country": "CAN",
+      "country_name": "Canada",
+      "year": 2002,
+      "coordinates": [
+        -0.4019402130206117,
+        -0.881312049555101
+      ]
+    },
+    {
+      "country": "CAN",
+      "country_name": "Canada",
+      "year": 2003,
+      "coordinates": [
+        -0.39547504971385217,
+        -0.9241126334178669
+      ]
+    },
+    {
+      "country": "CAN",
+      "country_name": "Canada",
+      "year": 2004,
+      "coordinates": [
+        -0.40559572703403896,
+        -1.074751443389011
+      ]
+    },
+    {
+      "country": "CAN",
+      "country_name": "Canada",
+      "year": 2005,
+      "coordinates": [
+        -0.5207556512776318,
+        -0.8209124394624558
+      ]
+    },
+    {
+      "country": "CAN",
+      "country_name": "Canada",
+      "year": 2006,
+      "coordinates": [
+        -0.5750786775747267,
+        -1.2241282104971904
+      ]
+    },
+    {
+      "country": "CAN",
+      "country_name": "Canada",
+      "year": 2007,
+      "coordinates": [
+        -0.517819574056576,
+        -1.212453125625386
+      ]
+    },
+    {
+      "country": "CAN",
+      "country_name": "Canada",
+      "year": 2008,
+      "coordinates": [
+        -0.37407531758785245,
+        -1.4840406709495693
+      ]
+    },
+    {
+      "country": "CAN",
+      "country_name": "Canada",
+      "year": 2009,
+      "coordinates": [
+        -0.3888082099002576,
+        -1.3477047096852748
+      ]
+    },
+    {
+      "country": "CAN",
+      "country_name": "Canada",
+      "year": 2010,
+      "coordinates": [
+        -0.5105460799588778,
+        -0.7102241642222045
+      ]
+    },
+    {
+      "country": "CAN",
+      "country_name": "Canada",
+      "year": 2011,
+      "coordinates": [
+        -0.5033752328367204,
+        -0.7752335397792189
+      ]
+    },
+    {
+      "country": "CAN",
+      "country_name": "Canada",
+      "year": 2012,
+      "coordinates": [
+        -0.43336466724024053,
+        -1.0445633413216955
+      ]
+    },
+    {
+      "country": "CAN",
+      "country_name": "Canada",
+      "year": 2013,
+      "coordinates": [
+        -0.5053100978310548,
+        -0.8938393549105835
+      ]
+    },
+    {
+      "country": "CAN",
+      "country_name": "Canada",
+      "year": 2014,
+      "coordinates": [
+        -0.4883556167529214,
+        -0.9277793481633053
+      ]
+    },
+    {
+      "country": "CAN",
+      "country_name": "Canada",
+      "year": 2015,
+      "coordinates": [
+        -0.3353454799643598,
+        -1.442711770322172
+      ]
+    },
+    {
+      "country": "CAN",
+      "country_name": "Canada",
+      "year": 2016,
+      "coordinates": [
+        -0.4290632037337332,
+        -1.3055048133991347
+      ]
+    },
+    {
+      "country": "CAN",
+      "country_name": "Canada",
+      "year": 2017,
+      "coordinates": [
+        -0.42112186680050095,
+        -1.1428670975520636
+      ]
+    },
+    {
+      "country": "CAN",
+      "country_name": "Canada",
+      "year": 2018,
+      "coordinates": [
+        -0.5007601582282469,
+        -1.110074844187429
+      ]
+    },
+    {
+      "country": "CAN",
+      "country_name": "Canada",
+      "year": 2019,
+      "coordinates": [
+        -0.41244214970696735,
+        -1.2948037032318351
+      ]
+    },
+    {
+      "country": "CAN",
+      "country_name": "Canada",
+      "year": 2020,
+      "coordinates": [
+        -0.45413162616317115,
+        -1.5983749991252951
+      ]
+    },
+    {
+      "country": "CAN",
+      "country_name": "Canada",
+      "year": 2021,
+      "coordinates": [
+        -0.543643848040632,
+        -1.219365925630291
+      ]
+    },
+    {
+      "country": "CAN",
+      "country_name": "Canada",
+      "year": 2022,
+      "coordinates": [
+        -0.5014299072531706,
+        -1.1393759913910195
+      ]
+    },
+    {
+      "country": "CAN",
+      "country_name": "Canada",
+      "year": 2023,
+      "coordinates": [
+        -0.48654057734645795,
+        -1.464311912294428
+      ]
+    },
+    {
+      "country": "CHN",
+      "country_name": "China",
+      "year": 1989,
+      "coordinates": [
+        -0.8954509175384965,
+        1.3760029854594733
+      ]
+    },
+    {
+      "country": "CHN",
+      "country_name": "China",
+      "year": 1990,
+      "coordinates": [
+        -0.7783747069240697,
+        1.4589812061554528
+      ]
+    },
+    {
+      "country": "CHN",
+      "country_name": "China",
+      "year": 1991,
+      "coordinates": [
+        -0.7066208933616723,
+        1.9982666798365722
+      ]
+    },
+    {
+      "country": "CHN",
+      "country_name": "China",
+      "year": 1992,
+      "coordinates": [
+        -0.6610515284486443,
+        2.773449866113488
+      ]
+    },
+    {
+      "country": "CHN",
+      "country_name": "China",
+      "year": 1993,
+      "coordinates": [
+        -0.5321915361453127,
+        2.656135313144354
+      ]
+    },
+    {
+      "country": "CHN",
+      "country_name": "China",
+      "year": 1994,
+      "coordinates": [
+        -0.7289504709237207,
+        2.122159065192184
+      ]
+    },
+    {
+      "country": "CHN",
+      "country_name": "China",
+      "year": 1995,
+      "coordinates": [
+        -0.624750267641219,
+        2.196085021466858
+      ]
+    },
+    {
+      "country": "CHN",
+      "country_name": "China",
+      "year": 1996,
+      "coordinates": [
+        -0.5138969750777298,
+        2.6187287638732495
+      ]
+    },
+    {
+      "country": "CHN",
+      "country_name": "China",
+      "year": 1997,
+      "coordinates": [
+        -0.615301254438159,
+        2.1893489860686874
+      ]
+    },
+    {
+      "country": "CHN",
+      "country_name": "China",
+      "year": 1998,
+      "coordinates": [
+        -0.6329214001030944,
+        1.7203439710871204
+      ]
+    },
+    {
+      "country": "CHN",
+      "country_name": "China",
+      "year": 1999,
+      "coordinates": [
+        -0.383057620386211,
+        2.563455366413055
+      ]
+    },
+    {
+      "country": "CHN",
+      "country_name": "China",
+      "year": 2000,
+      "coordinates": [
+        -0.2599547806136852,
+        3.084070870014194
+      ]
+    },
+    {
+      "country": "CHN",
+      "country_name": "China",
+      "year": 2001,
+      "coordinates": [
+        -0.0831782439527339,
+        3.1643903058779057
+      ]
+    },
+    {
+      "country": "CHN",
+      "country_name": "China",
+      "year": 2002,
+      "coordinates": [
+        0.0015868969270720736,
+        3.3065781752793795
+      ]
+    },
+    {
+      "country": "CHN",
+      "country_name": "China",
+      "year": 2003,
+      "coordinates": [
+        0.04468904285514671,
+        2.9905556833495597
+      ]
+    },
+    {
+      "country": "CHN",
+      "country_name": "China",
+      "year": 2004,
+      "coordinates": [
+        0.1527533343360601,
+        3.5369916958964644
+      ]
+    },
+    {
+      "country": "CHN",
+      "country_name": "China",
+      "year": 2005,
+      "coordinates": [
+        0.232105018758394,
+        3.714676165798213
+      ]
+    },
+    {
+      "country": "CHN",
+      "country_name": "China",
+      "year": 2006,
+      "coordinates": [
+        0.25478742036888613,
+        3.2511399164906623
+      ]
+    },
+    {
+      "country": "CHN",
+      "country_name": "China",
+      "year": 2007,
+      "coordinates": [
+        0.05960018729677533,
+        2.6535154544085438
+      ]
+    },
+    {
+      "country": "CHN",
+      "country_name": "China",
+      "year": 2008,
+      "coordinates": [
+        0.21448962951747613,
+        2.154099690261243
+      ]
+    },
+    {
+      "country": "CHN",
+      "country_name": "China",
+      "year": 2009,
+      "coordinates": [
+        0.39581875516783327,
+        1.8754656948483772
+      ]
+    },
+    {
+      "country": "CHN",
+      "country_name": "China",
+      "year": 2010,
+      "coordinates": [
+        0.4305850744007328,
+        1.6166274564389664
+      ]
+    },
+    {
+      "country": "CHN",
+      "country_name": "China",
+      "year": 2011,
+      "coordinates": [
+        0.4404578322539566,
+        1.59769115574034
+      ]
+    },
+    {
+      "country": "CHN",
+      "country_name": "China",
+      "year": 2012,
+      "coordinates": [
+        0.6569546583831335,
+        1.7323830522592982
+      ]
+    },
+    {
+      "country": "CHN",
+      "country_name": "China",
+      "year": 2013,
+      "coordinates": [
+        0.8021753859795845,
+        1.4707111729977855
+      ]
+    },
+    {
+      "country": "CHN",
+      "country_name": "China",
+      "year": 2014,
+      "coordinates": [
+        0.7126837010373371,
+        1.2467943251549942
+      ]
+    },
+    {
+      "country": "CHN",
+      "country_name": "China",
+      "year": 2015,
+      "coordinates": [
+        0.9462251380681892,
+        1.223048534343312
+      ]
+    },
+    {
+      "country": "CHN",
+      "country_name": "China",
+      "year": 2016,
+      "coordinates": [
+        1.1540019856773978,
+        1.0602869112425972
+      ]
+    },
+    {
+      "country": "CHN",
+      "country_name": "China",
+      "year": 2017,
+      "coordinates": [
+        1.0401406754987639,
+        1.4018874404024977
+      ]
+    },
+    {
+      "country": "CHN",
+      "country_name": "China",
+      "year": 2018,
+      "coordinates": [
+        1.115281893776587,
+        1.6903744605044138
+      ]
+    },
+    {
+      "country": "CHN",
+      "country_name": "China",
+      "year": 2019,
+      "coordinates": [
+        1.1789078812040188,
+        1.2031626770895998
+      ]
+    },
+    {
+      "country": "CHN",
+      "country_name": "China",
+      "year": 2020,
+      "coordinates": [
+        1.0855882808227646,
+        0.5965044812664879
+      ]
+    },
+    {
+      "country": "CHN",
+      "country_name": "China",
+      "year": 2021,
+      "coordinates": [
+        1.1198433557644476,
+        0.947332459452009
+      ]
+    },
+    {
+      "country": "CHN",
+      "country_name": "China",
+      "year": 2022,
+      "coordinates": [
+        1.4272814151568782,
+        0.43673892652568796
+      ]
+    },
+    {
+      "country": "CHN",
+      "country_name": "China",
+      "year": 2023,
+      "coordinates": [
+        1.382355128753803,
+        0.2523813634712098
+      ]
+    },
+    {
+      "country": "FRA",
+      "country_name": "France",
+      "year": 1970,
+      "coordinates": [
+        0.2885363866130011,
+        0.08584806828749138
+      ]
+    },
+    {
+      "country": "FRA",
+      "country_name": "France",
+      "year": 1971,
+      "coordinates": [
+        0.318198402904772,
+        -0.1860216798524994
+      ]
+    },
+    {
+      "country": "FRA",
+      "country_name": "France",
+      "year": 1972,
+      "coordinates": [
+        0.2549595519391413,
+        -0.5015698109026795
+      ]
+    },
+    {
+      "country": "FRA",
+      "country_name": "France",
+      "year": 1973,
+      "coordinates": [
+        0.33527861824540406,
+        -0.33210528000232065
+      ]
+    },
+    {
+      "country": "FRA",
+      "country_name": "France",
+      "year": 1974,
+      "coordinates": [
+        0.10401875209023059,
+        -0.5338873469312749
+      ]
+    },
+    {
+      "country": "FRA",
+      "country_name": "France",
+      "year": 1975,
+      "coordinates": [
+        0.3160997939170406,
+        -0.8791940453748972
+      ]
+    },
+    {
+      "country": "FRA",
+      "country_name": "France",
+      "year": 1976,
+      "coordinates": [
+        0.18428237211993223,
+        -0.4608236081528104
+      ]
+    },
+    {
+      "country": "FRA",
+      "country_name": "France",
+      "year": 1977,
+      "coordinates": [
+        0.33074167288199335,
+        -0.4488067278344827
+      ]
+    },
+    {
+      "country": "FRA",
+      "country_name": "France",
+      "year": 1978,
+      "coordinates": [
+        0.4288894959338045,
+        -0.46394971825911396
+      ]
+    },
+    {
+      "country": "FRA",
+      "country_name": "France",
+      "year": 1979,
+      "coordinates": [
+        0.2906460448164357,
+        -0.5730174067016169
+      ]
+    },
+    {
+      "country": "FRA",
+      "country_name": "France",
+      "year": 1980,
+      "coordinates": [
+        0.39957877655641966,
+        -0.8510778071206424
+      ]
+    },
+    {
+      "country": "FRA",
+      "country_name": "France",
+      "year": 1981,
+      "coordinates": [
+        0.3139884144932768,
+        -0.8296241659550014
+      ]
+    },
+    {
+      "country": "FRA",
+      "country_name": "France",
+      "year": 1982,
+      "coordinates": [
+        0.29074787168389143,
+        -0.6654575993761687
+      ]
+    },
+    {
+      "country": "FRA",
+      "country_name": "France",
+      "year": 1983,
+      "coordinates": [
+        0.13885873170781804,
+        -0.6747493164536745
+      ]
+    },
+    {
+      "country": "FRA",
+      "country_name": "France",
+      "year": 1984,
+      "coordinates": [
+        -0.08317444800659593,
+        -0.6292461919632136
+      ]
+    },
+    {
+      "country": "FRA",
+      "country_name": "France",
+      "year": 1985,
+      "coordinates": [
+        0.06545322168090555,
+        -0.6952910614071008
+      ]
+    },
+    {
+      "country": "FRA",
+      "country_name": "France",
+      "year": 1986,
+      "coordinates": [
+        -0.1648423259575842,
+        -0.5364008499051077
+      ]
+    },
+    {
+      "country": "FRA",
+      "country_name": "France",
+      "year": 1987,
+      "coordinates": [
+        -0.4163868471274943,
+        -0.5237148655307108
+      ]
+    },
+    {
+      "country": "FRA",
+      "country_name": "France",
+      "year": 1988,
+      "coordinates": [
+        -0.41282059369574925,
+        -0.38905447274235727
+      ]
+    },
+    {
+      "country": "FRA",
+      "country_name": "France",
+      "year": 1989,
+      "coordinates": [
+        -0.3467176719534671,
+        -0.5449732095887151
+      ]
+    },
+    {
+      "country": "FRA",
+      "country_name": "France",
+      "year": 1990,
+      "coordinates": [
+        -0.3858633749149835,
+        -0.8131226671572517
+      ]
+    },
+    {
+      "country": "FRA",
+      "country_name": "France",
+      "year": 1991,
+      "coordinates": [
+        -0.4072203688353659,
+        -0.18887684935751237
+      ]
+    },
+    {
+      "country": "FRA",
+      "country_name": "France",
+      "year": 1992,
+      "coordinates": [
+        -0.47929664831497804,
+        -0.5245285705424507
+      ]
+    },
+    {
+      "country": "FRA",
+      "country_name": "France",
+      "year": 1993,
+      "coordinates": [
+        -0.5977954643685438,
+        -0.6964399313524232
+      ]
+    },
+    {
+      "country": "FRA",
+      "country_name": "France",
+      "year": 1994,
+      "coordinates": [
+        -0.7133635382367202,
+        -0.5745878364261321
+      ]
+    },
+    {
+      "country": "FRA",
+      "country_name": "France",
+      "year": 1995,
+      "coordinates": [
+        -0.7633016785014454,
+        -0.4740293386897666
+      ]
+    },
+    {
+      "country": "FRA",
+      "country_name": "France",
+      "year": 1996,
+      "coordinates": [
+        -0.5906798453453839,
+        -0.8649793559830313
+      ]
+    },
+    {
+      "country": "FRA",
+      "country_name": "France",
+      "year": 1997,
+      "coordinates": [
+        -0.35700856948103693,
+        -0.903441309561778
+      ]
+    },
+    {
+      "country": "FRA",
+      "country_name": "France",
+      "year": 1998,
+      "coordinates": [
+        -0.44066319341900606,
+        -1.1472588096081493
+      ]
+    },
+    {
+      "country": "FRA",
+      "country_name": "France",
+      "year": 1999,
+      "coordinates": [
+        -0.5822635222531073,
+        -2.21786471496778
+      ]
+    },
+    {
+      "country": "FRA",
+      "country_name": "France",
+      "year": 2000,
+      "coordinates": [
+        -0.6183281246284325,
+        -2.9643207342361184
+      ]
+    },
+    {
+      "country": "FRA",
+      "country_name": "France",
+      "year": 2001,
+      "coordinates": [
+        -0.7273951173597558,
+        -1.9419674300278902
+      ]
+    },
+    {
+      "country": "FRA",
+      "country_name": "France",
+      "year": 2002,
+      "coordinates": [
+        -0.7704683295070607,
+        -1.406208394296737
+      ]
+    },
+    {
+      "country": "FRA",
+      "country_name": "France",
+      "year": 2003,
+      "coordinates": [
+        -0.7581644359096444,
+        -1.2339801790181462
+      ]
+    },
+    {
+      "country": "FRA",
+      "country_name": "France",
+      "year": 2004,
+      "coordinates": [
+        -0.6424591763106573,
+        -1.13114030054613
+      ]
+    },
+    {
+      "country": "FRA",
+      "country_name": "France",
+      "year": 2005,
+      "coordinates": [
+        -0.6680484460128979,
+        -1.7547838852843747
+      ]
+    },
+    {
+      "country": "FRA",
+      "country_name": "France",
+      "year": 2006,
+      "coordinates": [
+        -0.7519360099421429,
+        -1.7295281625702024
+      ]
+    },
+    {
+      "country": "FRA",
+      "country_name": "France",
+      "year": 2007,
+      "coordinates": [
+        -0.6321814316724675,
+        -1.631505431789017
+      ]
+    },
+    {
+      "country": "FRA",
+      "country_name": "France",
+      "year": 2008,
+      "coordinates": [
+        -0.6719277011539802,
+        -1.7443574793418348
+      ]
+    },
+    {
+      "country": "FRA",
+      "country_name": "France",
+      "year": 2009,
+      "coordinates": [
+        -0.5346158891413756,
+        -1.5584580793293108
+      ]
+    },
+    {
+      "country": "FRA",
+      "country_name": "France",
+      "year": 2010,
+      "coordinates": [
+        -0.9354635831903862,
+        -1.1090491481162876
+      ]
+    },
+    {
+      "country": "FRA",
+      "country_name": "France",
+      "year": 2011,
+      "coordinates": [
+        -0.7303430021551335,
+        -1.0872381743855053
+      ]
+    },
+    {
+      "country": "FRA",
+      "country_name": "France",
+      "year": 2012,
+      "coordinates": [
+        -0.9088271063665052,
+        -1.1813437335327115
+      ]
+    },
+    {
+      "country": "FRA",
+      "country_name": "France",
+      "year": 2013,
+      "coordinates": [
+        -0.883370907176322,
+        -1.0360293539553325
+      ]
+    },
+    {
+      "country": "FRA",
+      "country_name": "France",
+      "year": 2014,
+      "coordinates": [
+        -0.9035267001784187,
+        -1.2471909804577315
+      ]
+    },
+    {
+      "country": "FRA",
+      "country_name": "France",
+      "year": 2015,
+      "coordinates": [
+        -0.7464771732290931,
+        -1.4763428392327689
+      ]
+    },
+    {
+      "country": "FRA",
+      "country_name": "France",
+      "year": 2016,
+      "coordinates": [
+        -0.6418423819248631,
+        -1.4824398277956776
+      ]
+    },
+    {
+      "country": "FRA",
+      "country_name": "France",
+      "year": 2017,
+      "coordinates": [
+        -0.5796835175221681,
+        -1.2831597097912775
+      ]
+    },
+    {
+      "country": "FRA",
+      "country_name": "France",
+      "year": 2018,
+      "coordinates": [
+        -0.4672397120965201,
+        -1.958765395380461
+      ]
+    },
+    {
+      "country": "FRA",
+      "country_name": "France",
+      "year": 2019,
+      "coordinates": [
+        -0.07582101024138789,
+        -1.8012997372541177
+      ]
+    },
+    {
+      "country": "FRA",
+      "country_name": "France",
+      "year": 2020,
+      "coordinates": [
+        -0.12296539782673968,
+        -2.0558328733830624
+      ]
+    },
+    {
+      "country": "FRA",
+      "country_name": "France",
+      "year": 2021,
+      "coordinates": [
+        0.17471110311907526,
+        -1.7119710207189613
+      ]
+    },
+    {
+      "country": "FRA",
+      "country_name": "France",
+      "year": 2022,
+      "coordinates": [
+        0.18148690646169022,
+        -1.9434781481581493
+      ]
+    },
+    {
+      "country": "FRA",
+      "country_name": "France",
+      "year": 2023,
+      "coordinates": [
+        0.23521758302406584,
+        -1.3596290815224283
+      ]
+    },
+    {
+      "country": "DEU",
+      "country_name": "Germany",
+      "year": 1970,
+      "coordinates": [
+        0.4591211321822433,
+        0.31280153692468465
+      ]
+    },
+    {
+      "country": "DEU",
+      "country_name": "Germany",
+      "year": 1971,
+      "coordinates": [
+        0.7403475166640988,
+        1.097009170334445
+      ]
+    },
+    {
+      "country": "DEU",
+      "country_name": "Germany",
+      "year": 1972,
+      "coordinates": [
+        0.7322674016341001,
+        0.41949981517104584
+      ]
+    },
+    {
+      "country": "DEU",
+      "country_name": "Germany",
+      "year": 1973,
+      "coordinates": [
+        0.5952085097487367,
+        1.094809359848156
+      ]
+    },
+    {
+      "country": "DEU",
+      "country_name": "Germany",
+      "year": 1974,
+      "coordinates": [
+        0.8833127434307849,
+        1.0100639157396547
+      ]
+    },
+    {
+      "country": "DEU",
+      "country_name": "Germany",
+      "year": 1975,
+      "coordinates": [
+        0.9646846509985356,
+        0.7472380689522327
+      ]
+    },
+    {
+      "country": "DEU",
+      "country_name": "Germany",
+      "year": 1976,
+      "coordinates": [
+        0.8427850081228002,
+        0.8697333220150001
+      ]
+    },
+    {
+      "country": "DEU",
+      "country_name": "Germany",
+      "year": 1977,
+      "coordinates": [
+        0.8352188473225272,
+        0.5243860799525879
+      ]
+    },
+    {
+      "country": "DEU",
+      "country_name": "Germany",
+      "year": 1978,
+      "coordinates": [
+        0.7539649685448913,
+        0.27537169404579304
+      ]
+    },
+    {
+      "country": "DEU",
+      "country_name": "Germany",
+      "year": 1979,
+      "coordinates": [
+        0.6014907202938978,
+        -0.03173953005525196
+      ]
+    },
+    {
+      "country": "DEU",
+      "country_name": "Germany",
+      "year": 1980,
+      "coordinates": [
+        0.6546377402190877,
+        -0.1782143916983095
+      ]
+    },
+    {
+      "country": "DEU",
+      "country_name": "Germany",
+      "year": 1981,
+      "coordinates": [
+        0.7759951212255508,
+        -0.14897857388866673
+      ]
+    },
+    {
+      "country": "DEU",
+      "country_name": "Germany",
+      "year": 1982,
+      "coordinates": [
+        0.7321364159011184,
+        -0.02422745207092617
+      ]
+    },
+    {
+      "country": "DEU",
+      "country_name": "Germany",
+      "year": 1983,
+      "coordinates": [
+        0.8228939558122098,
+        0.06653980381871269
+      ]
+    },
+    {
+      "country": "DEU",
+      "country_name": "Germany",
+      "year": 1984,
+      "coordinates": [
+        0.8780068597021569,
+        0.036977144773878
+      ]
+    },
+    {
+      "country": "DEU",
+      "country_name": "Germany",
+      "year": 1985,
+      "coordinates": [
+        0.4965014376420182,
+        -0.0748105454748544
+      ]
+    },
+    {
+      "country": "DEU",
+      "country_name": "Germany",
+      "year": 1986,
+      "coordinates": [
+        0.5666233878591108,
+        0.025873981444265736
+      ]
+    },
+    {
+      "country": "DEU",
+      "country_name": "Germany",
+      "year": 1987,
+      "coordinates": [
+        0.46780107279209077,
+        0.030600922202217277
+      ]
+    },
+    {
+      "country": "DEU",
+      "country_name": "Germany",
+      "year": 1988,
+      "coordinates": [
+        0.5087349602590526,
+        0.20920066485702934
+      ]
+    },
+    {
+      "country": "DEU",
+      "country_name": "Germany",
+      "year": 1989,
+      "coordinates": [
+        0.46006533143260586,
+        0.3294402113207702
+      ]
+    },
+    {
+      "country": "DEU",
+      "country_name": "Germany",
+      "year": 1990,
+      "coordinates": [
+        0.6202831637077115,
+        0.3593119652417876
+      ]
+    },
+    {
+      "country": "DEU",
+      "country_name": "Germany",
+      "year": 1991,
+      "coordinates": [
+        0.5653282319376893,
+        0.1471470953602526
+      ]
+    },
+    {
+      "country": "DEU",
+      "country_name": "Germany",
+      "year": 1992,
+      "coordinates": [
+        0.3649011644195098,
+        0.008761247441237387
+      ]
+    },
+    {
+      "country": "DEU",
+      "country_name": "Germany",
+      "year": 1993,
+      "coordinates": [
+        0.3660991218626333,
+        -0.31250206440782796
+      ]
+    },
+    {
+      "country": "DEU",
+      "country_name": "Germany",
+      "year": 1994,
+      "coordinates": [
+        0.5331060939960645,
+        -0.22135244622678438
+      ]
+    },
+    {
+      "country": "DEU",
+      "country_name": "Germany",
+      "year": 1995,
+      "coordinates": [
+        0.2653843330558308,
+        -0.4801658126346539
+      ]
+    },
+    {
+      "country": "DEU",
+      "country_name": "Germany",
+      "year": 1996,
+      "coordinates": [
+        0.42303285897885723,
+        -0.6603785406224236
+      ]
+    },
+    {
+      "country": "DEU",
+      "country_name": "Germany",
+      "year": 1997,
+      "coordinates": [
+        0.14620673022039346,
+        -0.6117189957381449
+      ]
+    },
+    {
+      "country": "DEU",
+      "country_name": "Germany",
+      "year": 1998,
+      "coordinates": [
+        0.4570847557108203,
+        -0.7657834269233539
+      ]
+    },
+    {
+      "country": "DEU",
+      "country_name": "Germany",
+      "year": 1999,
+      "coordinates": [
+        0.43952923219352286,
+        -1.445709660864882
+      ]
+    },
+    {
+      "country": "DEU",
+      "country_name": "Germany",
+      "year": 2000,
+      "coordinates": [
+        0.30763667393809724,
+        -1.152205342910978
+      ]
+    },
+    {
+      "country": "DEU",
+      "country_name": "Germany",
+      "year": 2001,
+      "coordinates": [
+        0.15847078083635227,
+        -0.8711882728493845
+      ]
+    },
+    {
+      "country": "DEU",
+      "country_name": "Germany",
+      "year": 2002,
+      "coordinates": [
+        0.10051937401286595,
+        -0.5025642586703324
+      ]
+    },
+    {
+      "country": "DEU",
+      "country_name": "Germany",
+      "year": 2003,
+      "coordinates": [
+        0.27467599360000844,
+        -0.7265553711414147
+      ]
+    },
+    {
+      "country": "DEU",
+      "country_name": "Germany",
+      "year": 2004,
+      "coordinates": [
+        0.12036634753083342,
+        -0.18340419500322058
+      ]
+    },
+    {
+      "country": "DEU",
+      "country_name": "Germany",
+      "year": 2005,
+      "coordinates": [
+        0.3228574961758217,
+        -0.8640500109428653
+      ]
+    },
+    {
+      "country": "DEU",
+      "country_name": "Germany",
+      "year": 2006,
+      "coordinates": [
+        0.43301665024171837,
+        -0.900701889526624
+      ]
+    },
+    {
+      "country": "DEU",
+      "country_name": "Germany",
+      "year": 2007,
+      "coordinates": [
+        0.5102690676673076,
+        -1.1245399599669144
+      ]
+    },
+    {
+      "country": "DEU",
+      "country_name": "Germany",
+      "year": 2008,
+      "coordinates": [
+        0.33751905013332206,
+        -0.7972994433681122
+      ]
+    },
+    {
+      "country": "DEU",
+      "country_name": "Germany",
+      "year": 2009,
+      "coordinates": [
+        0.43491575562396534,
+        -1.2938568268549584
+      ]
+    },
+    {
+      "country": "DEU",
+      "country_name": "Germany",
+      "year": 2010,
+      "coordinates": [
+        0.36048541448335997,
+        -0.8186195262729314
+      ]
+    },
+    {
+      "country": "DEU",
+      "country_name": "Germany",
+      "year": 2011,
+      "coordinates": [
+        0.043697838307695525,
+        -0.6951419933134186
+      ]
+    },
+    {
+      "country": "DEU",
+      "country_name": "Germany",
+      "year": 2012,
+      "coordinates": [
+        0.018054948864981466,
+        -0.8843949891481032
+      ]
+    },
+    {
+      "country": "DEU",
+      "country_name": "Germany",
+      "year": 2013,
+      "coordinates": [
+        0.0152655672051985,
+        -0.8431444119297883
+      ]
+    },
+    {
+      "country": "DEU",
+      "country_name": "Germany",
+      "year": 2014,
+      "coordinates": [
+        0.18930417341700406,
+        -0.7941442498623971
+      ]
+    },
+    {
+      "country": "DEU",
+      "country_name": "Germany",
+      "year": 2015,
+      "coordinates": [
+        0.21583664110961986,
+        -0.9812152582342851
+      ]
+    },
+    {
+      "country": "DEU",
+      "country_name": "Germany",
+      "year": 2016,
+      "coordinates": [
+        0.2716374217383673,
+        -0.8919975430100925
+      ]
+    },
+    {
+      "country": "DEU",
+      "country_name": "Germany",
+      "year": 2017,
+      "coordinates": [
+        0.05772380355022398,
+        -0.9291800314305033
+      ]
+    },
+    {
+      "country": "DEU",
+      "country_name": "Germany",
+      "year": 2018,
+      "coordinates": [
+        -0.10567890909674899,
+        -1.2424975563899696
+      ]
+    },
+    {
+      "country": "DEU",
+      "country_name": "Germany",
+      "year": 2019,
+      "coordinates": [
+        -0.20946564545397892,
+        -0.9928652559658998
+      ]
+    },
+    {
+      "country": "DEU",
+      "country_name": "Germany",
+      "year": 2020,
+      "coordinates": [
+        -0.14969456077370621,
+        -1.1298171614534114
+      ]
+    },
+    {
+      "country": "DEU",
+      "country_name": "Germany",
+      "year": 2021,
+      "coordinates": [
+        -0.4201335459431128,
+        -0.614781331322835
+      ]
+    },
+    {
+      "country": "DEU",
+      "country_name": "Germany",
+      "year": 2022,
+      "coordinates": [
+        -0.32749316964262903,
+        -0.6930527884641308
+      ]
+    },
+    {
+      "country": "DEU",
+      "country_name": "Germany",
+      "year": 2023,
+      "coordinates": [
+        -0.03639603896773438,
+        -0.4160708566786207
+      ]
+    },
+    {
+      "country": "IND",
+      "country_name": "India",
+      "year": 1970,
+      "coordinates": [
+        -1.4355851565191449,
+        2.238373982829453
+      ]
+    },
+    {
+      "country": "IND",
+      "country_name": "India",
+      "year": 1971,
+      "coordinates": [
+        -1.5040769213167415,
+        2.928776290708228
+      ]
+    },
+    {
+      "country": "IND",
+      "country_name": "India",
+      "year": 1972,
+      "coordinates": [
+        -1.4070394686064034,
+        2.8528831231280183
+      ]
+    },
+    {
+      "country": "IND",
+      "country_name": "India",
+      "year": 1973,
+      "coordinates": [
+        -1.5100732924004723,
+        2.9428109412704364
+      ]
+    },
+    {
+      "country": "IND",
+      "country_name": "India",
+      "year": 1974,
+      "coordinates": [
+        -1.5000802580733452,
+        2.7978127717829064
+      ]
+    },
+    {
+      "country": "IND",
+      "country_name": "India",
+      "year": 1975,
+      "coordinates": [
+        -1.782580491573447,
+        3.20829170369071
+      ]
+    },
+    {
+      "country": "IND",
+      "country_name": "India",
+      "year": 1976,
+      "coordinates": [
+        -1.5103388356735488,
+        3.130880433863033
+      ]
+    },
+    {
+      "country": "IND",
+      "country_name": "India",
+      "year": 1977,
+      "coordinates": [
+        -1.420396661045693,
+        3.924358967605153
+      ]
+    },
+    {
+      "country": "IND",
+      "country_name": "India",
+      "year": 1978,
+      "coordinates": [
+        -1.5810258362866987,
+        3.031610818078276
+      ]
+    },
+    {
+      "country": "IND",
+      "country_name": "India",
+      "year": 1979,
+      "coordinates": [
+        -1.3397034441444915,
+        2.176816321683371
+      ]
+    },
+    {
+      "country": "IND",
+      "country_name": "India",
+      "year": 1980,
+      "coordinates": [
+        -1.4481437092912268,
+        3.4508392079095986
+      ]
+    },
+    {
+      "country": "IND",
+      "country_name": "India",
+      "year": 1981,
+      "coordinates": [
+        -1.2693982623341886,
+        3.6378626907134715
+      ]
+    },
+    {
+      "country": "IND",
+      "country_name": "India",
+      "year": 1982,
+      "coordinates": [
+        -1.1617587561626068,
+        3.5201887876739053
+      ]
+    },
+    {
+      "country": "IND",
+      "country_name": "India",
+      "year": 1983,
+      "coordinates": [
+        -1.1455221830765654,
+        4.03145982872528
+      ]
+    },
+    {
+      "country": "IND",
+      "country_name": "India",
+      "year": 1984,
+      "coordinates": [
+        -1.0430434832812707,
+        3.8318558256839252
+      ]
+    },
+    {
+      "country": "IND",
+      "country_name": "India",
+      "year": 1985,
+      "coordinates": [
+        -1.0930068253019065,
+        3.945693802127008
+      ]
+    },
+    {
+      "country": "IND",
+      "country_name": "India",
+      "year": 1986,
+      "coordinates": [
+        -0.7757681812773709,
+        4.744169421549875
+      ]
+    },
+    {
+      "country": "IND",
+      "country_name": "India",
+      "year": 1987,
+      "coordinates": [
+        -0.7138733824408808,
+        4.495067512328612
+      ]
+    },
+    {
+      "country": "IND",
+      "country_name": "India",
+      "year": 1988,
+      "coordinates": [
+        -0.8879744335874694,
+        4.7843375392003935
+      ]
+    },
+    {
+      "country": "IND",
+      "country_name": "India",
+      "year": 1989,
+      "coordinates": [
+        -0.8725453596233359,
+        4.318930689252864
+      ]
+    },
+    {
+      "country": "IND",
+      "country_name": "India",
+      "year": 1990,
+      "coordinates": [
+        -0.9343780333620979,
+        3.7720638043455823
+      ]
+    },
+    {
+      "country": "IND",
+      "country_name": "India",
+      "year": 1991,
+      "coordinates": [
+        -1.0001703115845388,
+        2.7772724914838927
+      ]
+    },
+    {
+      "country": "IND",
+      "country_name": "India",
+      "year": 1992,
+      "coordinates": [
+        -1.0874070781334226,
+        2.719197412558251
+      ]
+    },
+    {
+      "country": "IND",
+      "country_name": "India",
+      "year": 1993,
+      "coordinates": [
+        -1.002630764466367,
+        2.4813005095565024
+      ]
+    },
+    {
+      "country": "IND",
+      "country_name": "India",
+      "year": 1994,
+      "coordinates": [
+        -1.0205019612092896,
+        2.6573355066333675
+      ]
+    },
+    {
+      "country": "IND",
+      "country_name": "India",
+      "year": 1995,
+      "coordinates": [
+        -0.9448981709380627,
+        3.003491938961207
+      ]
+    },
+    {
+      "country": "IND",
+      "country_name": "India",
+      "year": 1996,
+      "coordinates": [
+        -1.0072144394083788,
+        2.614261514826594
+      ]
+    },
+    {
+      "country": "IND",
+      "country_name": "India",
+      "year": 1997,
+      "coordinates": [
+        -0.7747554939187502,
+        2.8984888944217824
+      ]
+    },
+    {
+      "country": "IND",
+      "country_name": "India",
+      "year": 1998,
+      "coordinates": [
+        -0.8131182777063057,
+        2.613643317881482
+      ]
+    },
+    {
+      "country": "IND",
+      "country_name": "India",
+      "year": 1999,
+      "coordinates": [
+        -0.7511781109084829,
+        3.039729799421137
+      ]
+    },
+    {
+      "country": "IND",
+      "country_name": "India",
+      "year": 2000,
+      "coordinates": [
+        -0.7126814521048331,
+        2.456858620874724
+      ]
+    },
+    {
+      "country": "IND",
+      "country_name": "India",
+      "year": 2001,
+      "coordinates": [
+        -0.6747930553574676,
+        2.6611988298297504
+      ]
+    },
+    {
+      "country": "IND",
+      "country_name": "India",
+      "year": 2002,
+      "coordinates": [
+        -0.6426195920096572,
+        2.981460072930027
+      ]
+    },
+    {
+      "country": "IND",
+      "country_name": "India",
+      "year": 2003,
+      "coordinates": [
+        -0.6269035897567176,
+        3.720390571096924
+      ]
+    },
+    {
+      "country": "IND",
+      "country_name": "India",
+      "year": 2004,
+      "coordinates": [
+        -0.7273990391844735,
+        3.2826428962988765
+      ]
+    },
+    {
+      "country": "IND",
+      "country_name": "India",
+      "year": 2005,
+      "coordinates": [
+        -0.9178078930685247,
+        2.5419351487393262
+      ]
+    },
+    {
+      "country": "IND",
+      "country_name": "India",
+      "year": 2006,
+      "coordinates": [
+        -0.9278956689110656,
+        2.3676589476417655
+      ]
+    },
+    {
+      "country": "IND",
+      "country_name": "India",
+      "year": 2007,
+      "coordinates": [
+        -0.8712116037527047,
+        2.7480864056580163
+      ]
+    },
+    {
+      "country": "IND",
+      "country_name": "India",
+      "year": 2008,
+      "coordinates": [
+        -0.699592675467882,
+        2.0576243659040836
+      ]
+    },
+    {
+      "country": "IND",
+      "country_name": "India",
+      "year": 2009,
+      "coordinates": [
+        -0.5336315436653284,
+        2.80186234573346
+      ]
+    },
+    {
+      "country": "IND",
+      "country_name": "India",
+      "year": 2010,
+      "coordinates": [
+        -0.55110002515369,
+        3.369592306187043
+      ]
+    },
+    {
+      "country": "IND",
+      "country_name": "India",
+      "year": 2011,
+      "coordinates": [
+        -0.27790337561991724,
+        3.7212747264146144
+      ]
+    },
+    {
+      "country": "IND",
+      "country_name": "India",
+      "year": 2012,
+      "coordinates": [
+        -0.1927770835546031,
+        4.227519280444012
+      ]
+    },
+    {
+      "country": "IND",
+      "country_name": "India",
+      "year": 2013,
+      "coordinates": [
+        -0.12099955553424312,
+        4.860818430704779
+      ]
+    },
+    {
+      "country": "IND",
+      "country_name": "India",
+      "year": 2014,
+      "coordinates": [
+        -0.27262127550816967,
+        3.6223442404826325
+      ]
+    },
+    {
+      "country": "IND",
+      "country_name": "India",
+      "year": 2015,
+      "coordinates": [
+        -0.4707336564787332,
+        3.394913923201407
+      ]
+    },
+    {
+      "country": "IND",
+      "country_name": "India",
+      "year": 2016,
+      "coordinates": [
+        -0.5621135276098486,
+        3.3450401218665378
+      ]
+    },
+    {
+      "country": "IND",
+      "country_name": "India",
+      "year": 2017,
+      "coordinates": [
+        -0.633725603893696,
+        3.242065238145619
+      ]
+    },
+    {
+      "country": "IND",
+      "country_name": "India",
+      "year": 2018,
+      "coordinates": [
+        -0.8026231851280807,
+        2.8076811558857333
+      ]
+    },
+    {
+      "country": "IND",
+      "country_name": "India",
+      "year": 2019,
+      "coordinates": [
+        -0.6129847158707966,
+        3.4390781780638586
+      ]
+    },
+    {
+      "country": "IND",
+      "country_name": "India",
+      "year": 2020,
+      "coordinates": [
+        -0.5364463454036977,
+        2.482459348343383
+      ]
+    },
+    {
+      "country": "IND",
+      "country_name": "India",
+      "year": 2021,
+      "coordinates": [
+        -0.678524601596787,
+        4.577678810995716
+      ]
+    },
+    {
+      "country": "IND",
+      "country_name": "India",
+      "year": 2022,
+      "coordinates": [
+        -0.7859696748533033,
+        3.6847583645397712
+      ]
+    },
+    {
+      "country": "IND",
+      "country_name": "India",
+      "year": 2023,
+      "coordinates": [
+        -1.2237357891177942,
+        2.787590517041099
+      ]
+    },
+    {
+      "country": "IDN",
+      "country_name": "Indonesia",
+      "year": 1974,
+      "coordinates": [
+        -2.1487589667409246,
+        2.209551298361917
+      ]
+    },
+    {
+      "country": "IDN",
+      "country_name": "Indonesia",
+      "year": 1975,
+      "coordinates": [
+        -1.9752861774469683,
+        2.0087046901333676
+      ]
+    },
+    {
+      "country": "IDN",
+      "country_name": "Indonesia",
+      "year": 1976,
+      "coordinates": [
+        -2.015832174197236,
+        2.1328592091648444
+      ]
+    },
+    {
+      "country": "IDN",
+      "country_name": "Indonesia",
+      "year": 1977,
+      "coordinates": [
+        -1.9685116481687257,
+        2.1446385845934555
+      ]
+    },
+    {
+      "country": "IDN",
+      "country_name": "Indonesia",
+      "year": 1978,
+      "coordinates": [
+        -1.8899243101202379,
+        1.9754679044138452
+      ]
+    },
+    {
+      "country": "IDN",
+      "country_name": "Indonesia",
+      "year": 1979,
+      "coordinates": [
+        -1.9824861141403534,
+        1.960792061859943
+      ]
+    },
+    {
+      "country": "IDN",
+      "country_name": "Indonesia",
+      "year": 1980,
+      "coordinates": [
+        -2.0208448401268164,
+        2.347920342519766
+      ]
+    },
+    {
+      "country": "IDN",
+      "country_name": "Indonesia",
+      "year": 1981,
+      "coordinates": [
+        -1.9650286777291186,
+        2.0869134108351135
+      ]
+    },
+    {
+      "country": "IDN",
+      "country_name": "Indonesia",
+      "year": 1982,
+      "coordinates": [
+        -1.807626228068077,
+        1.4992552321765404
+      ]
+    },
+    {
+      "country": "IDN",
+      "country_name": "Indonesia",
+      "year": 1983,
+      "coordinates": [
+        -1.8807481589068,
+        1.5714741308231934
+      ]
+    },
+    {
+      "country": "IDN",
+      "country_name": "Indonesia",
+      "year": 1984,
+      "coordinates": [
+        -1.857702084817276,
+        1.7482980481194081
+      ]
+    },
+    {
+      "country": "IDN",
+      "country_name": "Indonesia",
+      "year": 1985,
+      "coordinates": [
+        -1.8526391763732584,
+        1.3539275872630343
+      ]
+    },
+    {
+      "country": "IDN",
+      "country_name": "Indonesia",
+      "year": 1986,
+      "coordinates": [
+        -1.6338923712067077,
+        1.9074264117922715
+      ]
+    },
+    {
+      "country": "IDN",
+      "country_name": "Indonesia",
+      "year": 1987,
+      "coordinates": [
+        -1.694210427003129,
+        1.64799590065618
+      ]
+    },
+    {
+      "country": "IDN",
+      "country_name": "Indonesia",
+      "year": 1988,
+      "coordinates": [
+        -1.7692182462836727,
+        1.645631630924283
+      ]
+    },
+    {
+      "country": "IDN",
+      "country_name": "Indonesia",
+      "year": 1989,
+      "coordinates": [
+        -1.8582106992339427,
+        1.6009605600177714
+      ]
+    },
+    {
+      "country": "IDN",
+      "country_name": "Indonesia",
+      "year": 1990,
+      "coordinates": [
+        -1.9170546635669237,
+        1.391748153688463
+      ]
+    },
+    {
+      "country": "IDN",
+      "country_name": "Indonesia",
+      "year": 1991,
+      "coordinates": [
+        -1.804483703134895,
+        1.3276528215088612
+      ]
+    },
+    {
+      "country": "IDN",
+      "country_name": "Indonesia",
+      "year": 1992,
+      "coordinates": [
+        -1.7380301974776042,
+        1.1772384062919572
+      ]
+    },
+    {
+      "country": "IDN",
+      "country_name": "Indonesia",
+      "year": 1993,
+      "coordinates": [
+        -1.50394956347316,
+        1.4710091118024664
+      ]
+    },
+    {
+      "country": "IDN",
+      "country_name": "Indonesia",
+      "year": 1994,
+      "coordinates": [
+        -1.6007991105114128,
+        1.5497901371945866
+      ]
+    },
+    {
+      "country": "IDN",
+      "country_name": "Indonesia",
+      "year": 1995,
+      "coordinates": [
+        -1.5939467470949686,
+        1.430670814937487
+      ]
+    },
+    {
+      "country": "IDN",
+      "country_name": "Indonesia",
+      "year": 1996,
+      "coordinates": [
+        -1.494061370391565,
+        1.4847352768774789
+      ]
+    },
+    {
+      "country": "IDN",
+      "country_name": "Indonesia",
+      "year": 1997,
+      "coordinates": [
+        -1.4756740333401859,
+        0.999699691866114
+      ]
+    },
+    {
+      "country": "IDN",
+      "country_name": "Indonesia",
+      "year": 1998,
+      "coordinates": [
+        -1.246202789324818,
+        -0.3879643838968913
+      ]
+    },
+    {
+      "country": "IDN",
+      "country_name": "Indonesia",
+      "year": 1999,
+      "coordinates": [
+        -1.4929807724052817,
+        0.575777215989221
+      ]
+    },
+    {
+      "country": "IDN",
+      "country_name": "Indonesia",
+      "year": 2000,
+      "coordinates": [
+        -1.4510368167368426,
+        0.94797010223445
+      ]
+    },
+    {
+      "country": "IDN",
+      "country_name": "Indonesia",
+      "year": 2001,
+      "coordinates": [
+        -1.3672936250225052,
+        0.8385662468700205
+      ]
+    },
+    {
+      "country": "IDN",
+      "country_name": "Indonesia",
+      "year": 2002,
+      "coordinates": [
+        -1.3122259387644575,
+        0.8451506621878135
+      ]
+    },
+    {
+      "country": "IDN",
+      "country_name": "Indonesia",
+      "year": 2003,
+      "coordinates": [
+        -1.2836841222643072,
+        0.9435186473511247
+      ]
+    },
+    {
+      "country": "IDN",
+      "country_name": "Indonesia",
+      "year": 2004,
+      "coordinates": [
+        -1.2897661782090926,
+        0.682966487816234
+      ]
+    },
+    {
+      "country": "IDN",
+      "country_name": "Indonesia",
+      "year": 2005,
+      "coordinates": [
+        -1.4239132876620832,
+        0.6244399102274731
+      ]
+    },
+    {
+      "country": "IDN",
+      "country_name": "Indonesia",
+      "year": 2006,
+      "coordinates": [
+        -1.5045801969482973,
+        0.5920434849619532
+      ]
+    },
+    {
+      "country": "IDN",
+      "country_name": "Indonesia",
+      "year": 2007,
+      "coordinates": [
+        -1.4815642689597486,
+        0.8592681405279394
+      ]
+    },
+    {
+      "country": "IDN",
+      "country_name": "Indonesia",
+      "year": 2008,
+      "coordinates": [
+        -1.433647198793742,
+        0.6604194715615064
+      ]
+    },
+    {
+      "country": "IDN",
+      "country_name": "Indonesia",
+      "year": 2009,
+      "coordinates": [
+        -1.3137087281679156,
+        0.8910344114829214
+      ]
+    },
+    {
+      "country": "IDN",
+      "country_name": "Indonesia",
+      "year": 2010,
+      "coordinates": [
+        -1.3124333311526433,
+        0.8276737981034058
+      ]
+    },
+    {
+      "country": "IDN",
+      "country_name": "Indonesia",
+      "year": 2011,
+      "coordinates": [
+        -1.255579955662038,
+        0.7832239684073996
+      ]
+    },
+    {
+      "country": "IDN",
+      "country_name": "Indonesia",
+      "year": 2012,
+      "coordinates": [
+        -1.1889583716793661,
+        0.8031321374967821
+      ]
+    },
+    {
+      "country": "IDN",
+      "country_name": "Indonesia",
+      "year": 2013,
+      "coordinates": [
+        -1.0782550102265607,
+        1.0475209626092439
+      ]
+    },
+    {
+      "country": "IDN",
+      "country_name": "Indonesia",
+      "year": 2014,
+      "coordinates": [
+        -0.9033583911893441,
+        1.3045480833658027
+      ]
+    },
+    {
+      "country": "IDN",
+      "country_name": "Indonesia",
+      "year": 2015,
+      "coordinates": [
+        -0.9402341217231863,
+        0.7874412965960828
+      ]
+    },
+    {
+      "country": "IDN",
+      "country_name": "Indonesia",
+      "year": 2016,
+      "coordinates": [
+        -0.9711180593031137,
+        1.1612209556082909
+      ]
+    },
+    {
+      "country": "IDN",
+      "country_name": "Indonesia",
+      "year": 2017,
+      "coordinates": [
+        -0.7437525843763912,
+        1.3235665745559249
+      ]
+    },
+    {
+      "country": "IDN",
+      "country_name": "Indonesia",
+      "year": 2018,
+      "coordinates": [
+        -0.8562479516841642,
+        0.6736280669561497
+      ]
+    },
+    {
+      "country": "IDN",
+      "country_name": "Indonesia",
+      "year": 2019,
+      "coordinates": [
+        -0.7274646494742151,
+        0.6627630864166891
+      ]
+    },
+    {
+      "country": "IDN",
+      "country_name": "Indonesia",
+      "year": 2020,
+      "coordinates": [
+        -0.46602058956639564,
+        0.17920305147058893
+      ]
+    },
+    {
+      "country": "IDN",
+      "country_name": "Indonesia",
+      "year": 2021,
+      "coordinates": [
+        -0.5945436165095457,
+        0.5565450051922237
+      ]
+    },
+    {
+      "country": "IDN",
+      "country_name": "Indonesia",
+      "year": 2022,
+      "coordinates": [
+        -0.7546766182448295,
+        0.19677936379650085
+      ]
+    },
+    {
+      "country": "IDN",
+      "country_name": "Indonesia",
+      "year": 2023,
+      "coordinates": [
+        -0.6681156406146778,
+        0.2890730110244874
+      ]
+    },
+    {
+      "country": "ITA",
+      "country_name": "Italy",
+      "year": 1970,
+      "coordinates": [
+        -0.00725086751016832,
+        0.7179223320375184
+      ]
+    },
+    {
+      "country": "ITA",
+      "country_name": "Italy",
+      "year": 1971,
+      "coordinates": [
+        0.16453259157723674,
+        0.6506547470438603
+      ]
+    },
+    {
+      "country": "ITA",
+      "country_name": "Italy",
+      "year": 1972,
+      "coordinates": [
+        0.22509643440742935,
+        1.2419920171773275
+      ]
+    },
+    {
+      "country": "ITA",
+      "country_name": "Italy",
+      "year": 1973,
+      "coordinates": [
+        0.07206333499641768,
+        0.995779267289207
+      ]
+    },
+    {
+      "country": "ITA",
+      "country_name": "Italy",
+      "year": 1974,
+      "coordinates": [
+        0.03164973037507434,
+        0.8539284400720603
+      ]
+    },
+    {
+      "country": "ITA",
+      "country_name": "Italy",
+      "year": 1975,
+      "coordinates": [
+        0.17741696713798677,
+        0.23722703713236035
+      ]
+    },
+    {
+      "country": "ITA",
+      "country_name": "Italy",
+      "year": 1976,
+      "coordinates": [
+        -0.06412911213492231,
+        0.6641444064588411
+      ]
+    },
+    {
+      "country": "ITA",
+      "country_name": "Italy",
+      "year": 1977,
+      "coordinates": [
+        -0.06410318663946142,
+        0.11244700745223943
+      ]
+    },
+    {
+      "country": "ITA",
+      "country_name": "Italy",
+      "year": 1978,
+      "coordinates": [
+        -0.0562147593538158,
+        0.23098881375834449
+      ]
+    },
+    {
+      "country": "ITA",
+      "country_name": "Italy",
+      "year": 1979,
+      "coordinates": [
+        0.03399120091182551,
+        0.3166120610165931
+      ]
+    },
+    {
+      "country": "ITA",
+      "country_name": "Italy",
+      "year": 1980,
+      "coordinates": [
+        -0.07632387788444567,
+        -0.08526290186265065
+      ]
+    },
+    {
+      "country": "ITA",
+      "country_name": "Italy",
+      "year": 1981,
+      "coordinates": [
+        0.02453049139431611,
+        -0.5851773965875892
+      ]
+    },
+    {
+      "country": "ITA",
+      "country_name": "Italy",
+      "year": 1982,
+      "coordinates": [
+        -0.01913615589437765,
+        -0.608546445313701
+      ]
+    },
+    {
+      "country": "ITA",
+      "country_name": "Italy",
+      "year": 1983,
+      "coordinates": [
+        -0.21824566984370863,
+        -0.6465913402637372
+      ]
+    },
+    {
+      "country": "ITA",
+      "country_name": "Italy",
+      "year": 1984,
+      "coordinates": [
+        -0.23599793223468227,
+        -0.48402722743966664
+      ]
+    },
+    {
+      "country": "ITA",
+      "country_name": "Italy",
+      "year": 1985,
+      "coordinates": [
+        -0.2892069950536101,
+        -0.49959365145959
+      ]
+    },
+    {
+      "country": "ITA",
+      "country_name": "Italy",
+      "year": 1986,
+      "coordinates": [
+        -0.49524170007500207,
+        -0.5712933545623076
+      ]
+    },
+    {
+      "country": "ITA",
+      "country_name": "Italy",
+      "year": 1987,
+      "coordinates": [
+        -0.3348447151164372,
+        -0.5182519718976211
+      ]
+    },
+    {
+      "country": "ITA",
+      "country_name": "Italy",
+      "year": 1988,
+      "coordinates": [
+        -0.4872696590119776,
+        -0.6034808656377151
+      ]
+    },
+    {
+      "country": "ITA",
+      "country_name": "Italy",
+      "year": 1989,
+      "coordinates": [
+        -0.5343215145409314,
+        -0.6536356514913554
+      ]
+    },
+    {
+      "country": "ITA",
+      "country_name": "Italy",
+      "year": 1990,
+      "coordinates": [
+        -0.5541334039769533,
+        -0.8869195072920809
+      ]
+    },
+    {
+      "country": "ITA",
+      "country_name": "Italy",
+      "year": 1991,
+      "coordinates": [
+        -0.5519271699759282,
+        -0.9322153081696195
+      ]
+    },
+    {
+      "country": "ITA",
+      "country_name": "Italy",
+      "year": 1992,
+      "coordinates": [
+        -0.6286236693062818,
+        -0.988683101045598
+      ]
+    },
+    {
+      "country": "ITA",
+      "country_name": "Italy",
+      "year": 1993,
+      "coordinates": [
+        -0.6090571597907154,
+        -1.2315673633451132
+      ]
+    },
+    {
+      "country": "ITA",
+      "country_name": "Italy",
+      "year": 1994,
+      "coordinates": [
+        -0.647572700648724,
+        -0.882845037835724
+      ]
+    },
+    {
+      "country": "ITA",
+      "country_name": "Italy",
+      "year": 1995,
+      "coordinates": [
+        -0.6132343640492266,
+        -0.762159337932403
+      ]
+    },
+    {
+      "country": "ITA",
+      "country_name": "Italy",
+      "year": 1996,
+      "coordinates": [
+        -0.5695002059421581,
+        -0.90177952143702
+      ]
+    },
+    {
+      "country": "ITA",
+      "country_name": "Italy",
+      "year": 1997,
+      "coordinates": [
+        -0.5768173339244262,
+        -0.8485915490390803
+      ]
+    },
+    {
+      "country": "ITA",
+      "country_name": "Italy",
+      "year": 1998,
+      "coordinates": [
+        -0.5706696907563801,
+        -1.0932824498734177
+      ]
+    },
+    {
+      "country": "ITA",
+      "country_name": "Italy",
+      "year": 1999,
+      "coordinates": [
+        -0.6015219108265508,
+        -0.9554994425963617
+      ]
+    },
+    {
+      "country": "ITA",
+      "country_name": "Italy",
+      "year": 2000,
+      "coordinates": [
+        -0.5781437989447924,
+        -0.6342919691735975
+      ]
+    },
+    {
+      "country": "ITA",
+      "country_name": "Italy",
+      "year": 2001,
+      "coordinates": [
+        -0.5095139122661485,
+        -0.9451920534289766
+      ]
+    },
+    {
+      "country": "ITA",
+      "country_name": "Italy",
+      "year": 2002,
+      "coordinates": [
+        -0.43309685165659256,
+        -0.9521552696257124
+      ]
+    },
+    {
+      "country": "ITA",
+      "country_name": "Italy",
+      "year": 2003,
+      "coordinates": [
+        -0.44575768378235464,
+        -0.5891992025889791
+      ]
+    },
+    {
+      "country": "ITA",
+      "country_name": "Italy",
+      "year": 2004,
+      "coordinates": [
+        -0.4557983209027402,
+        -0.6572462385889932
+      ]
+    },
+    {
+      "country": "ITA",
+      "country_name": "Italy",
+      "year": 2005,
+      "coordinates": [
+        -0.3185357466603906,
+        -1.3219882437807797
+      ]
+    },
+    {
+      "country": "ITA",
+      "country_name": "Italy",
+      "year": 2006,
+      "coordinates": [
+        -0.47226964965362644,
+        -1.2305243045151373
+      ]
+    },
+    {
+      "country": "ITA",
+      "country_name": "Italy",
+      "year": 2007,
+      "coordinates": [
+        -0.3969794503582095,
+        -1.713646584991082
+      ]
+    },
+    {
+      "country": "ITA",
+      "country_name": "Italy",
+      "year": 2008,
+      "coordinates": [
+        -0.525207848697037,
+        -1.5270566032307065
+      ]
+    },
+    {
+      "country": "ITA",
+      "country_name": "Italy",
+      "year": 2009,
+      "coordinates": [
+        -0.566075763505555,
+        -1.5078625114471351
+      ]
+    },
+    {
+      "country": "ITA",
+      "country_name": "Italy",
+      "year": 2010,
+      "coordinates": [
+        -0.6602147729089987,
+        -1.1094986680231227
+      ]
+    },
+    {
+      "country": "ITA",
+      "country_name": "Italy",
+      "year": 2011,
+      "coordinates": [
+        -0.5329129718469453,
+        -1.246999647566686
+      ]
+    },
+    {
+      "country": "ITA",
+      "country_name": "Italy",
+      "year": 2012,
+      "coordinates": [
+        -0.7013362054265918,
+        -1.2820377827566083
+      ]
+    },
+    {
+      "country": "ITA",
+      "country_name": "Italy",
+      "year": 2013,
+      "coordinates": [
+        -0.7473012468449753,
+        -1.378122451731659
+      ]
+    },
+    {
+      "country": "ITA",
+      "country_name": "Italy",
+      "year": 2014,
+      "coordinates": [
+        -0.8418250611675229,
+        -1.1743173235217779
+      ]
+    },
+    {
+      "country": "ITA",
+      "country_name": "Italy",
+      "year": 2015,
+      "coordinates": [
+        -0.8189455713272202,
+        -1.0388149160900424
+      ]
+    },
+    {
+      "country": "ITA",
+      "country_name": "Italy",
+      "year": 2016,
+      "coordinates": [
+        -0.7268439461449612,
+        -0.7166838028079119
+      ]
+    },
+    {
+      "country": "ITA",
+      "country_name": "Italy",
+      "year": 2017,
+      "coordinates": [
+        -0.6654548814369537,
+        -0.6914626493064571
+      ]
+    },
+    {
+      "country": "ITA",
+      "country_name": "Italy",
+      "year": 2018,
+      "coordinates": [
+        -0.6363477485370506,
+        -1.2581924176901451
+      ]
+    },
+    {
+      "country": "ITA",
+      "country_name": "Italy",
+      "year": 2019,
+      "coordinates": [
+        -0.6588500726211153,
+        -1.400978572609191
+      ]
+    },
+    {
+      "country": "ITA",
+      "country_name": "Italy",
+      "year": 2020,
+      "coordinates": [
+        -0.3864196047824398,
+        -1.8292376341905854
+      ]
+    },
+    {
+      "country": "ITA",
+      "country_name": "Italy",
+      "year": 2021,
+      "coordinates": [
+        -0.3895699779356399,
+        -0.9866001730524735
+      ]
+    },
+    {
+      "country": "ITA",
+      "country_name": "Italy",
+      "year": 2022,
+      "coordinates": [
+        -0.2656421474453986,
+        -1.2592429301214325
+      ]
+    },
+    {
+      "country": "ITA",
+      "country_name": "Italy",
+      "year": 2023,
+      "coordinates": [
+        -0.19884910934348451,
+        -1.2119058011754542
+      ]
+    },
+    {
+      "country": "JPN",
+      "country_name": "Japan",
+      "year": 1970,
+      "coordinates": [
+        -0.4327404832051371,
+        -0.8951545303233148
+      ]
+    },
+    {
+      "country": "JPN",
+      "country_name": "Japan",
+      "year": 1971,
+      "coordinates": [
+        -0.5664432220310702,
+        -0.4035864768145713
+      ]
+    },
+    {
+      "country": "JPN",
+      "country_name": "Japan",
+      "year": 1972,
+      "coordinates": [
+        -0.5868109267080293,
+        -0.17821482614397768
+      ]
+    },
+    {
+      "country": "JPN",
+      "country_name": "Japan",
+      "year": 1973,
+      "coordinates": [
+        -0.5236015317488573,
+        -0.2740162205829327
+      ]
+    },
+    {
+      "country": "JPN",
+      "country_name": "Japan",
+      "year": 1974,
+      "coordinates": [
+        -0.3936822091887243,
+        -0.8433835429706342
+      ]
+    },
+    {
+      "country": "JPN",
+      "country_name": "Japan",
+      "year": 1975,
+      "coordinates": [
+        -0.2780172063644866,
+        0.11755024004393774
+      ]
+    },
+    {
+      "country": "JPN",
+      "country_name": "Japan",
+      "year": 1976,
+      "coordinates": [
+        -0.29006438166381776,
+        0.14569903344675192
+      ]
+    },
+    {
+      "country": "JPN",
+      "country_name": "Japan",
+      "year": 1977,
+      "coordinates": [
+        -0.3505069551494749,
+        -0.20653483997114308
+      ]
+    },
+    {
+      "country": "JPN",
+      "country_name": "Japan",
+      "year": 1978,
+      "coordinates": [
+        -0.36415060811409167,
+        -0.009827217428107942
+      ]
+    },
+    {
+      "country": "JPN",
+      "country_name": "Japan",
+      "year": 1979,
+      "coordinates": [
+        -0.3623791782118353,
+        -0.01858977119184371
+      ]
+    },
+    {
+      "country": "JPN",
+      "country_name": "Japan",
+      "year": 1980,
+      "coordinates": [
+        -0.3013355344466684,
+        -0.1449033655832306
+      ]
+    },
+    {
+      "country": "JPN",
+      "country_name": "Japan",
+      "year": 1981,
+      "coordinates": [
+        -0.2499221275745908,
+        0.164642684847409
+      ]
+    },
+    {
+      "country": "JPN",
+      "country_name": "Japan",
+      "year": 1982,
+      "coordinates": [
+        -0.24446834177488444,
+        0.21870885747122987
+      ]
+    },
+    {
+      "country": "JPN",
+      "country_name": "Japan",
+      "year": 1983,
+      "coordinates": [
+        -0.22732510090924515,
+        0.46290723339152673
+      ]
+    },
+    {
+      "country": "JPN",
+      "country_name": "Japan",
+      "year": 1984,
+      "coordinates": [
+        -0.1578885287775738,
+        0.7541506908411149
+      ]
+    },
+    {
+      "country": "JPN",
+      "country_name": "Japan",
+      "year": 1985,
+      "coordinates": [
+        -0.18024719814212972,
+        0.8182631025779331
+      ]
+    },
+    {
+      "country": "JPN",
+      "country_name": "Japan",
+      "year": 1986,
+      "coordinates": [
+        -0.12012812257518957,
+        0.6119044003124614
+      ]
+    },
+    {
+      "country": "JPN",
+      "country_name": "Japan",
+      "year": 1987,
+      "coordinates": [
+        -0.12598167558291987,
+        0.77405042496507
+      ]
+    },
+    {
+      "country": "JPN",
+      "country_name": "Japan",
+      "year": 1988,
+      "coordinates": [
+        -0.08824936445824787,
+        0.9087584009494686
+      ]
+    },
+    {
+      "country": "JPN",
+      "country_name": "Japan",
+      "year": 1989,
+      "coordinates": [
+        0.009071137998645623,
+        0.907241012633472
+      ]
+    },
+    {
+      "country": "JPN",
+      "country_name": "Japan",
+      "year": 1990,
+      "coordinates": [
+        0.08943246800336296,
+        1.1601370291378466
+      ]
+    },
+    {
+      "country": "JPN",
+      "country_name": "Japan",
+      "year": 1991,
+      "coordinates": [
+        0.1392349687634433,
+        1.3991254656154377
+      ]
+    },
+    {
+      "country": "JPN",
+      "country_name": "Japan",
+      "year": 1992,
+      "coordinates": [
+        0.1982898108840603,
+        1.1120333780451772
+      ]
+    },
+    {
+      "country": "JPN",
+      "country_name": "Japan",
+      "year": 1993,
+      "coordinates": [
+        0.14495964492729826,
+        0.8052155179363751
+      ]
+    },
+    {
+      "country": "JPN",
+      "country_name": "Japan",
+      "year": 1994,
+      "coordinates": [
+        -0.002758456738483983,
+        0.220891245947284
+      ]
+    },
+    {
+      "country": "JPN",
+      "country_name": "Japan",
+      "year": 1995,
+      "coordinates": [
+        -0.02527226647738916,
+        0.47631486257231426
+      ]
+    },
+    {
+      "country": "JPN",
+      "country_name": "Japan",
+      "year": 1996,
+      "coordinates": [
+        -0.0689088800359745,
+        0.2483184153012564
+      ]
+    },
+    {
+      "country": "JPN",
+      "country_name": "Japan",
+      "year": 1997,
+      "coordinates": [
+        -0.08521023723940394,
+        0.07565630998008821
+      ]
+    },
+    {
+      "country": "JPN",
+      "country_name": "Japan",
+      "year": 1998,
+      "coordinates": [
+        0.003965183715978328,
+        0.3151147375480769
+      ]
+    },
+    {
+      "country": "JPN",
+      "country_name": "Japan",
+      "year": 1999,
+      "coordinates": [
+        -0.008847738694116732,
+        0.22121994512064302
+      ]
+    },
+    {
+      "country": "JPN",
+      "country_name": "Japan",
+      "year": 2000,
+      "coordinates": [
+        -0.1313837274290538,
+        -0.09198762983375255
+      ]
+    },
+    {
+      "country": "JPN",
+      "country_name": "Japan",
+      "year": 2001,
+      "coordinates": [
+        -0.0949439976175158,
+        -0.340917844493311
+      ]
+    },
+    {
+      "country": "JPN",
+      "country_name": "Japan",
+      "year": 2002,
+      "coordinates": [
+        -0.04363561181067022,
+        -0.4053652421188858
+      ]
+    },
+    {
+      "country": "JPN",
+      "country_name": "Japan",
+      "year": 2003,
+      "coordinates": [
+        0.005013177834620913,
+        -0.3512353298069846
+      ]
+    },
+    {
+      "country": "JPN",
+      "country_name": "Japan",
+      "year": 2004,
+      "coordinates": [
+        -0.03629836436851035,
+        -0.38732061390389505
+      ]
+    },
+    {
+      "country": "JPN",
+      "country_name": "Japan",
+      "year": 2005,
+      "coordinates": [
+        -0.04039696976264691,
+        -0.5079776458478064
+      ]
+    },
+    {
+      "country": "JPN",
+      "country_name": "Japan",
+      "year": 2006,
+      "coordinates": [
+        -0.031540471310912324,
+        -0.5731676417490543
+      ]
+    },
+    {
+      "country": "JPN",
+      "country_name": "Japan",
+      "year": 2007,
+      "coordinates": [
+        0.028244204709730738,
+        -0.6336783550117948
+      ]
+    },
+    {
+      "country": "JPN",
+      "country_name": "Japan",
+      "year": 2008,
+      "coordinates": [
+        0.14694228037230994,
+        -0.7213926474565173
+      ]
+    },
+    {
+      "country": "JPN",
+      "country_name": "Japan",
+      "year": 2009,
+      "coordinates": [
+        0.15521941532810005,
+        -0.9105954385866241
+      ]
+    },
+    {
+      "country": "JPN",
+      "country_name": "Japan",
+      "year": 2010,
+      "coordinates": [
+        -0.020109236612245878,
+        -0.36782833386475594
+      ]
+    },
+    {
+      "country": "JPN",
+      "country_name": "Japan",
+      "year": 2011,
+      "coordinates": [
+        0.19265298098212327,
+        -1.1080524779320784
+      ]
+    },
+    {
+      "country": "JPN",
+      "country_name": "Japan",
+      "year": 2012,
+      "coordinates": [
+        0.2504809227259812,
+        -1.1029658918960863
+      ]
+    },
+    {
+      "country": "JPN",
+      "country_name": "Japan",
+      "year": 2013,
+      "coordinates": [
+        0.28611210145154126,
+        -1.2146530373038777
+      ]
+    },
+    {
+      "country": "JPN",
+      "country_name": "Japan",
+      "year": 2014,
+      "coordinates": [
+        0.30860688985229295,
+        -1.3160185908576
+      ]
+    },
+    {
+      "country": "JPN",
+      "country_name": "Japan",
+      "year": 2015,
+      "coordinates": [
+        0.286765471823031,
+        -1.2401659891037236
+      ]
+    },
+    {
+      "country": "JPN",
+      "country_name": "Japan",
+      "year": 2016,
+      "coordinates": [
+        0.3287664738005934,
+        -1.4042931422542466
+      ]
+    },
+    {
+      "country": "JPN",
+      "country_name": "Japan",
+      "year": 2017,
+      "coordinates": [
+        0.33080005630646747,
+        -1.2750886111299637
+      ]
+    },
+    {
+      "country": "JPN",
+      "country_name": "Japan",
+      "year": 2018,
+      "coordinates": [
+        0.3950724217424816,
+        -1.0988425919707738
+      ]
+    },
+    {
+      "country": "JPN",
+      "country_name": "Japan",
+      "year": 2019,
+      "coordinates": [
+        0.525710158629621,
+        -1.411850670184244
+      ]
+    },
+    {
+      "country": "JPN",
+      "country_name": "Japan",
+      "year": 2020,
+      "coordinates": [
+        0.4876978791850247,
+        -1.3616041559347947
+      ]
+    },
+    {
+      "country": "JPN",
+      "country_name": "Japan",
+      "year": 2021,
+      "coordinates": [
+        0.4554315279482628,
+        -0.9831456498241316
+      ]
+    },
+    {
+      "country": "JPN",
+      "country_name": "Japan",
+      "year": 2022,
+      "coordinates": [
+        0.5707540301110937,
+        -0.8142870627065181
+      ]
+    },
+    {
+      "country": "JPN",
+      "country_name": "Japan",
+      "year": 2023,
+      "coordinates": [
+        0.5596961742073167,
+        -1.0896095791255493
+      ]
+    },
+    {
+      "country": "KOR",
+      "country_name": "Korea, Rep.",
+      "year": 1970,
+      "coordinates": [
+        -0.12475165213415564,
+        1.119955463000197
+      ]
+    },
+    {
+      "country": "KOR",
+      "country_name": "Korea, Rep.",
+      "year": 1971,
+      "coordinates": [
+        -0.003521028830577924,
+        1.722979484985209
+      ]
+    },
+    {
+      "country": "KOR",
+      "country_name": "Korea, Rep.",
+      "year": 1972,
+      "coordinates": [
+        0.17253069745653188,
+        1.5714936664548955
+      ]
+    },
+    {
+      "country": "KOR",
+      "country_name": "Korea, Rep.",
+      "year": 1973,
+      "coordinates": [
+        -0.0016871756220888817,
+        2.0288684706395403
+      ]
+    },
+    {
+      "country": "KOR",
+      "country_name": "Korea, Rep.",
+      "year": 1974,
+      "coordinates": [
+        0.12699589381797938,
+        1.6504224043028195
+      ]
+    },
+    {
+      "country": "KOR",
+      "country_name": "Korea, Rep.",
+      "year": 1975,
+      "coordinates": [
+        0.17602732044208325,
+        1.5470421017791993
+      ]
+    },
+    {
+      "country": "KOR",
+      "country_name": "Korea, Rep.",
+      "year": 1976,
+      "coordinates": [
+        0.20897493685517454,
+        1.8848337085685174
+      ]
+    },
+    {
+      "country": "KOR",
+      "country_name": "Korea, Rep.",
+      "year": 1977,
+      "coordinates": [
+        0.35732347037436557,
+        2.188217765686779
+      ]
+    },
+    {
+      "country": "KOR",
+      "country_name": "Korea, Rep.",
+      "year": 1978,
+      "coordinates": [
+        0.30385347355382103,
+        1.5502449590635665
+      ]
+    },
+    {
+      "country": "KOR",
+      "country_name": "Korea, Rep.",
+      "year": 1979,
+      "coordinates": [
+        0.33088580196915707,
+        1.8341162742575203
+      ]
+    },
+    {
+      "country": "KOR",
+      "country_name": "Korea, Rep.",
+      "year": 1980,
+      "coordinates": [
+        0.5685134958095498,
+        0.788400020362504
+      ]
+    },
+    {
+      "country": "KOR",
+      "country_name": "Korea, Rep.",
+      "year": 1981,
+      "coordinates": [
+        0.4801296348597378,
+        1.419725518500005
+      ]
+    },
+    {
+      "country": "KOR",
+      "country_name": "Korea, Rep.",
+      "year": 1982,
+      "coordinates": [
+        0.4194386801359583,
+        1.2820620159488982
+      ]
+    },
+    {
+      "country": "KOR",
+      "country_name": "Korea, Rep.",
+      "year": 1983,
+      "coordinates": [
+        0.21450353525038796,
+        1.4928214685075503
+      ]
+    },
+    {
+      "country": "KOR",
+      "country_name": "Korea, Rep.",
+      "year": 1984,
+      "coordinates": [
+        0.25166840363887577,
+        1.2945620014237889
+      ]
+    },
+    {
+      "country": "KOR",
+      "country_name": "Korea, Rep.",
+      "year": 1985,
+      "coordinates": [
+        0.3085331790362929,
+        1.1417699467363092
+      ]
+    },
+    {
+      "country": "KOR",
+      "country_name": "Korea, Rep.",
+      "year": 1986,
+      "coordinates": [
+        0.21882849188670972,
+        1.3619715715793255
+      ]
+    },
+    {
+      "country": "KOR",
+      "country_name": "Korea, Rep.",
+      "year": 1987,
+      "coordinates": [
+        0.031550458931761866,
+        1.4718849159896157
+      ]
+    },
+    {
+      "country": "KOR",
+      "country_name": "Korea, Rep.",
+      "year": 1988,
+      "coordinates": [
+        0.12265998652346538,
+        1.6028002775472237
+      ]
+    },
+    {
+      "country": "KOR",
+      "country_name": "Korea, Rep.",
+      "year": 1989,
+      "coordinates": [
+        0.27351177820026834,
+        1.6188045324129994
+      ]
+    },
+    {
+      "country": "KOR",
+      "country_name": "Korea, Rep.",
+      "year": 1990,
+      "coordinates": [
+        0.12697493213713892,
+        1.3130558948871078
+      ]
+    },
+    {
+      "country": "KOR",
+      "country_name": "Korea, Rep.",
+      "year": 1991,
+      "coordinates": [
+        0.12397574221246083,
+        1.1792839653222824
+      ]
+    },
+    {
+      "country": "KOR",
+      "country_name": "Korea, Rep.",
+      "year": 1992,
+      "coordinates": [
+        0.18887214579997277,
+        0.7019302766682413
+      ]
+    },
+    {
+      "country": "KOR",
+      "country_name": "Korea, Rep.",
+      "year": 1993,
+      "coordinates": [
+        0.20902736662900703,
+        0.8559004412149507
+      ]
+    },
+    {
+      "country": "KOR",
+      "country_name": "Korea, Rep.",
+      "year": 1994,
+      "coordinates": [
+        0.14900109453222832,
+        0.9366125437364823
+      ]
+    },
+    {
+      "country": "KOR",
+      "country_name": "Korea, Rep.",
+      "year": 1995,
+      "coordinates": [
+        0.20481733521537185,
+        1.447435331968976
+      ]
+    },
+    {
+      "country": "KOR",
+      "country_name": "Korea, Rep.",
+      "year": 1996,
+      "coordinates": [
+        0.21209644068906047,
+        1.2585101780916805
+      ]
+    },
+    {
+      "country": "KOR",
+      "country_name": "Korea, Rep.",
+      "year": 1997,
+      "coordinates": [
+        0.1455035256795263,
+        0.6517623780783071
+      ]
+    },
+    {
+      "country": "KOR",
+      "country_name": "Korea, Rep.",
+      "year": 1998,
+      "coordinates": [
+        0.2916119775825378,
+        -0.12848409710595665
+      ]
+    },
+    {
+      "country": "KOR",
+      "country_name": "Korea, Rep.",
+      "year": 1999,
+      "coordinates": [
+        0.0234376149414152,
+        1.3339973170252704
+      ]
+    },
+    {
+      "country": "KOR",
+      "country_name": "Korea, Rep.",
+      "year": 2000,
+      "coordinates": [
+        -0.029650533250213676,
+        0.8795023631006718
+      ]
+    },
+    {
+      "country": "KOR",
+      "country_name": "Korea, Rep.",
+      "year": 2001,
+      "coordinates": [
+        0.019172353721375313,
+        0.25615427651651956
+      ]
+    },
+    {
+      "country": "KOR",
+      "country_name": "Korea, Rep.",
+      "year": 2002,
+      "coordinates": [
+        -0.06812207699906161,
+        0.3175601865501944
+      ]
+    },
+    {
+      "country": "KOR",
+      "country_name": "Korea, Rep.",
+      "year": 2003,
+      "coordinates": [
+        -0.026037826464194416,
+        0.044789178564664626
+      ]
+    },
+    {
+      "country": "KOR",
+      "country_name": "Korea, Rep.",
+      "year": 2004,
+      "coordinates": [
+        0.022949440928150128,
+        0.3843937516593903
+      ]
+    },
+    {
+      "country": "KOR",
+      "country_name": "Korea, Rep.",
+      "year": 2005,
+      "coordinates": [
+        -0.01363266473005767,
+        0.15865066605021394
+      ]
+    },
+    {
+      "country": "KOR",
+      "country_name": "Korea, Rep.",
+      "year": 2006,
+      "coordinates": [
+        0.046921177636483846,
+        0.6444908453088648
+      ]
+    },
+    {
+      "country": "KOR",
+      "country_name": "Korea, Rep.",
+      "year": 2007,
+      "coordinates": [
+        0.06798085634285889,
+        0.4978039539110373
+      ]
+    },
+    {
+      "country": "KOR",
+      "country_name": "Korea, Rep.",
+      "year": 2008,
+      "coordinates": [
+        0.09395473824808018,
+        0.3001417429692789
+      ]
+    },
+    {
+      "country": "KOR",
+      "country_name": "Korea, Rep.",
+      "year": 2009,
+      "coordinates": [
+        0.12920908935831685,
+        -0.35793563059111067
+      ]
+    },
+    {
+      "country": "KOR",
+      "country_name": "Korea, Rep.",
+      "year": 2010,
+      "coordinates": [
+        0.12478842317176117,
+        0.28049366704210127
+      ]
+    },
+    {
+      "country": "KOR",
+      "country_name": "Korea, Rep.",
+      "year": 2011,
+      "coordinates": [
+        0.1980889423474997,
+        0.18202429795695707
+      ]
+    },
+    {
+      "country": "KOR",
+      "country_name": "Korea, Rep.",
+      "year": 2012,
+      "coordinates": [
+        0.14502751193825938,
+        -0.23245604134370734
+      ]
+    },
+    {
+      "country": "KOR",
+      "country_name": "Korea, Rep.",
+      "year": 2013,
+      "coordinates": [
+        0.09631048815132676,
+        -0.6386328819799238
+      ]
+    },
+    {
+      "country": "KOR",
+      "country_name": "Korea, Rep.",
+      "year": 2014,
+      "coordinates": [
+        0.12030908556266527,
+        -0.2013090981799187
+      ]
+    },
+    {
+      "country": "KOR",
+      "country_name": "Korea, Rep.",
+      "year": 2015,
+      "coordinates": [
+        0.011177684927623197,
+        -0.4466390696014849
+      ]
+    },
+    {
+      "country": "KOR",
+      "country_name": "Korea, Rep.",
+      "year": 2016,
+      "coordinates": [
+        0.13996843309200271,
+        -0.11510007406765047
+      ]
+    },
+    {
+      "country": "KOR",
+      "country_name": "Korea, Rep.",
+      "year": 2017,
+      "coordinates": [
+        0.1599585141768747,
+        -0.22035301626627926
+      ]
+    },
+    {
+      "country": "KOR",
+      "country_name": "Korea, Rep.",
+      "year": 2018,
+      "coordinates": [
+        0.2087527289511931,
+        -0.30952571566498444
+      ]
+    },
+    {
+      "country": "KOR",
+      "country_name": "Korea, Rep.",
+      "year": 2019,
+      "coordinates": [
+        0.26301550580105587,
+        0.06534557221830847
+      ]
+    },
+    {
+      "country": "KOR",
+      "country_name": "Korea, Rep.",
+      "year": 2020,
+      "coordinates": [
+        0.3146284898541588,
+        -0.35101208584290067
+      ]
+    },
+    {
+      "country": "KOR",
+      "country_name": "Korea, Rep.",
+      "year": 2021,
+      "coordinates": [
+        0.0826571566737915,
+        -0.6768678970304634
+      ]
+    },
+    {
+      "country": "KOR",
+      "country_name": "Korea, Rep.",
+      "year": 2022,
+      "coordinates": [
+        -0.06906589103214915,
+        -1.2082866394386087
+      ]
+    },
+    {
+      "country": "KOR",
+      "country_name": "Korea, Rep.",
+      "year": 2023,
+      "coordinates": [
+        -0.18725573027586107,
+        -1.1171047235844687
+      ]
+    },
+    {
+      "country": "MEX",
+      "country_name": "Mexico",
+      "year": 1970,
+      "coordinates": [
+        -1.1607728442606402,
+        -0.32836999466558264
+      ]
+    },
+    {
+      "country": "MEX",
+      "country_name": "Mexico",
+      "year": 1971,
+      "coordinates": [
+        -0.9386976585460417,
+        -0.3214807976327491
+      ]
+    },
+    {
+      "country": "MEX",
+      "country_name": "Mexico",
+      "year": 1972,
+      "coordinates": [
+        -0.7161402296057778,
+        0.29695341176077295
+      ]
+    },
+    {
+      "country": "MEX",
+      "country_name": "Mexico",
+      "year": 1973,
+      "coordinates": [
+        -0.7928553809661595,
+        0.3024308292548678
+      ]
+    },
+    {
+      "country": "MEX",
+      "country_name": "Mexico",
+      "year": 1974,
+      "coordinates": [
+        -0.929394123361353,
+        -0.04753968833977952
+      ]
+    },
+    {
+      "country": "MEX",
+      "country_name": "Mexico",
+      "year": 1975,
+      "coordinates": [
+        -0.8890910978705802,
+        -0.036578121869732985
+      ]
+    },
+    {
+      "country": "MEX",
+      "country_name": "Mexico",
+      "year": 1976,
+      "coordinates": [
+        -0.7450934410398805,
+        -0.05098809073393904
+      ]
+    },
+    {
+      "country": "MEX",
+      "country_name": "Mexico",
+      "year": 1977,
+      "coordinates": [
+        -0.6834555042349866,
+        -0.13137542358464782
+      ]
+    },
+    {
+      "country": "MEX",
+      "country_name": "Mexico",
+      "year": 1978,
+      "coordinates": [
+        -0.6755382488336305,
+        0.35497066696788665
+      ]
+    },
+    {
+      "country": "MEX",
+      "country_name": "Mexico",
+      "year": 1979,
+      "coordinates": [
+        -0.6022862684708096,
+        0.4728953330547864
+      ]
+    },
+    {
+      "country": "MEX",
+      "country_name": "Mexico",
+      "year": 1980,
+      "coordinates": [
+        -0.6180811695301234,
+        0.3211070018175754
+      ]
+    },
+    {
+      "country": "MEX",
+      "country_name": "Mexico",
+      "year": 1981,
+      "coordinates": [
+        -0.5886883407594835,
+        0.44547514155214163
+      ]
+    },
+    {
+      "country": "MEX",
+      "country_name": "Mexico",
+      "year": 1982,
+      "coordinates": [
+        -0.32911859782112496,
+        -0.14349729111039
+      ]
+    },
+    {
+      "country": "MEX",
+      "country_name": "Mexico",
+      "year": 1983,
+      "coordinates": [
+        -0.4029220871826228,
+        -0.7649801421000277
+      ]
+    },
+    {
+      "country": "MEX",
+      "country_name": "Mexico",
+      "year": 1984,
+      "coordinates": [
+        -0.4639680845039806,
+        -0.13204362293442173
+      ]
+    },
+    {
+      "country": "MEX",
+      "country_name": "Mexico",
+      "year": 1985,
+      "coordinates": [
+        -0.41947758574065624,
+        -0.29055741327252566
+      ]
+    },
+    {
+      "country": "MEX",
+      "country_name": "Mexico",
+      "year": 1986,
+      "coordinates": [
+        -0.38252487551744596,
+        -0.7042733341185642
+      ]
+    },
+    {
+      "country": "MEX",
+      "country_name": "Mexico",
+      "year": 1987,
+      "coordinates": [
+        -0.5603014700908123,
+        -0.27392988102042287
+      ]
+    },
+    {
+      "country": "MEX",
+      "country_name": "Mexico",
+      "year": 1988,
+      "coordinates": [
+        -0.5165083638530598,
+        -0.3226029345055692
+      ]
+    },
+    {
+      "country": "MEX",
+      "country_name": "Mexico",
+      "year": 1989,
+      "coordinates": [
+        -0.6115993769219986,
+        -0.24739691464397132
+      ]
+    },
+    {
+      "country": "MEX",
+      "country_name": "Mexico",
+      "year": 1990,
+      "coordinates": [
+        -0.6090303583325014,
+        -0.094872172051734
+      ]
+    },
+    {
+      "country": "MEX",
+      "country_name": "Mexico",
+      "year": 1991,
+      "coordinates": [
+        -0.5387006080348216,
+        -0.14842826103792345
+      ]
+    },
+    {
+      "country": "MEX",
+      "country_name": "Mexico",
+      "year": 1992,
+      "coordinates": [
+        -0.44696859810735245,
+        -0.15760090183510192
+      ]
+    },
+    {
+      "country": "MEX",
+      "country_name": "Mexico",
+      "year": 1993,
+      "coordinates": [
+        -0.26325569815136446,
+        0.11656793238147968
+      ]
+    },
+    {
+      "country": "MEX",
+      "country_name": "Mexico",
+      "year": 1994,
+      "coordinates": [
+        -0.20709120258083297,
+        0.20057609104583143
+      ]
+    },
+    {
+      "country": "MEX",
+      "country_name": "Mexico",
+      "year": 1995,
+      "coordinates": [
+        -0.1366823516934706,
+        -0.6750073550861139
+      ]
+    },
+    {
+      "country": "MEX",
+      "country_name": "Mexico",
+      "year": 1996,
+      "coordinates": [
+        -0.26982263657038674,
+        0.2888259094943315
+      ]
+    },
+    {
+      "country": "MEX",
+      "country_name": "Mexico",
+      "year": 1997,
+      "coordinates": [
+        -0.23307769681053406,
+        0.576489305265628
+      ]
+    },
+    {
+      "country": "MEX",
+      "country_name": "Mexico",
+      "year": 1998,
+      "coordinates": [
+        -0.21214813006973285,
+        0.24356322496775257
+      ]
+    },
+    {
+      "country": "MEX",
+      "country_name": "Mexico",
+      "year": 1999,
+      "coordinates": [
+        -0.15533415936644698,
+        0.008435791976677154
+      ]
+    },
+    {
+      "country": "MEX",
+      "country_name": "Mexico",
+      "year": 2000,
+      "coordinates": [
+        -0.2130208064681603,
+        0.15312430122632326
+      ]
+    },
+    {
+      "country": "MEX",
+      "country_name": "Mexico",
+      "year": 2001,
+      "coordinates": [
+        -0.11808013619615292,
+        -0.34930670249476375
+      ]
+    },
+    {
+      "country": "MEX",
+      "country_name": "Mexico",
+      "year": 2002,
+      "coordinates": [
+        -0.15175787346415262,
+        -0.19615406676849315
+      ]
+    },
+    {
+      "country": "MEX",
+      "country_name": "Mexico",
+      "year": 2003,
+      "coordinates": [
+        -0.1603104805242577,
+        -0.2568010099986805
+      ]
+    },
+    {
+      "country": "MEX",
+      "country_name": "Mexico",
+      "year": 2004,
+      "coordinates": [
+        -0.1704518442150119,
+        0.00857599545538991
+      ]
+    },
+    {
+      "country": "MEX",
+      "country_name": "Mexico",
+      "year": 2005,
+      "coordinates": [
+        -0.19276537373546973,
+        -0.31998233844960633
+      ]
+    },
+    {
+      "country": "MEX",
+      "country_name": "Mexico",
+      "year": 2006,
+      "coordinates": [
+        -0.2456107357725191,
+        -0.125383283793345
+      ]
+    },
+    {
+      "country": "MEX",
+      "country_name": "Mexico",
+      "year": 2007,
+      "coordinates": [
+        -0.20939409593186506,
+        -0.3893802437571889
+      ]
+    },
+    {
+      "country": "MEX",
+      "country_name": "Mexico",
+      "year": 2008,
+      "coordinates": [
+        -0.2010737648797077,
+        -0.37692884835301577
+      ]
+    },
+    {
+      "country": "MEX",
+      "country_name": "Mexico",
+      "year": 2009,
+      "coordinates": [
+        0.007587283375959534,
+        -1.132679262461136
+      ]
+    },
+    {
+      "country": "MEX",
+      "country_name": "Mexico",
+      "year": 2010,
+      "coordinates": [
+        -0.18232867069860104,
+        -0.35442112440973994
+      ]
+    },
+    {
+      "country": "MEX",
+      "country_name": "Mexico",
+      "year": 2011,
+      "coordinates": [
+        -0.20247169218641706,
+        -0.30331587892948064
+      ]
+    },
+    {
+      "country": "MEX",
+      "country_name": "Mexico",
+      "year": 2012,
+      "coordinates": [
+        -0.1437708212993191,
+        -0.37486594322582245
+      ]
+    },
+    {
+      "country": "MEX",
+      "country_name": "Mexico",
+      "year": 2013,
+      "coordinates": [
+        -0.13212927154909196,
+        -0.7002015953048708
+      ]
+    },
+    {
+      "country": "MEX",
+      "country_name": "Mexico",
+      "year": 2014,
+      "coordinates": [
+        -0.1683382467652953,
+        -0.3674372836768779
+      ]
+    },
+    {
+      "country": "MEX",
+      "country_name": "Mexico",
+      "year": 2015,
+      "coordinates": [
+        -0.21929352037977895,
+        -0.4539404546443258
+      ]
+    },
+    {
+      "country": "MEX",
+      "country_name": "Mexico",
+      "year": 2016,
+      "coordinates": [
+        -0.24411036819654075,
+        -0.5561284766042266
+      ]
+    },
+    {
+      "country": "MEX",
+      "country_name": "Mexico",
+      "year": 2017,
+      "coordinates": [
+        -0.2568470074844405,
+        -0.5141782996997467
+      ]
+    },
+    {
+      "country": "MEX",
+      "country_name": "Mexico",
+      "year": 2018,
+      "coordinates": [
+        -0.24586297651435635,
+        -0.7793306364756685
+      ]
+    },
+    {
+      "country": "MEX",
+      "country_name": "Mexico",
+      "year": 2019,
+      "coordinates": [
+        -0.19943140262831394,
+        -0.8032006212514492
+      ]
+    },
+    {
+      "country": "MEX",
+      "country_name": "Mexico",
+      "year": 2020,
+      "coordinates": [
+        -0.006333136934669125,
+        -1.4693964351469784
+      ]
+    },
+    {
+      "country": "MEX",
+      "country_name": "Mexico",
+      "year": 2021,
+      "coordinates": [
+        -0.11090430263226868,
+        -0.39902136184035086
+      ]
+    },
+    {
+      "country": "MEX",
+      "country_name": "Mexico",
+      "year": 2022,
+      "coordinates": [
+        0.09709596775818,
+        -0.8398988188132372
+      ]
+    },
+    {
+      "country": "MEX",
+      "country_name": "Mexico",
+      "year": 2023,
+      "coordinates": [
+        0.13679167118041755,
+        -0.737933942283442
+      ]
+    },
+    {
+      "country": "RUS",
+      "country_name": "Russia",
+      "year": 1992,
+      "coordinates": [
+        1.0542782242424764,
+        -1.636624792488627
+      ]
+    },
+    {
+      "country": "RUS",
+      "country_name": "Russia",
+      "year": 1993,
+      "coordinates": [
+        1.0239769537675794,
+        -1.2477906249996533
+      ]
+    },
+    {
+      "country": "RUS",
+      "country_name": "Russia",
+      "year": 1994,
+      "coordinates": [
+        0.6820827693669563,
+        -1.4034844857795958
+      ]
+    },
+    {
+      "country": "RUS",
+      "country_name": "Russia",
+      "year": 1995,
+      "coordinates": [
+        0.8110330170492659,
+        -0.9767505407739097
+      ]
+    },
+    {
+      "country": "RUS",
+      "country_name": "Russia",
+      "year": 1996,
+      "coordinates": [
+        0.702596944104476,
+        -0.9753960135052882
+      ]
+    },
+    {
+      "country": "RUS",
+      "country_name": "Russia",
+      "year": 1997,
+      "coordinates": [
+        0.6143574441414916,
+        -0.6582815722531441
+      ]
+    },
+    {
+      "country": "RUS",
+      "country_name": "Russia",
+      "year": 1998,
+      "coordinates": [
+        0.011277064814229997,
+        -1.2971523717466906
+      ]
+    },
+    {
+      "country": "RUS",
+      "country_name": "Russia",
+      "year": 1999,
+      "coordinates": [
+        0.5733875094257046,
+        -0.4127507935163132
+      ]
+    },
+    {
+      "country": "RUS",
+      "country_name": "Russia",
+      "year": 2000,
+      "coordinates": [
+        0.5951766044107915,
+        -0.23253346608185668
+      ]
+    },
+    {
+      "country": "RUS",
+      "country_name": "Russia",
+      "year": 2001,
+      "coordinates": [
+        0.8238342566195389,
+        -0.654587857760218
+      ]
+    },
+    {
+      "country": "RUS",
+      "country_name": "Russia",
+      "year": 2002,
+      "coordinates": [
+        1.0921533501118617,
+        -0.5620711898413752
+      ]
+    },
+    {
+      "country": "RUS",
+      "country_name": "Russia",
+      "year": 2003,
+      "coordinates": [
+        1.0018263418112596,
+        -0.5404727999128505
+      ]
+    },
+    {
+      "country": "RUS",
+      "country_name": "Russia",
+      "year": 2004,
+      "coordinates": [
+        1.14207041437513,
+        -0.6780074550646803
+      ]
+    },
+    {
+      "country": "RUS",
+      "country_name": "Russia",
+      "year": 2005,
+      "coordinates": [
+        0.8289148420491806,
+        -0.8746485513191956
+      ]
+    },
+    {
+      "country": "RUS",
+      "country_name": "Russia",
+      "year": 2006,
+      "coordinates": [
+        0.7632980536966901,
+        -0.9232373817274164
+      ]
+    },
+    {
+      "country": "RUS",
+      "country_name": "Russia",
+      "year": 2007,
+      "coordinates": [
+        0.8470974214183153,
+        -1.022118435766389
+      ]
+    },
+    {
+      "country": "RUS",
+      "country_name": "Russia",
+      "year": 2008,
+      "coordinates": [
+        1.152276382077842,
+        -1.177915161522245
+      ]
+    },
+    {
+      "country": "RUS",
+      "country_name": "Russia",
+      "year": 2009,
+      "coordinates": [
+        1.4117927722200605,
+        -1.9205296862106003
+      ]
+    },
+    {
+      "country": "RUS",
+      "country_name": "Russia",
+      "year": 2010,
+      "coordinates": [
+        1.41530798650223,
+        -1.0470657249923772
+      ]
+    },
+    {
+      "country": "RUS",
+      "country_name": "Russia",
+      "year": 2011,
+      "coordinates": [
+        1.8997362262635513,
+        -1.2408243790572178
+      ]
+    },
+    {
+      "country": "RUS",
+      "country_name": "Russia",
+      "year": 2012,
+      "coordinates": [
+        1.8425499207365774,
+        -0.9331617042418267
+      ]
+    },
+    {
+      "country": "RUS",
+      "country_name": "Russia",
+      "year": 2013,
+      "coordinates": [
+        1.9108196981340526,
+        -1.2499335024447569
+      ]
+    },
+    {
+      "country": "RUS",
+      "country_name": "Russia",
+      "year": 2014,
+      "coordinates": [
+        1.500800232814779,
+        -1.0131024409648297
+      ]
+    },
+    {
+      "country": "RUS",
+      "country_name": "Russia",
+      "year": 2015,
+      "coordinates": [
+        1.7965069096989688,
+        -0.8807132511016222
+      ]
+    },
+    {
+      "country": "RUS",
+      "country_name": "Russia",
+      "year": 2016,
+      "coordinates": [
+        2.134064518208658,
+        -0.6415022004735017
+      ]
+    },
+    {
+      "country": "RUS",
+      "country_name": "Russia",
+      "year": 2017,
+      "coordinates": [
+        1.7960676657842065,
+        -0.8304204346357332
+      ]
+    },
+    {
+      "country": "RUS",
+      "country_name": "Russia",
+      "year": 2018,
+      "coordinates": [
+        1.7559998229082479,
+        -0.8485416127718023
+      ]
+    },
+    {
+      "country": "RUS",
+      "country_name": "Russia",
+      "year": 2019,
+      "coordinates": [
+        1.4223581188013352,
+        -0.6908490495059428
+      ]
+    },
+    {
+      "country": "RUS",
+      "country_name": "Russia",
+      "year": 2020,
+      "coordinates": [
+        1.1242808441422492,
+        -0.863031556283056
+      ]
+    },
+    {
+      "country": "RUS",
+      "country_name": "Russia",
+      "year": 2021,
+      "coordinates": [
+        0.8311245792946114,
+        -0.8593139514251782
+      ]
+    },
+    {
+      "country": "RUS",
+      "country_name": "Russia",
+      "year": 2022,
+      "coordinates": [
+        1.1978284413209024,
+        -0.41689949707040846
+      ]
+    },
+    {
+      "country": "RUS",
+      "country_name": "Russia",
+      "year": 2023,
+      "coordinates": [
+        1.2138289947863,
+        0.03084689501662188
+      ]
+    },
+    {
+      "country": "SAU",
+      "country_name": "Saudi Arabia",
+      "year": 1970,
+      "coordinates": [
+        0.2805987103759557,
+        5.144779445041282
+      ]
+    },
+    {
+      "country": "SAU",
+      "country_name": "Saudi Arabia",
+      "year": 1971,
+      "coordinates": [
+        0.6922070191024573,
+        2.1528319567615477
+      ]
+    },
+    {
+      "country": "SAU",
+      "country_name": "Saudi Arabia",
+      "year": 1972,
+      "coordinates": [
+        0.8623746273028016,
+        2.6607219504678983
+      ]
+    },
+    {
+      "country": "SAU",
+      "country_name": "Saudi Arabia",
+      "year": 1973,
+      "coordinates": [
+        1.0128784564567772,
+        3.063816635739311
+      ]
+    },
+    {
+      "country": "SAU",
+      "country_name": "Saudi Arabia",
+      "year": 1977,
+      "coordinates": [
+        2.211917982838159,
+        2.6171183593449903
+      ]
+    },
+    {
+      "country": "SAU",
+      "country_name": "Saudi Arabia",
+      "year": 1978,
+      "coordinates": [
+        2.48004443354622,
+        2.2455246652957963
+      ]
+    },
+    {
+      "country": "SAU",
+      "country_name": "Saudi Arabia",
+      "year": 1979,
+      "coordinates": [
+        2.213954298673533,
+        2.804879521827514
+      ]
+    },
+    {
+      "country": "SAU",
+      "country_name": "Saudi Arabia",
+      "year": 1980,
+      "coordinates": [
+        1.920663745470919,
+        2.2252485066789207
+      ]
+    },
+    {
+      "country": "SAU",
+      "country_name": "Saudi Arabia",
+      "year": 1981,
+      "coordinates": [
+        2.1830828530762343,
+        2.5123609915242344
+      ]
+    },
+    {
+      "country": "SAU",
+      "country_name": "Saudi Arabia",
+      "year": 1982,
+      "coordinates": [
+        3.1811392057268373,
+        1.6645207345276434
+      ]
+    },
+    {
+      "country": "SAU",
+      "country_name": "Saudi Arabia",
+      "year": 1983,
+      "coordinates": [
+        2.9444984212420646,
+        1.7619516044206391
+      ]
+    },
+    {
+      "country": "SAU",
+      "country_name": "Saudi Arabia",
+      "year": 1984,
+      "coordinates": [
+        3.0541485273504407,
+        1.864580725352415
+      ]
+    },
+    {
+      "country": "SAU",
+      "country_name": "Saudi Arabia",
+      "year": 1985,
+      "coordinates": [
+        2.8712524076110006,
+        1.694034547039436
+      ]
+    },
+    {
+      "country": "SAU",
+      "country_name": "Saudi Arabia",
+      "year": 1987,
+      "coordinates": [
+        2.9003748799139992,
+        2.3927965803335405
+      ]
+    },
+    {
+      "country": "SAU",
+      "country_name": "Saudi Arabia",
+      "year": 1988,
+      "coordinates": [
+        2.43780504951997,
+        1.866796296752777
+      ]
+    },
+    {
+      "country": "SAU",
+      "country_name": "Saudi Arabia",
+      "year": 1989,
+      "coordinates": [
+        2.3227044971242212,
+        1.7739079479903812
+      ]
+    },
+    {
+      "country": "SAU",
+      "country_name": "Saudi Arabia",
+      "year": 1990,
+      "coordinates": [
+        2.3596994836429874,
+        3.196109810251882
+      ]
+    },
+    {
+      "country": "SAU",
+      "country_name": "Saudi Arabia",
+      "year": 1991,
+      "coordinates": [
+        2.0637777253712164,
+        2.231945224589985
+      ]
+    },
+    {
+      "country": "SAU",
+      "country_name": "Saudi Arabia",
+      "year": 1992,
+      "coordinates": [
+        1.9667201378611336,
+        1.8371938427043468
+      ]
+    },
+    {
+      "country": "SAU",
+      "country_name": "Saudi Arabia",
+      "year": 1993,
+      "coordinates": [
+        2.3593001950413965,
+        2.4044014902791817
+      ]
+    },
+    {
+      "country": "SAU",
+      "country_name": "Saudi Arabia",
+      "year": 1994,
+      "coordinates": [
+        1.9371775710306693,
+        1.3890397023236
+      ]
+    },
+    {
+      "country": "SAU",
+      "country_name": "Saudi Arabia",
+      "year": 1995,
+      "coordinates": [
+        1.740732298934977,
+        1.2283299939509804
+      ]
+    },
+    {
+      "country": "SAU",
+      "country_name": "Saudi Arabia",
+      "year": 1996,
+      "coordinates": [
+        1.6991211763338923,
+        1.8314062414215435
+      ]
+    },
+    {
+      "country": "SAU",
+      "country_name": "Saudi Arabia",
+      "year": 1997,
+      "coordinates": [
+        2.2321363116838238,
+        2.701144145755838
+      ]
+    },
+    {
+      "country": "SAU",
+      "country_name": "Saudi Arabia",
+      "year": 1998,
+      "coordinates": [
+        2.7352571152360574,
+        3.1355136848971883
+      ]
+    },
+    {
+      "country": "SAU",
+      "country_name": "Saudi Arabia",
+      "year": 1999,
+      "coordinates": [
+        2.22189058576544,
+        1.7808202300767737
+      ]
+    },
+    {
+      "country": "SAU",
+      "country_name": "Saudi Arabia",
+      "year": 2000,
+      "coordinates": [
+        1.9050940899722968,
+        1.0634100935138058
+      ]
+    },
+    {
+      "country": "SAU",
+      "country_name": "Saudi Arabia",
+      "year": 2001,
+      "coordinates": [
+        2.0801187060381396,
+        0.9458765401024943
+      ]
+    },
+    {
+      "country": "SAU",
+      "country_name": "Saudi Arabia",
+      "year": 2002,
+      "coordinates": [
+        1.949752870168487,
+        0.8088471272710486
+      ]
+    },
+    {
+      "country": "SAU",
+      "country_name": "Saudi Arabia",
+      "year": 2003,
+      "coordinates": [
+        1.6042761126349656,
+        1.3690943414863046
+      ]
+    },
+    {
+      "country": "SAU",
+      "country_name": "Saudi Arabia",
+      "year": 2004,
+      "coordinates": [
+        1.657994274574609,
+        1.9590853332448546
+      ]
+    },
+    {
+      "country": "SAU",
+      "country_name": "Saudi Arabia",
+      "year": 2005,
+      "coordinates": [
+        1.5634889534526202,
+        1.1321047668687736
+      ]
+    },
+    {
+      "country": "SAU",
+      "country_name": "Saudi Arabia",
+      "year": 2006,
+      "coordinates": [
+        1.6553617242507972,
+        0.9463928914668555
+      ]
+    },
+    {
+      "country": "SAU",
+      "country_name": "Saudi Arabia",
+      "year": 2007,
+      "coordinates": [
+        1.8043262505908988,
+        0.9512060330503038
+      ]
+    },
+    {
+      "country": "SAU",
+      "country_name": "Saudi Arabia",
+      "year": 2008,
+      "coordinates": [
+        1.6344255139082537,
+        1.1174718371922177
+      ]
+    },
+    {
+      "country": "SAU",
+      "country_name": "Saudi Arabia",
+      "year": 2009,
+      "coordinates": [
+        2.1243522919258035,
+        1.0899149108764636
+      ]
+    },
+    {
+      "country": "SAU",
+      "country_name": "Saudi Arabia",
+      "year": 2010,
+      "coordinates": [
+        1.9530707638875677,
+        1.5991425253509859
+      ]
+    },
+    {
+      "country": "SAU",
+      "country_name": "Saudi Arabia",
+      "year": 2011,
+      "coordinates": [
+        1.6837525548317656,
+        2.022909804395637
+      ]
+    },
+    {
+      "country": "SAU",
+      "country_name": "Saudi Arabia",
+      "year": 2012,
+      "coordinates": [
+        1.821244910146061,
+        1.437386168959671
+      ]
+    },
+    {
+      "country": "SAU",
+      "country_name": "Saudi Arabia",
+      "year": 2013,
+      "coordinates": [
+        2.127628973356039,
+        1.6575008880655322
+      ]
+    },
+    {
+      "country": "SAU",
+      "country_name": "Saudi Arabia",
+      "year": 2014,
+      "coordinates": [
+        2.5242493872176714,
+        2.6289647653316375
+      ]
+    },
+    {
+      "country": "SAU",
+      "country_name": "Saudi Arabia",
+      "year": 2015,
+      "coordinates": [
+        2.904909524947882,
+        3.282613644760355
+      ]
+    },
+    {
+      "country": "SAU",
+      "country_name": "Saudi Arabia",
+      "year": 2016,
+      "coordinates": [
+        2.304448682904168,
+        2.3650397964356173
+      ]
+    },
+    {
+      "country": "SAU",
+      "country_name": "Saudi Arabia",
+      "year": 2017,
+      "coordinates": [
+        2.480963402344026,
+        2.9840458399689997
+      ]
+    },
+    {
+      "country": "SAU",
+      "country_name": "Saudi Arabia",
+      "year": 2018,
+      "coordinates": [
+        1.998620440707266,
+        2.006356783201353
+      ]
+    },
+    {
+      "country": "SAU",
+      "country_name": "Saudi Arabia",
+      "year": 2019,
+      "coordinates": [
+        1.8694694892993293,
+        1.8734733439074451
+      ]
+    },
+    {
+      "country": "SAU",
+      "country_name": "Saudi Arabia",
+      "year": 2020,
+      "coordinates": [
+        1.8533803954679582,
+        1.2965836384071605
+      ]
+    },
+    {
+      "country": "SAU",
+      "country_name": "Saudi Arabia",
+      "year": 2021,
+      "coordinates": [
+        1.4208471765644117,
+        0.9503197179339565
+      ]
+    },
+    {
+      "country": "SAU",
+      "country_name": "Saudi Arabia",
+      "year": 2022,
+      "coordinates": [
+        1.5414293138697224,
+        2.107277323320779
+      ]
+    },
+    {
+      "country": "SAU",
+      "country_name": "Saudi Arabia",
+      "year": 2023,
+      "coordinates": [
+        1.4451684313102953,
+        0.4932826201902218
+      ]
+    },
+    {
+      "country": "ZAF",
+      "country_name": "South Africa",
+      "year": 1970,
+      "coordinates": [
+        -0.3761265902808231,
+        1.152414475845317
+      ]
+    },
+    {
+      "country": "ZAF",
+      "country_name": "South Africa",
+      "year": 1971,
+      "coordinates": [
+        -0.6107239640946929,
+        0.7354399265485405
+      ]
+    },
+    {
+      "country": "ZAF",
+      "country_name": "South Africa",
+      "year": 1972,
+      "coordinates": [
+        -0.8222510699468374,
+        0.29315070084959693
+      ]
+    },
+    {
+      "country": "ZAF",
+      "country_name": "South Africa",
+      "year": 1973,
+      "coordinates": [
+        -0.9796682758931831,
+        0.43059589169110785
+      ]
+    },
+    {
+      "country": "ZAF",
+      "country_name": "South Africa",
+      "year": 1974,
+      "coordinates": [
+        -1.0902566667744389,
+        0.360303631316599
+      ]
+    },
+    {
+      "country": "ZAF",
+      "country_name": "South Africa",
+      "year": 1975,
+      "coordinates": [
+        -0.9120073848969192,
+        0.1010766701153795
+      ]
+    },
+    {
+      "country": "ZAF",
+      "country_name": "South Africa",
+      "year": 1976,
+      "coordinates": [
+        -0.9317850289053659,
+        0.263583618290545
+      ]
+    },
+    {
+      "country": "ZAF",
+      "country_name": "South Africa",
+      "year": 1977,
+      "coordinates": [
+        -0.8049048898891095,
+        0.15391160653601524
+      ]
+    },
+    {
+      "country": "ZAF",
+      "country_name": "South Africa",
+      "year": 1978,
+      "coordinates": [
+        -0.8051927208355572,
+        0.2939612276673547
+      ]
+    },
+    {
+      "country": "ZAF",
+      "country_name": "South Africa",
+      "year": 1979,
+      "coordinates": [
+        -0.9424243738701986,
+        0.21728966266310928
+      ]
+    },
+    {
+      "country": "ZAF",
+      "country_name": "South Africa",
+      "year": 1980,
+      "coordinates": [
+        -0.7450851133556056,
+        0.45502094940916094
+      ]
+    },
+    {
+      "country": "ZAF",
+      "country_name": "South Africa",
+      "year": 1981,
+      "coordinates": [
+        -0.6676266420421064,
+        0.3899835468607892
+      ]
+    },
+    {
+      "country": "ZAF",
+      "country_name": "South Africa",
+      "year": 1982,
+      "coordinates": [
+        -0.6735974043164521,
+        -0.056635749073327656
+      ]
+    },
+    {
+      "country": "ZAF",
+      "country_name": "South Africa",
+      "year": 1983,
+      "coordinates": [
+        -0.619625953109892,
+        -0.08987111471197996
+      ]
+    },
+    {
+      "country": "ZAF",
+      "country_name": "South Africa",
+      "year": 1984,
+      "coordinates": [
+        -0.8262708050124721,
+        0.28707816310899054
+      ]
+    },
+    {
+      "country": "ZAF",
+      "country_name": "South Africa",
+      "year": 1985,
+      "coordinates": [
+        -0.8521845615813828,
+        -0.36194008870008193
+      ]
+    },
+    {
+      "country": "ZAF",
+      "country_name": "South Africa",
+      "year": 1986,
+      "coordinates": [
+        -0.8128815060872148,
+        -0.12067557851845367
+      ]
+    },
+    {
+      "country": "ZAF",
+      "country_name": "South Africa",
+      "year": 1987,
+      "coordinates": [
+        -0.7882673858832197,
+        -0.04406705250639925
+      ]
+    },
+    {
+      "country": "ZAF",
+      "country_name": "South Africa",
+      "year": 1988,
+      "coordinates": [
+        -0.8307187214053823,
+        0.10358647121968789
+      ]
+    },
+    {
+      "country": "ZAF",
+      "country_name": "South Africa",
+      "year": 1989,
+      "coordinates": [
+        -0.9908623365898602,
+        -0.25065758453003384
+      ]
+    },
+    {
+      "country": "ZAF",
+      "country_name": "South Africa",
+      "year": 1990,
+      "coordinates": [
+        -0.9148110581114243,
+        -0.3751934313284558
+      ]
+    },
+    {
+      "country": "ZAF",
+      "country_name": "South Africa",
+      "year": 1991,
+      "coordinates": [
+        -0.9826103261748523,
+        -0.5253973185869328
+      ]
+    },
+    {
+      "country": "ZAF",
+      "country_name": "South Africa",
+      "year": 1992,
+      "coordinates": [
+        -0.8636523682980225,
+        -0.541366781365305
+      ]
+    },
+    {
+      "country": "ZAF",
+      "country_name": "South Africa",
+      "year": 1993,
+      "coordinates": [
+        -0.922517440158504,
+        -0.1789169182593112
+      ]
+    },
+    {
+      "country": "ZAF",
+      "country_name": "South Africa",
+      "year": 1994,
+      "coordinates": [
+        -0.8640633661394246,
+        -0.09076522487843494
+      ]
+    },
+    {
+      "country": "ZAF",
+      "country_name": "South Africa",
+      "year": 1995,
+      "coordinates": [
+        -1.0235554061141496,
+        -0.5078028886892271
+      ]
+    },
+    {
+      "country": "ZAF",
+      "country_name": "South Africa",
+      "year": 1996,
+      "coordinates": [
+        -1.3181180808506892,
+        -0.44877722828909156
+      ]
+    },
+    {
+      "country": "ZAF",
+      "country_name": "South Africa",
+      "year": 1997,
+      "coordinates": [
+        -1.1702230691654587,
+        -0.6830683473159996
+      ]
+    },
+    {
+      "country": "ZAF",
+      "country_name": "South Africa",
+      "year": 1998,
+      "coordinates": [
+        -1.2751768876856613,
+        -0.9079893577689417
+      ]
+    },
+    {
+      "country": "ZAF",
+      "country_name": "South Africa",
+      "year": 1999,
+      "coordinates": [
+        -1.8067334789554121,
+        -1.1510795379915368
+      ]
+    },
+    {
+      "country": "ZAF",
+      "country_name": "South Africa",
+      "year": 2000,
+      "coordinates": [
+        -1.352112134787105,
+        -0.4456133654194364
+      ]
+    },
+    {
+      "country": "ZAF",
+      "country_name": "South Africa",
+      "year": 2001,
+      "coordinates": [
+        -1.9344205491252797,
+        -0.47761972867525115
+      ]
+    },
+    {
+      "country": "ZAF",
+      "country_name": "South Africa",
+      "year": 2002,
+      "coordinates": [
+        -1.3241804653209166,
+        -0.3733348149794795
+      ]
+    },
+    {
+      "country": "ZAF",
+      "country_name": "South Africa",
+      "year": 2003,
+      "coordinates": [
+        -1.5832843344871355,
+        -0.7802444774694813
+      ]
+    },
+    {
+      "country": "ZAF",
+      "country_name": "South Africa",
+      "year": 2004,
+      "coordinates": [
+        -1.7635431320578332,
+        -0.881288176183302
+      ]
+    },
+    {
+      "country": "ZAF",
+      "country_name": "South Africa",
+      "year": 2005,
+      "coordinates": [
+        -1.8619221981044942,
+        -0.8723730719495365
+      ]
+    },
+    {
+      "country": "ZAF",
+      "country_name": "South Africa",
+      "year": 2006,
+      "coordinates": [
+        -2.0667946385836564,
+        -1.2056338875984995
+      ]
+    },
+    {
+      "country": "ZAF",
+      "country_name": "South Africa",
+      "year": 2007,
+      "coordinates": [
+        -2.1448051705991933,
+        -0.9955263185583807
+      ]
+    },
+    {
+      "country": "ZAF",
+      "country_name": "South Africa",
+      "year": 2008,
+      "coordinates": [
+        -2.1675560493643915,
+        -1.0966773868596902
+      ]
+    },
+    {
+      "country": "ZAF",
+      "country_name": "South Africa",
+      "year": 2009,
+      "coordinates": [
+        -1.9982535631886194,
+        -1.7431809403412866
+      ]
+    },
+    {
+      "country": "ZAF",
+      "country_name": "South Africa",
+      "year": 2010,
+      "coordinates": [
+        -2.0445301911673135,
+        -1.3114451160674816
+      ]
+    },
+    {
+      "country": "ZAF",
+      "country_name": "South Africa",
+      "year": 2011,
+      "coordinates": [
+        -2.0867738688790185,
+        -1.3028552750607187
+      ]
+    },
+    {
+      "country": "ZAF",
+      "country_name": "South Africa",
+      "year": 2012,
+      "coordinates": [
+        -1.9295090901880985,
+        -1.5138843369044848
+      ]
+    },
+    {
+      "country": "ZAF",
+      "country_name": "South Africa",
+      "year": 2013,
+      "coordinates": [
+        -2.0711775463241917,
+        -1.8964660707925913
+      ]
+    },
+    {
+      "country": "ZAF",
+      "country_name": "South Africa",
+      "year": 2014,
+      "coordinates": [
+        -1.9090466417863001,
+        -1.9641719568526377
+      ]
+    },
+    {
+      "country": "ZAF",
+      "country_name": "South Africa",
+      "year": 2015,
+      "coordinates": [
+        -1.9533839236773842,
+        -1.9206927567943606
+      ]
+    },
+    {
+      "country": "ZAF",
+      "country_name": "South Africa",
+      "year": 2016,
+      "coordinates": [
+        -1.9254944896468333,
+        -1.870930181921754
+      ]
+    },
+    {
+      "country": "ZAF",
+      "country_name": "South Africa",
+      "year": 2017,
+      "coordinates": [
+        -2.0386827661741065,
+        -2.001569388130691
+      ]
+    },
+    {
+      "country": "ZAF",
+      "country_name": "South Africa",
+      "year": 2018,
+      "coordinates": [
+        -2.1897260284871427,
+        -1.8291637040008266
+      ]
+    },
+    {
+      "country": "ZAF",
+      "country_name": "South Africa",
+      "year": 2019,
+      "coordinates": [
+        -2.3329595858746974,
+        -1.976184760739775
+      ]
+    },
+    {
+      "country": "ZAF",
+      "country_name": "South Africa",
+      "year": 2020,
+      "coordinates": [
+        -2.360495232328182,
+        -2.177480854857272
+      ]
+    },
+    {
+      "country": "ZAF",
+      "country_name": "South Africa",
+      "year": 2021,
+      "coordinates": [
+        -2.9624798808691506,
+        -1.8143131338348246
+      ]
+    },
+    {
+      "country": "ZAF",
+      "country_name": "South Africa",
+      "year": 2022,
+      "coordinates": [
+        -2.685512996647378,
+        -1.955980951991466
+      ]
+    },
+    {
+      "country": "ZAF",
+      "country_name": "South Africa",
+      "year": 2023,
+      "coordinates": [
+        -2.4995325865934905,
+        -1.488119023931276
+      ]
+    },
+    {
+      "country": "TUR",
+      "country_name": "Turkey",
+      "year": 1970,
+      "coordinates": [
+        -1.4334223786109401,
+        0.9978447500232941
+      ]
+    },
+    {
+      "country": "TUR",
+      "country_name": "Turkey",
+      "year": 1971,
+      "coordinates": [
+        -1.0647452378861784,
+        1.7220529636370232
+      ]
+    },
+    {
+      "country": "TUR",
+      "country_name": "Turkey",
+      "year": 1972,
+      "coordinates": [
+        -0.8181892952230949,
+        2.162310808794364
+      ]
+    },
+    {
+      "country": "TUR",
+      "country_name": "Turkey",
+      "year": 1973,
+      "coordinates": [
+        -0.7922411650441327,
+        1.509990580599798
+      ]
+    },
+    {
+      "country": "TUR",
+      "country_name": "Turkey",
+      "year": 1974,
+      "coordinates": [
+        -0.8464987039630069,
+        1.9086107795682603
+      ]
+    },
+    {
+      "country": "TUR",
+      "country_name": "Turkey",
+      "year": 1975,
+      "coordinates": [
+        -0.7845763635969416,
+        1.6722251763084994
+      ]
+    },
+    {
+      "country": "TUR",
+      "country_name": "Turkey",
+      "year": 1976,
+      "coordinates": [
+        -0.8591182066746216,
+        1.6744192669657985
+      ]
+    },
+    {
+      "country": "TUR",
+      "country_name": "Turkey",
+      "year": 1977,
+      "coordinates": [
+        -0.8604226656554097,
+        0.9401048366135724
+      ]
+    },
+    {
+      "country": "TUR",
+      "country_name": "Turkey",
+      "year": 1978,
+      "coordinates": [
+        -0.7297484264931675,
+        1.258273152526622
+      ]
+    },
+    {
+      "country": "TUR",
+      "country_name": "Turkey",
+      "year": 1979,
+      "coordinates": [
+        -0.8104856925500604,
+        1.0928258125343926
+      ]
+    },
+    {
+      "country": "TUR",
+      "country_name": "Turkey",
+      "year": 1980,
+      "coordinates": [
+        -0.7514446678152017,
+        0.7122440390114692
+      ]
+    },
+    {
+      "country": "TUR",
+      "country_name": "Turkey",
+      "year": 1981,
+      "coordinates": [
+        -0.7660214620750336,
+        1.4078378357959682
+      ]
+    },
+    {
+      "country": "TUR",
+      "country_name": "Turkey",
+      "year": 1982,
+      "coordinates": [
+        -0.6036977893269119,
+        1.2182587664954472
+      ]
+    },
+    {
+      "country": "TUR",
+      "country_name": "Turkey",
+      "year": 1983,
+      "coordinates": [
+        -0.6250529146947935,
+        1.2352925076823253
+      ]
+    },
+    {
+      "country": "TUR",
+      "country_name": "Turkey",
+      "year": 1984,
+      "coordinates": [
+        -0.5048323232484545,
+        1.5374302626279261
+      ]
+    },
+    {
+      "country": "TUR",
+      "country_name": "Turkey",
+      "year": 1985,
+      "coordinates": [
+        -0.41991242241371945,
+        1.307294754642503
+      ]
+    },
+    {
+      "country": "TUR",
+      "country_name": "Turkey",
+      "year": 1986,
+      "coordinates": [
+        -0.45592564679521014,
+        1.3115349748425498
+      ]
+    },
+    {
+      "country": "TUR",
+      "country_name": "Turkey",
+      "year": 1987,
+      "coordinates": [
+        -0.3740421821829959,
+        2.014182899785621
+      ]
+    },
+    {
+      "country": "TUR",
+      "country_name": "Turkey",
+      "year": 1988,
+      "coordinates": [
+        -0.31979759973901434,
+        1.5618904263884619
+      ]
+    },
+    {
+      "country": "TUR",
+      "country_name": "Turkey",
+      "year": 1989,
+      "coordinates": [
+        -0.31768319248065957,
+        0.9288899610501195
+      ]
+    },
+    {
+      "country": "TUR",
+      "country_name": "Turkey",
+      "year": 1990,
+      "coordinates": [
+        -0.2587327244613272,
+        1.7727380537587862
+      ]
+    },
+    {
+      "country": "TUR",
+      "country_name": "Turkey",
+      "year": 1991,
+      "coordinates": [
+        -0.09816659099084198,
+        1.0968018612195525
+      ]
+    },
+    {
+      "country": "TUR",
+      "country_name": "Turkey",
+      "year": 1992,
+      "coordinates": [
+        -0.0663118898882722,
+        1.7862363188575858
+      ]
+    },
+    {
+      "country": "TUR",
+      "country_name": "Turkey",
+      "year": 1993,
+      "coordinates": [
+        -0.03896028868062014,
+        2.2452599620671796
+      ]
+    },
+    {
+      "country": "TUR",
+      "country_name": "Turkey",
+      "year": 1994,
+      "coordinates": [
+        0.01873814885526229,
+        0.8761245898825242
+      ]
+    },
+    {
+      "country": "TUR",
+      "country_name": "Turkey",
+      "year": 1995,
+      "coordinates": [
+        -0.16030089756341076,
+        1.6717542797593126
+      ]
+    },
+    {
+      "country": "TUR",
+      "country_name": "Turkey",
+      "year": 1996,
+      "coordinates": [
+        -0.15630774673098322,
+        1.5129143760188175
+      ]
+    },
+    {
+      "country": "TUR",
+      "country_name": "Turkey",
+      "year": 1997,
+      "coordinates": [
+        -0.3306869342850261,
+        1.239919234559649
+      ]
+    },
+    {
+      "country": "TUR",
+      "country_name": "Turkey",
+      "year": 1998,
+      "coordinates": [
+        -0.029048958354608672,
+        1.7212458711009344
+      ]
+    },
+    {
+      "country": "TUR",
+      "country_name": "Turkey",
+      "year": 1999,
+      "coordinates": [
+        0.07424670428220319,
+        0.7295339779375977
+      ]
+    },
+    {
+      "country": "TUR",
+      "country_name": "Turkey",
+      "year": 2000,
+      "coordinates": [
+        -0.13671033682612194,
+        1.1046816872919738
+      ]
+    },
+    {
+      "country": "TUR",
+      "country_name": "Turkey",
+      "year": 2001,
+      "coordinates": [
+        -0.04920827080134931,
+        -0.3199237155440975
+      ]
+    },
+    {
+      "country": "TUR",
+      "country_name": "Turkey",
+      "year": 2002,
+      "coordinates": [
+        -0.14511701946455777,
+        0.898803782434213
+      ]
+    },
+    {
+      "country": "TUR",
+      "country_name": "Turkey",
+      "year": 2003,
+      "coordinates": [
+        -0.2571366608453968,
+        0.37922651678085856
+      ]
+    },
+    {
+      "country": "TUR",
+      "country_name": "Turkey",
+      "year": 2004,
+      "coordinates": [
+        -0.43275823642404404,
+        0.5423998979616723
+      ]
+    },
+    {
+      "country": "TUR",
+      "country_name": "Turkey",
+      "year": 2005,
+      "coordinates": [
+        -0.3573694542526339,
+        0.9023763729088777
+      ]
+    },
+    {
+      "country": "TUR",
+      "country_name": "Turkey",
+      "year": 2006,
+      "coordinates": [
+        -0.4189714465560354,
+        0.319203939220583
+      ]
+    },
+    {
+      "country": "TUR",
+      "country_name": "Turkey",
+      "year": 2007,
+      "coordinates": [
+        -0.3697641524208786,
+        0.17393778522802922
+      ]
+    },
+    {
+      "country": "TUR",
+      "country_name": "Turkey",
+      "year": 2008,
+      "coordinates": [
+        -0.3099429584924502,
+        -0.2296928031245893
+      ]
+    },
+    {
+      "country": "TUR",
+      "country_name": "Turkey",
+      "year": 2009,
+      "coordinates": [
+        -0.2129923991050092,
+        -0.6111393175676467
+      ]
+    },
+    {
+      "country": "TUR",
+      "country_name": "Turkey",
+      "year": 2010,
+      "coordinates": [
+        -0.5673776366593344,
+        0.14705599168067365
+      ]
+    },
+    {
+      "country": "TUR",
+      "country_name": "Turkey",
+      "year": 2011,
+      "coordinates": [
+        -0.5551268945424805,
+        0.49779722864042947
+      ]
+    },
+    {
+      "country": "TUR",
+      "country_name": "Turkey",
+      "year": 2012,
+      "coordinates": [
+        -0.3346192281021824,
+        0.4326519226326851
+      ]
+    },
+    {
+      "country": "TUR",
+      "country_name": "Turkey",
+      "year": 2013,
+      "coordinates": [
+        -0.5263795115681046,
+        0.2634854259407183
+      ]
+    },
+    {
+      "country": "TUR",
+      "country_name": "Turkey",
+      "year": 2014,
+      "coordinates": [
+        -0.3085640216337558,
+        0.384015255195204
+      ]
+    },
+    {
+      "country": "TUR",
+      "country_name": "Turkey",
+      "year": 2015,
+      "coordinates": [
+        -0.500985877174012,
+        -0.16790775812377148
+      ]
+    },
+    {
+      "country": "TUR",
+      "country_name": "Turkey",
+      "year": 2016,
+      "coordinates": [
+        -0.4134296259610189,
+        -0.4185259430053571
+      ]
+    },
+    {
+      "country": "TUR",
+      "country_name": "Turkey",
+      "year": 2017,
+      "coordinates": [
+        -0.43862149419132124,
+        -0.02130364660353722
+      ]
+    },
+    {
+      "country": "TUR",
+      "country_name": "Turkey",
+      "year": 2018,
+      "coordinates": [
+        -0.22876590380591083,
+        -0.32305473584985533
+      ]
+    },
+    {
+      "country": "TUR",
+      "country_name": "Turkey",
+      "year": 2019,
+      "coordinates": [
+        -0.05618535122736401,
+        -0.2564357339590341
+      ]
+    },
+    {
+      "country": "TUR",
+      "country_name": "Turkey",
+      "year": 2020,
+      "coordinates": [
+        -0.23287543026386343,
+        -0.7337563046112506
+      ]
+    },
+    {
+      "country": "TUR",
+      "country_name": "Turkey",
+      "year": 2021,
+      "coordinates": [
+        -0.39507215670179924,
+        -0.0783597136712129
+      ]
+    },
+    {
+      "country": "TUR",
+      "country_name": "Turkey",
+      "year": 2022,
+      "coordinates": [
+        -0.33381103614936625,
+        -0.5389652298883569
+      ]
+    },
+    {
+      "country": "TUR",
+      "country_name": "Turkey",
+      "year": 2023,
+      "coordinates": [
+        -0.1881688359167383,
+        -0.19425789676735128
+      ]
+    },
+    {
+      "country": "GBR",
+      "country_name": "United Kingdom",
+      "year": 1970,
+      "coordinates": [
+        0.3655283369391445,
+        -0.8771987361217384
+      ]
+    },
+    {
+      "country": "GBR",
+      "country_name": "United Kingdom",
+      "year": 1971,
+      "coordinates": [
+        0.5748974117297697,
+        -0.9193763175242378
+      ]
+    },
+    {
+      "country": "GBR",
+      "country_name": "United Kingdom",
+      "year": 1972,
+      "coordinates": [
+        0.5306747443980485,
+        -0.9291959047398776
+      ]
+    },
+    {
+      "country": "GBR",
+      "country_name": "United Kingdom",
+      "year": 1973,
+      "coordinates": [
+        0.6412728297949333,
+        -0.9652786056788437
+      ]
+    },
+    {
+      "country": "GBR",
+      "country_name": "United Kingdom",
+      "year": 1974,
+      "coordinates": [
+        0.5628926728638199,
+        -1.6662646503099667
+      ]
+    },
+    {
+      "country": "GBR",
+      "country_name": "United Kingdom",
+      "year": 1975,
+      "coordinates": [
+        0.6314012693635673,
+        -1.372146050861085
+      ]
+    },
+    {
+      "country": "GBR",
+      "country_name": "United Kingdom",
+      "year": 1976,
+      "coordinates": [
+        0.5787307199023091,
+        -1.1930936995716976
+      ]
+    },
+    {
+      "country": "GBR",
+      "country_name": "United Kingdom",
+      "year": 1977,
+      "coordinates": [
+        0.5016405789491337,
+        -1.133531241401944
+      ]
+    },
+    {
+      "country": "GBR",
+      "country_name": "United Kingdom",
+      "year": 1978,
+      "coordinates": [
+        0.536518624978434,
+        -1.072392725388394
+      ]
+    },
+    {
+      "country": "GBR",
+      "country_name": "United Kingdom",
+      "year": 1979,
+      "coordinates": [
+        0.4240142296278949,
+        -1.2259446919255306
+      ]
+    },
+    {
+      "country": "GBR",
+      "country_name": "United Kingdom",
+      "year": 1980,
+      "coordinates": [
+        0.43313875611097574,
+        -1.4513738275813168
+      ]
+    },
+    {
+      "country": "GBR",
+      "country_name": "United Kingdom",
+      "year": 1981,
+      "coordinates": [
+        0.6190753818991725,
+        -1.2982337151647694
+      ]
+    },
+    {
+      "country": "GBR",
+      "country_name": "United Kingdom",
+      "year": 1982,
+      "coordinates": [
+        0.5859722684719395,
+        -0.9717267949798313
+      ]
+    },
+    {
+      "country": "GBR",
+      "country_name": "United Kingdom",
+      "year": 1983,
+      "coordinates": [
+        0.5467856263858614,
+        -1.079887864397769
+      ]
+    },
+    {
+      "country": "GBR",
+      "country_name": "United Kingdom",
+      "year": 1984,
+      "coordinates": [
+        0.6414866171080608,
+        -1.0040201513567146
+      ]
+    },
+    {
+      "country": "GBR",
+      "country_name": "United Kingdom",
+      "year": 1985,
+      "coordinates": [
+        0.48541618769794853,
+        -1.112179561786852
+      ]
+    },
+    {
+      "country": "GBR",
+      "country_name": "United Kingdom",
+      "year": 1986,
+      "coordinates": [
+        0.46112273310442914,
+        -1.3567144001149691
+      ]
+    },
+    {
+      "country": "GBR",
+      "country_name": "United Kingdom",
+      "year": 1987,
+      "coordinates": [
+        0.8080631382024047,
+        -1.4549659051882395
+      ]
+    },
+    {
+      "country": "GBR",
+      "country_name": "United Kingdom",
+      "year": 1988,
+      "coordinates": [
+        0.523702318342736,
+        -1.490348679350149
+      ]
+    },
+    {
+      "country": "GBR",
+      "country_name": "United Kingdom",
+      "year": 1989,
+      "coordinates": [
+        0.6702890825067233,
+        -1.589934639253553
+      ]
+    },
+    {
+      "country": "GBR",
+      "country_name": "United Kingdom",
+      "year": 1990,
+      "coordinates": [
+        0.27313545419839186,
+        -1.6356083806706727
+      ]
+    },
+    {
+      "country": "GBR",
+      "country_name": "United Kingdom",
+      "year": 1991,
+      "coordinates": [
+        0.30272918106780144,
+        -1.1764100101050752
+      ]
+    },
+    {
+      "country": "GBR",
+      "country_name": "United Kingdom",
+      "year": 1992,
+      "coordinates": [
+        0.2071229031220807,
+        -0.9060198968677642
+      ]
+    },
+    {
+      "country": "GBR",
+      "country_name": "United Kingdom",
+      "year": 1993,
+      "coordinates": [
+        0.19671595710640571,
+        -1.032601705932572
+      ]
+    },
+    {
+      "country": "GBR",
+      "country_name": "United Kingdom",
+      "year": 1994,
+      "coordinates": [
+        0.11821914360821481,
+        -1.432180742063252
+      ]
+    },
+    {
+      "country": "GBR",
+      "country_name": "United Kingdom",
+      "year": 1995,
+      "coordinates": [
+        0.076386505048665,
+        -1.5739301295349266
+      ]
+    },
+    {
+      "country": "GBR",
+      "country_name": "United Kingdom",
+      "year": 1996,
+      "coordinates": [
+        0.07583031592820726,
+        -1.273502340041513
+      ]
+    },
+    {
+      "country": "GBR",
+      "country_name": "United Kingdom",
+      "year": 1997,
+      "coordinates": [
+        0.16752032482435372,
+        -1.5936943917280832
+      ]
+    },
+    {
+      "country": "GBR",
+      "country_name": "United Kingdom",
+      "year": 1998,
+      "coordinates": [
+        0.12836578556810221,
+        -2.53192372202519
+      ]
+    },
+    {
+      "country": "GBR",
+      "country_name": "United Kingdom",
+      "year": 1999,
+      "coordinates": [
+        0.18929687452547098,
+        -3.9243607076303797
+      ]
+    },
+    {
+      "country": "GBR",
+      "country_name": "United Kingdom",
+      "year": 2000,
+      "coordinates": [
+        0.4074494943732429,
+        -4.044388284116516
+      ]
+    },
+    {
+      "country": "GBR",
+      "country_name": "United Kingdom",
+      "year": 2001,
+      "coordinates": [
+        0.011342620257374024,
+        -1.3890435537375427
+      ]
+    },
+    {
+      "country": "GBR",
+      "country_name": "United Kingdom",
+      "year": 2002,
+      "coordinates": [
+        0.053405808165801566,
+        -2.143771204119796
+      ]
+    },
+    {
+      "country": "GBR",
+      "country_name": "United Kingdom",
+      "year": 2003,
+      "coordinates": [
+        -0.0688634145955996,
+        -1.4273510705975536
+      ]
+    },
+    {
+      "country": "GBR",
+      "country_name": "United Kingdom",
+      "year": 2004,
+      "coordinates": [
+        -0.04954618771545837,
+        -2.1789082939172095
+      ]
+    },
+    {
+      "country": "GBR",
+      "country_name": "United Kingdom",
+      "year": 2005,
+      "coordinates": [
+        -0.12249642438956511,
+        -2.4883969977581972
+      ]
+    },
+    {
+      "country": "GBR",
+      "country_name": "United Kingdom",
+      "year": 2006,
+      "coordinates": [
+        -0.13802193598717508,
+        -2.142946791508167
+      ]
+    },
+    {
+      "country": "GBR",
+      "country_name": "United Kingdom",
+      "year": 2007,
+      "coordinates": [
+        0.11054882553755555,
+        -3.230280936084058
+      ]
+    },
+    {
+      "country": "GBR",
+      "country_name": "United Kingdom",
+      "year": 2008,
+      "coordinates": [
+        0.132671349350727,
+        -3.7030566334642185
+      ]
+    },
+    {
+      "country": "GBR",
+      "country_name": "United Kingdom",
+      "year": 2009,
+      "coordinates": [
+        -0.1299776782522252,
+        -1.123196150746127
+      ]
+    },
+    {
+      "country": "GBR",
+      "country_name": "United Kingdom",
+      "year": 2010,
+      "coordinates": [
+        -0.14191442816105826,
+        -1.4797392316254696
+      ]
+    },
+    {
+      "country": "GBR",
+      "country_name": "United Kingdom",
+      "year": 2011,
+      "coordinates": [
+        -0.2594340852077587,
+        -1.8365019256957955
+      ]
+    },
+    {
+      "country": "GBR",
+      "country_name": "United Kingdom",
+      "year": 2012,
+      "coordinates": [
+        -0.32288630515360434,
+        -1.0975884864284213
+      ]
+    },
+    {
+      "country": "GBR",
+      "country_name": "United Kingdom",
+      "year": 2013,
+      "coordinates": [
+        -0.1981000020290158,
+        -1.3946932355268118
+      ]
+    },
+    {
+      "country": "GBR",
+      "country_name": "United Kingdom",
+      "year": 2014,
+      "coordinates": [
+        -0.4309338835544179,
+        -0.4135910134603622
+      ]
+    },
+    {
+      "country": "GBR",
+      "country_name": "United Kingdom",
+      "year": 2015,
+      "coordinates": [
+        -0.5036127082056566,
+        -0.6651549088613116
+      ]
+    },
+    {
+      "country": "GBR",
+      "country_name": "United Kingdom",
+      "year": 2016,
+      "coordinates": [
+        -0.3689748178916893,
+        -1.4895610233308405
+      ]
+    },
+    {
+      "country": "GBR",
+      "country_name": "United Kingdom",
+      "year": 2017,
+      "coordinates": [
+        -0.1575792039194033,
+        -2.0550271827670277
+      ]
+    },
+    {
+      "country": "GBR",
+      "country_name": "United Kingdom",
+      "year": 2018,
+      "coordinates": [
+        -0.49880320955744045,
+        -1.027138642157621
+      ]
+    },
+    {
+      "country": "GBR",
+      "country_name": "United Kingdom",
+      "year": 2019,
+      "coordinates": [
+        -0.38412379773004296,
+        -1.1021352030902511
+      ]
+    },
+    {
+      "country": "GBR",
+      "country_name": "United Kingdom",
+      "year": 2020,
+      "coordinates": [
+        -0.23344497519559462,
+        -2.2098767840568017
+      ]
+    },
+    {
+      "country": "GBR",
+      "country_name": "United Kingdom",
+      "year": 2021,
+      "coordinates": [
+        -0.37240219368636074,
+        -1.6439310071651407
+      ]
+    },
+    {
+      "country": "GBR",
+      "country_name": "United Kingdom",
+      "year": 2022,
+      "coordinates": [
+        -0.14321388925012682,
+        -1.8404816690544115
+      ]
+    },
+    {
+      "country": "GBR",
+      "country_name": "United Kingdom",
+      "year": 2023,
+      "coordinates": [
+        -0.12558864539573217,
+        -1.898426468393702
+      ]
+    },
+    {
+      "country": "USA",
+      "country_name": "United States",
+      "year": 1970,
+      "coordinates": [
+        4.157018316805701,
+        -1.4353424137663982
+      ]
+    },
+    {
+      "country": "USA",
+      "country_name": "United States",
+      "year": 1971,
+      "coordinates": [
+        4.71195878271616,
+        -0.6611041168431339
+      ]
+    },
+    {
+      "country": "USA",
+      "country_name": "United States",
+      "year": 1972,
+      "coordinates": [
+        4.681315853835229,
+        -0.02464828923323018
+      ]
+    },
+    {
+      "country": "USA",
+      "country_name": "United States",
+      "year": 1973,
+      "coordinates": [
+        4.739412193208175,
+        -0.19996848010392615
+      ]
+    },
+    {
+      "country": "USA",
+      "country_name": "United States",
+      "year": 1974,
+      "coordinates": [
+        4.878609365451816,
+        -0.7109395135297361
+      ]
+    },
+    {
+      "country": "USA",
+      "country_name": "United States",
+      "year": 1975,
+      "coordinates": [
+        5.311573449453684,
+        -1.0123143295894141
+      ]
+    },
+    {
+      "country": "USA",
+      "country_name": "United States",
+      "year": 1976,
+      "coordinates": [
+        5.223859387071503,
+        -0.4706731421999217
+      ]
+    },
+    {
+      "country": "USA",
+      "country_name": "United States",
+      "year": 1977,
+      "coordinates": [
+        4.980258284674014,
+        -0.578586446799397
+      ]
+    },
+    {
+      "country": "USA",
+      "country_name": "United States",
+      "year": 1978,
+      "coordinates": [
+        4.7870602388852275,
+        -0.5078998912927768
+      ]
+    },
+    {
+      "country": "USA",
+      "country_name": "United States",
+      "year": 1979,
+      "coordinates": [
+        3.972464986218722,
+        -0.6749470199412819
+      ]
+    },
+    {
+      "country": "USA",
+      "country_name": "United States",
+      "year": 1980,
+      "coordinates": [
+        4.15831709131782,
+        -0.8807240260817875
+      ]
+    },
+    {
+      "country": "USA",
+      "country_name": "United States",
+      "year": 1981,
+      "coordinates": [
+        5.018747231890454,
+        -0.5930371697801835
+      ]
+    },
+    {
+      "country": "USA",
+      "country_name": "United States",
+      "year": 1982,
+      "coordinates": [
+        5.663550308733706,
+        -0.9852237188933599
+      ]
+    },
+    {
+      "country": "USA",
+      "country_name": "United States",
+      "year": 1983,
+      "coordinates": [
+        5.523709226400777,
+        -0.28459516000806856
+      ]
+    },
+    {
+      "country": "USA",
+      "country_name": "United States",
+      "year": 1984,
+      "coordinates": [
+        5.173180315356619,
+        -0.036257983281388885
+      ]
+    },
+    {
+      "country": "USA",
+      "country_name": "United States",
+      "year": 1985,
+      "coordinates": [
+        5.208556327326995,
+        -0.013118478246064286
+      ]
+    },
+    {
+      "country": "USA",
+      "country_name": "United States",
+      "year": 1986,
+      "coordinates": [
+        5.556528144207779,
+        -0.3057034745089121
+      ]
+    },
+    {
+      "country": "USA",
+      "country_name": "United States",
+      "year": 1987,
+      "coordinates": [
+        5.784326474142712,
+        0.486332662556864
+      ]
+    },
+    {
+      "country": "USA",
+      "country_name": "United States",
+      "year": 1988,
+      "coordinates": [
+        5.578960661052568,
+        0.4943012649058409
+      ]
+    },
+    {
+      "country": "USA",
+      "country_name": "United States",
+      "year": 1989,
+      "coordinates": [
+        5.405159866509869,
+        0.3446340418897857
+      ]
+    },
+    {
+      "country": "USA",
+      "country_name": "United States",
+      "year": 1990,
+      "coordinates": [
+        5.0101283933094365,
+        -0.6437974449692809
+      ]
+    },
+    {
+      "country": "USA",
+      "country_name": "United States",
+      "year": 1991,
+      "coordinates": [
+        5.027764976927647,
+        -0.7866591721244546
+      ]
+    },
+    {
+      "country": "USA",
+      "country_name": "United States",
+      "year": 1992,
+      "coordinates": [
+        5.4678640421064735,
+        -0.5739506089135664
+      ]
+    },
+    {
+      "country": "USA",
+      "country_name": "United States",
+      "year": 1993,
+      "coordinates": [
+        5.31093555771211,
+        -0.4634743857068783
+      ]
+    },
+    {
+      "country": "USA",
+      "country_name": "United States",
+      "year": 1994,
+      "coordinates": [
+        4.654652867804781,
+        -0.30874310042692266
+      ]
+    },
+    {
+      "country": "USA",
+      "country_name": "United States",
+      "year": 1995,
+      "coordinates": [
+        4.371644703599887,
+        -0.6053557817997451
+      ]
+    },
+    {
+      "country": "USA",
+      "country_name": "United States",
+      "year": 1996,
+      "coordinates": [
+        4.116916489143637,
+        -0.6355529258805361
+      ]
+    },
+    {
+      "country": "USA",
+      "country_name": "United States",
+      "year": 1997,
+      "coordinates": [
+        4.810608547794967,
+        -0.8642471218720016
+      ]
+    },
+    {
+      "country": "USA",
+      "country_name": "United States",
+      "year": 1998,
+      "coordinates": [
+        4.936751013821458,
+        -1.2952013414357402
+      ]
+    },
+    {
+      "country": "USA",
+      "country_name": "United States",
+      "year": 1999,
+      "coordinates": [
+        4.119964318917599,
+        -1.2018435133618826
+      ]
+    },
+    {
+      "country": "USA",
+      "country_name": "United States",
+      "year": 2000,
+      "coordinates": [
+        3.3893844150077146,
+        -0.8960273921392413
+      ]
+    },
+    {
+      "country": "USA",
+      "country_name": "United States",
+      "year": 2001,
+      "coordinates": [
+        3.1107533376695296,
+        -0.7762505433343106
+      ]
+    },
+    {
+      "country": "USA",
+      "country_name": "United States",
+      "year": 2002,
+      "coordinates": [
+        3.3398483824947705,
+        -0.588423108016234
+      ]
+    },
+    {
+      "country": "USA",
+      "country_name": "United States",
+      "year": 2003,
+      "coordinates": [
+        3.851750415650402,
+        -0.4746235661937962
+      ]
+    },
+    {
+      "country": "USA",
+      "country_name": "United States",
+      "year": 2004,
+      "coordinates": [
+        4.332273508010284,
+        -0.7716696518276895
+      ]
+    },
+    {
+      "country": "USA",
+      "country_name": "United States",
+      "year": 2005,
+      "coordinates": [
+        4.279671135287702,
+        -0.3977082775787869
+      ]
+    },
+    {
+      "country": "USA",
+      "country_name": "United States",
+      "year": 2006,
+      "coordinates": [
+        4.479299241393715,
+        -0.8284006076076238
+      ]
+    },
+    {
+      "country": "USA",
+      "country_name": "United States",
+      "year": 2007,
+      "coordinates": [
+        4.718955121779938,
+        -1.1257264718007283
+      ]
+    },
+    {
+      "country": "USA",
+      "country_name": "United States",
+      "year": 2008,
+      "coordinates": [
+        4.848058373814542,
+        -0.8050640892828214
+      ]
+    },
+    {
+      "country": "USA",
+      "country_name": "United States",
+      "year": 2009,
+      "coordinates": [
+        5.315212021911716,
+        -0.7849834653804438
+      ]
+    },
+    {
+      "country": "USA",
+      "country_name": "United States",
+      "year": 2010,
+      "coordinates": [
+        5.532697774646834,
+        -0.5109196974853565
+      ]
+    },
+    {
+      "country": "USA",
+      "country_name": "United States",
+      "year": 2011,
+      "coordinates": [
+        5.573433915357046,
+        -0.8417800088777
+      ]
+    },
+    {
+      "country": "USA",
+      "country_name": "United States",
+      "year": 2012,
+      "coordinates": [
+        5.334837712635979,
+        -0.5514797566980845
+      ]
+    },
+    {
+      "country": "USA",
+      "country_name": "United States",
+      "year": 2013,
+      "coordinates": [
+        4.705358965146339,
+        -0.8106006507284441
+      ]
+    },
+    {
+      "country": "USA",
+      "country_name": "United States",
+      "year": 2014,
+      "coordinates": [
+        4.7897147850101565,
+        -1.02269752391284
+      ]
+    },
+    {
+      "country": "USA",
+      "country_name": "United States",
+      "year": 2015,
+      "coordinates": [
+        4.724385630015803,
+        -0.9764826150040155
+      ]
+    },
+    {
+      "country": "USA",
+      "country_name": "United States",
+      "year": 2016,
+      "coordinates": [
+        4.660019234805846,
+        -1.0601598063969686
+      ]
+    },
+    {
+      "country": "USA",
+      "country_name": "United States",
+      "year": 2017,
+      "coordinates": [
+        4.987820245974088,
+        -1.242335965742803
+      ]
+    },
+    {
+      "country": "USA",
+      "country_name": "United States",
+      "year": 2018,
+      "coordinates": [
+        4.653046016805834,
+        -0.5663491277887144
+      ]
+    },
+    {
+      "country": "USA",
+      "country_name": "United States",
+      "year": 2019,
+      "coordinates": [
+        5.203693407038841,
+        -0.5728315246980088
+      ]
+    },
+    {
+      "country": "USA",
+      "country_name": "United States",
+      "year": 2020,
+      "coordinates": [
+        5.152287117320391,
+        -1.1119336687421797
+      ]
+    },
+    {
+      "country": "USA",
+      "country_name": "United States",
+      "year": 2021,
+      "coordinates": [
+        5.2164482830300125,
+        -0.6643855348274191
+      ]
+    },
+    {
+      "country": "USA",
+      "country_name": "United States",
+      "year": 2022,
+      "coordinates": [
+        6.093470264784413,
+        -1.3078984634072248
+      ]
+    },
+    {
+      "country": "USA",
+      "country_name": "United States",
+      "year": 2023,
+      "coordinates": [
+        5.405635711218045,
+        -0.9823393623166108
+      ]
+    }
+  ]
+}
