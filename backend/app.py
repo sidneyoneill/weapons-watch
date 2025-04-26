@@ -48,7 +48,7 @@ data_cache = {
 }
 
 # Base path for data files
-BASE_PATH = "/Users/karimmohamed/Desktop/arms-trade-dashboard/data"
+BASE_PATH = "../data"
 
 print(f"Using data path: {BASE_PATH}")
 
