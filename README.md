@@ -1,4 +1,4 @@
-# Arms Trade Dashboard - Applied Data Science Project
+# WeaponsWatch - Applied Data Science Project
 
 ![Dashboard](images/3d_globe.jpeg)
 
