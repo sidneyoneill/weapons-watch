@@ -1089,15 +1089,24 @@ const GlobeComponent = ({ dataMode = 'total' }) => {
               
               // If not found, try alternative name
               if (!targetCoords && alternativeNames[partner.country]) {
+                console.log(`Trying alternative name: ${alternativeNames[partner.country]}`);
                 targetCoords = getCountryCoordinates(alternativeNames[partner.country]);
               }
               
               if (!targetCoords) return null;
               
               // Colors based on trade type - blue for imports, orange for exports
-              const baseColor = partner.type === 'import' ? '#3b82f6' : '#ea580c';
               const opacity = Math.min(0.5 + partner.value / 10000, 0.95);
-              const lineColor = `${baseColor}${Math.floor(opacity * 255).toString(16).padStart(2, '0')}`;
+              
+              // Use blue for imports and orange for exports
+              let lineColor;
+              if (partner.type === 'import') {
+                // Blue color for imports with opacity
+                lineColor = `rgba(59, 130, 246, ${opacity})`;  // Tailwind blue-500
+              } else {
+                // Orange color for exports with opacity
+                lineColor = `rgba(249, 115, 22, ${opacity})`;  // Bright orange
+              }
               
               return {
                 startLat: srcCoords[0],
