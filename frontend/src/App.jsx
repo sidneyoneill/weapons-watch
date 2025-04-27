@@ -9,6 +9,7 @@ import GlobeComponent from "./components/GlobeComponent";
 import DataModeToggle from "./components/DataModeToggle";
 import ArmsTradeDashboard from "./components/ArmsTradeDashboard";
 import './index.css';
+import { API_URL } from './config'; // Add this import
 
 // Define consistent theme colors
 const theme = {
@@ -58,7 +59,7 @@ function App() {
     ];
 
     axios
-      .get(`http://localhost:8000/expenditure/${encodeURIComponent(country)}?mode=${dataMode}`)
+      .get(`${API_URL}/expenditure/${encodeURIComponent(country)}?mode=${dataMode}`)
       .then((response) => {
         console.log("Received data:", response.data);
         if (

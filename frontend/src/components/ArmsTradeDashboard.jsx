@@ -5,8 +5,7 @@ import * as d3 from 'd3';
 import YearSlider from '../components/YearSlider';
 import ChordDiagram from '../components/ChordDiagram';
 import '../index.css';
-
-const API_BASE_URL = 'http://localhost:8000';
+import { API_URL } from '../config';
 
 const ArmsTradeDashboard = () => {
   const [selectedYear, setSelectedYear] = useState(2021);
@@ -19,7 +18,7 @@ const ArmsTradeDashboard = () => {
     const fetchArmsTradeData = async () => {
       try {
         setLoading(true);
-        const response = await axios.get(`${API_BASE_URL}/arms_trade_matrix/${selectedYear}`);
+        const response = await axios.get(`${API_URL}/arms_trade_matrix/${selectedYear}`);
         setTradeData(response.data);
         setLoading(false);
       } catch (err) {
@@ -74,4 +73,4 @@ const ArmsTradeDashboard = () => {
   );
 };
 
-export default ArmsTradeDashboard; 
+export default ArmsTradeDashboard;

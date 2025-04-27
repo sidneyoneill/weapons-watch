@@ -6,6 +6,7 @@ import { MapContainer, TileLayer, GeoJSON } from 'react-leaflet';
 import axios from 'axios';
 // Add this import for the Leaflet icon fix
 import L from 'leaflet';
+import { API_URL } from '../config'; // Add this import
 
 // Fix Leaflet's default icon issue
 delete L.Icon.Default.prototype._getIconUrl;
@@ -22,7 +23,7 @@ const MapComponent = ({ onCountrySelect }) => {
 
   useEffect(() => {
     setLoading(true);
-    axios.get("http://localhost:8000/geo_data")
+    axios.get(`${API_URL}/geo_data`)
       .then(response => {
         try {
           const parsedData = JSON.parse(response.data.data);

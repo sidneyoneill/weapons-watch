@@ -10,6 +10,7 @@ import {
 import axios from "axios";
 import L from "leaflet";
 import ChartComponent from "./ChartComponent";
+import { API_URL } from '../config'; // Add this import
 
 const ExpenditureMapComponent = ({ dataMode = 'total' }) => {
   const [geoData, setGeoData] = useState(null);
@@ -25,7 +26,7 @@ const ExpenditureMapComponent = ({ dataMode = 'total' }) => {
   useEffect(() => {
     setLoading(true);
     axios
-      .get(`http://localhost:8000/geo_data?mode=${dataMode}`)
+      .get(`${API_URL}/geo_data?mode=${dataMode}`)
       .then((response) => {
         try {
           const parsedData = JSON.parse(response.data.data);
@@ -48,7 +49,7 @@ const ExpenditureMapComponent = ({ dataMode = 'total' }) => {
   const fetchAllExpenditureData = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:8000/all_expenditures?mode=${dataMode}`
+        `${API_URL}/all_expenditures?mode=${dataMode}`
       );
       const data = response.data.time_series;
       console.log("Received expenditure data:", data);

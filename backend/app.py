@@ -19,15 +19,14 @@ class DataMode(str, Enum):
 # Initialize FastAPI app
 app = FastAPI()
 
-# Add CORS middleware with updated configuration
+# Add CORS middleware with development configuration
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"],  # Your frontend URL
+    allow_origins=["*"],  # Allow all origins during development
     allow_credentials=True,
-    allow_methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-    allow_headers=["*"],
+    allow_methods=["*"],  # Allow all methods
+    allow_headers=["*"],  # Allow all headers
     expose_headers=["*"],
-    max_age=600,
 )
 
 # Data cache to store loaded data

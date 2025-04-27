@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import MapComponent from "./MapComponent";
 import ChartComponent from "./ChartComponent";
+import { API_URL } from '../config';
 
 const CountryExpenditureComponent = () => {
   const [selectedCountry, setSelectedCountry] = useState(null);
@@ -13,7 +14,7 @@ const CountryExpenditureComponent = () => {
     setError(null);
     setLoading(true);
 
-    fetch(`http://localhost:8000/expenditure/${encodeURIComponent(country)}`)
+    fetch(`${API_URL}/expenditure/${encodeURIComponent(country)}`)
       .then((response) => response.json())
       .then((data) => {
         if (data && data.time_series && data.time_series.length > 0) {

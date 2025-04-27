@@ -3,6 +3,7 @@ import Globe from "react-globe.gl";
 import axios from "axios";
 import ChartComponent from "./ChartComponent";
 import * as THREE from 'three';
+import { API_URL } from '../config'; // Add this import
 
 const GlobeComponent = ({ dataMode = 'total' }) => {
   // All state hooks need to be declared at the top level
@@ -118,7 +119,7 @@ const GlobeComponent = ({ dataMode = 'total' }) => {
     setLoading(true);
     
     // Fetch geo data
-    axios.get(`http://localhost:8000/geo_data`)
+    axios.get(`${API_URL}/geo_data`)
       .then((response) => {
         try {
           const parsedData = JSON.parse(response.data.data);
@@ -266,7 +267,7 @@ const GlobeComponent = ({ dataMode = 'total' }) => {
   const fetchExpenditureData = async (mode) => {
     try {
       const response = await axios.get(
-        `http://localhost:8000/all_expenditures?mode=${mode}`
+        `${API_URL}/all_expenditures?mode=${mode}`
       );
       const data = response.data.time_series;
       console.log(`Received ${mode} expenditure data:`, data.length, "records");
@@ -808,7 +809,7 @@ const GlobeComponent = ({ dataMode = 'total' }) => {
     try {
       console.log(`Fetching trade partners for: ${countryName}`);
       const response = await axios.get(
-        `http://localhost:8000/trade_partners/${encodeURIComponent(countryName)}`
+        `${API_URL}/trade_partners/${encodeURIComponent(countryName)}`
       );
       
       console.log("API response:", response);
@@ -919,7 +920,7 @@ const GlobeComponent = ({ dataMode = 'total' }) => {
     try {
       console.log(`Fetching trade partners for: ${countryName}`);
       const response = await axios.get(
-        `http://localhost:8000/trade_partners/${encodeURIComponent(countryName)}`
+        `${API_URL}/trade_partners/${encodeURIComponent(countryName)}`
       );
       
       console.log("API response:", response);
@@ -1060,7 +1061,7 @@ const GlobeComponent = ({ dataMode = 'total' }) => {
     setArcsData([]);
     
     // Get all trade data for the country
-    axios.get(`http://localhost:8000/trade_partners/${encodeURIComponent(selectedCountry)}`)
+    axios.get(`${API_URL}/trade_partners/${encodeURIComponent(selectedCountry)}`)
       .then(response => {
         if (!response.data || response.data.length === 0) return;
         
