@@ -1,14 +1,14 @@
-# WeaponsWatch - Applied Data Science Project
+# Arms Trade Dashboard - Applied Data Science Project
 
-![Dashboard](images/3d_globe.jpeg)
+[![Stars](https://img.shields.io/github/stars/sidneyoneill/arms-trade-dashboard?style=social)](https://github.com/sidneyoneill/arms-trade-dashboard)
+[![Forks](https://img.shields.io/github/forks/sidneyoneill/arms-trade-dashboard?style=social)](https://github.com/sidneyoneill/arms-trade-dashboard)
 
-## Project Description
+## Project Title & Description
 
 This project aims to provide an interactive dashboard for visualizing and analyzing global arms trade data. It leverages various data sources, including SIPRI, ACLED, and GDELT, to create a comprehensive picture of arms imports, exports, military expenditure, and their correlation with conflict events. The dashboard utilizes data science and machine learning techniques to uncover hidden patterns and trends, making the complex arms trade landscape more accessible and understandable.
 
 ## Key Features & Benefits
 
-- **3D Globe Visualization:** Explore arms trade flows and country metrics on an interactive 3D globe for a compelling global overview.
 - **Interactive Visualizations:** Dynamic maps, charts, and chord diagrams for exploring arms trade relationships.
 - **Data Integration:** Combines data from multiple reputable sources for a holistic view.
 - **Time-Series Analysis:** Analyze trends in arms trade and military expenditure over time.
@@ -39,8 +39,6 @@ This project aims to provide an interactive dashboard for visualizing and analyz
 - Scikit-learn
 - GeoPandas
 - NumPy
-- **Three.js** (for 3D globe rendering)
-- **Plotly** (for advanced interactive charts)
 
 ## Prerequisites & Dependencies
 
@@ -111,6 +109,151 @@ Follow these steps to get the project up and running:
 
     This will start the Vite development server, typically on `http://localhost:5173`. The exact port might vary. Access this URL in your browser to view the dashboard.
 
+## Project Structure
+
+```
+├── .DS_Store
+├── .cursorignore
+├── .gitignore
+├── Arms_Trade_Data.md
+├── README.md
+├── environment.yml
+├── gantt_chart.png
+├── network_diagram.png
+├── package-lock.json
+├── package.json
+├── analysis
+│   ├── ACLED_Exploration.ipynb
+│   ├── GDELT_Exloration.ipynb
+│   ├── SIPRI_Milex_Exploration.ipynb
+│   ├── SIPRI_Trade_Chord_Diagrams.ipynb
+│   ├── SIPRI_Trade_Exploration.ipynb
+│   ├── clustering.ipynb
+│   └── project_management
+│       ├── gantt_chart.png
+│       ├── gantt_chart.py
+│       ├── network_diagram.png
+│       └── network_diagram.py
+├── backend
+│   ├── app.py
+│   ├── csv_to_json.py
+│   ├── prepare_arms_trade_matrix.py
+│   ├── preprocess.py
+│   ├── preprocess_master_dataset.py
+│   ├── preprocess_trade_data.py
+│   └── ml
+│       ├── clustering.py
+│       ├── dim_reduct.ipynb
+│       ├── dimensionality_reduction.py
+│       └── vector_clustering.py
+├── data
+│   ├── .DS_Store
+│   ├── all_data_merged.json
+│   ├── all_data_merged_cleaned.json
+│   ├── sipri_milex_data.csv
+│   ├── sipri_milex_data_merged.geojson
+│   ├── sipri_milex_data_nested.json
+│   ├── sipri_milex_data_tidy.csv
+│   ├── sipri_milex_gdp_data.csv
+│   ├── sipri_milex_gdp_data_merged.geojson
+│   ├── sipri_milex_gdp_data_tidy.csv
+│   ├── sipri_trade_data.csv
+│   ├── sipri_trade_data_tidy.csv
+│   ├── world_countries.geojson
+│   ├── arms_trade_matrices
+│   │   ├── arms_trade_matrices_all_years.json
+│   │   ├── arms_trade_matrix_2015.json
+│   │   ├── arms_trade_matrix_2016.json
+│   │   ├── arms_trade_matrix_2017.json
+│   │   ├── arms_trade_matrix_2018.json
+│   │   ├── arms_trade_matrix_2019.json
+│   │   ├── arms_trade_matrix_2020.json
+│   │   └── arms_trade_matrix_2021.json
+│   ├── clustering_results
+│   │   ├── all_countries_tsne.csv
+│   │   ├── all_countries_tsne.json
+│   │   ├── tsne_clusters_dim1_2.png
+│   │   ├── tsne_clusters_dim1_3.png
+│   │   └── tsne_clusters_dim2_3.png
+│   ├── dimensionality_reduction_g20
+│   │   ├── dim_reduction_metadata.json
+│   │   ├── dim_reduction_pca_3d_plot.png
+│   │   ├── dim_reduction_pca_loadings_2d.png
+│   │   ├── dim_reduction_pca_loadings_3d.png
+│   │   ├── dim_reduction_pca_plot.png
+│   │   ├── dim_reduction_pca_results.json
+│   │   ├── dim_reduction_tsne_3d_plot.png
+│   │   ├── dim_reduction_tsne_plot.png
+│   │   └── dim_reduction_tsne_results.json
+│   ├── trajectory_clusters
+│   │   ├── cluster_feature_distributions.png
+│   │   ├── cluster_radar_profiles.png
+│   │   ├── trajectory_clusters.csv
+│   │   ├── trajectory_clusters.json
+│   │   ├── trajectory_clusters_dim1_2_cluster_0.png
+│   │   ├── trajectory_clusters_dim1_2_cluster_1.png
+│   │   ├── trajectory_clusters_dim1_2_cluster_2.png
+│   │   ├── trajectory_clusters_dim1_2_cluster_3.png
+│   │   ├── trajectory_clusters_dim1_2_cluster_4.png
+│   │   ├── trajectory_clusters_dim1_3_cluster_0.png
+│   │   ├── trajectory_clusters_dim1_3_cluster_1.png
+│   │   ├── trajectory_clusters_dim1_3_cluster_2.png
+│   │   ├── trajectory_clusters_dim1_3_cluster_3.png
+│   │   ├── trajectory_clusters_dim1_3_cluster_4.png
+│   │   ├── trajectory_clusters_dim2_3_cluster_0.png
+│   │   ├── trajectory_clusters_dim2_3_cluster_1.png
+│   │   ├── trajectory_clusters_dim2_3_cluster_2.png
+│   │   ├── trajectory_clusters_dim2_3_cluster_3.png
+│   │   └── trajectory_clusters_dim2_3_cluster_4.png
+│   └── world_bank
+│       ├── WDICSV_modified.csv
+│       ├── exploration.ipynb
+│       ├── json_creator.py
+│       ├── world_bank_data_normalized.json
+│       └── feature_selection_plots
+│           ├── Armed forces personnel, total.png
+│           ├── Arms exports (SIPRI trend indicator values).png
+│           ├── Arms imports (SIPRI trend indicator values).png
+│           ├── BM.KLT.DINV.WD.GD.ZS.png
+│           ├── Foreign direct investment, net outflows (% of GDP).png
+│           ├── Fossil fuel energy consumption (% of total).png
+│           ├── GDP growth (annual %).png
+│           ├── IT.NET.USER.ZS.png
+│           ├── Individuals using the Internet (% of population).png
+│           ├── Internally displaced persons, total displaced by conflict and violence (number of people).png
+│           ├── International migrant stock (% of population).png
+│           ├── MS.MIL.MPRT.KD.png
+│           ├── MS.MIL.TOTL.P1.png
+│           ├── MS.MIL.XPRT.KD.png
+│           ├── NY.GDP.MKTP.KD.ZG.png
+│           ├── Ores and metals exports (% of merchandise exports).png
+│           ├── SM.POP.TOTL.ZS.png
+│           ├── TX.VAL.MMTL.ZS.UN.png
+│           └── VC.IDP.TOCV.png
+├── frontend
+│   ├── .gitignore
+│   ├── README.md
+│   ├── index.html
+│   ├── package-lock.json
+│   ├── package.json
+│   ├── vite.config.js
+│   └── src
+│       ├── App.jsx
+│       ├── index.css
+│       ├── main.jsx
+│       └── components
+│           ├── ArmsTradeDashboard.jsx
+│           ├── ChartComponent.jsx
+│           ├── ChordDiagram.jsx
+│           ├── CountryExpidentureComponent.jsx
+│           ├── DataModeToggle.jsx
+│           ├── ExpidentureMapComponent.jsx
+│           ├── MapComponent.jsx
+│           └── YearSlider.jsx
+└── node_modules
+    ├── ... (truncated for brevity)
+```
+
 ## Usage Examples & API Documentation
 
 ### Backend API
@@ -126,7 +269,6 @@ Refer to the `backend/app.py` file for a complete list of endpoints and their pa
 
 The frontend utilizes React components for creating the dashboard.
 
-- `GlobeComponent`: Renders the interactive 3D globe visualization.
 - `MapComponent`: Displays a world map with arms trade data visualized.
 - `ChartComponent`: Renders charts and graphs for analyzing trends.
 - `ChordDiagram`: Shows the relationships between arms importers and exporters.
@@ -146,7 +288,7 @@ Refer to the `frontend/src/components` directory for component documentation and
 - **API Endpoint:** The frontend connects to the backend API at `http://127.0.0.1:5000` by default. You can change this in `frontend/src/App.jsx`.
 - **Map Styling:** Modify the styling of the map in `frontend/src/components/MapComponent.jsx`.
 
-<!-- ## Contributing Guidelines
+## Contributing Guidelines
 
 We welcome contributions to this project! Please follow these guidelines:
 
@@ -155,7 +297,7 @@ We welcome contributions to this project! Please follow these guidelines:
 3.  **Make your changes and commit them with descriptive commit messages.**
 4.  **Submit a pull request to the main branch.**
 
-Please ensure your code adheres to the project's coding style and includes appropriate tests. -->
+Please ensure your code adheres to the project's coding style and includes appropriate tests.
 
 ## License Information
 
@@ -169,36 +311,6 @@ License not specified. All rights reserved to owner.
 - D3.js library for data visualization.
 - React library for front-end development.
 
-## Visualisations examples
+```
 
-Below are example figures generated by the dashboard and analysis scripts:
-
-### 1. 3D Globe Visualization
-
-![3D Globe Visualization](images/3d_globe.jpeg)
-_Interactive 3D globe showing global arms trade flows and country metrics._
-
-### 2. Country Trajectories in t-SNE Space
-
-![Country Trajectories](data/trajectory_clusters/trajectory_clusters_dim1_2.png)
-_Country arms trade trajectories visualized in t-SNE space, colored by cluster._
-
-### 3. Cluster Feature Distributions
-
-![Cluster Feature Distributions](data/trajectory_clusters/cluster_feature_distributions.png)
-_Distribution of trajectory features by cluster._
-
-### 4. Volatility Heatmap
-
-![Volatility Heatmap](visualizations/volatility_analysis/volatility_heatmap_top30.png)
-_Heatmap of volatility scores for the top 30 most volatile countries over time._
-
-### 5. Global Volatility Trend
-
-![Global Volatility Trend](visualizations/volatility_analysis/global_volatility_trend.png)
-_Global average volatility trend over time, with major events annotated._
-
-### 6. Country Volatility Comparison
-
-![Country Volatility Comparison](visualizations/volatility_analysis/country_volatility_comparison.png)
-_Volatility comparison for major arms trading countries._
+```
