@@ -1469,7 +1469,7 @@ const GlobeComponent = ({ dataMode = 'total' }) => {
       <div
         style={{
           position: "absolute",
-          bottom: "180px",
+          bottom: "0px",
           left: "20px",
           background: "rgba(17, 17, 17, 0.8)",
           padding: "15px",
@@ -1961,7 +1961,7 @@ const GlobeComponent = ({ dataMode = 'total' }) => {
       <div
         style={{
           position: "absolute",
-          bottom: "180px",
+          bottom: "0px",
           left: "20px",
           background: "rgba(17, 17, 17, 0.8)",
           padding: "15px",
