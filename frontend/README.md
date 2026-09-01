@@ -48,6 +48,11 @@ npm run preview
 
 The production build will be in the `dist` directory.
 
+Production builds use `VITE_API_URL`. The committed `.env.production` points to
+`https://arms-trade-dashboard-api.onrender.com`; a deployment environment
+variable can override it. The build fails verification if it contains a
+localhost API endpoint.
+
 ## Project Structure
 
 ```
@@ -76,7 +81,8 @@ The `ChartComponent` displays time series data for military expenditure using Ch
 
 ## API Integration
 
-The frontend communicates with the backend API at `http://localhost:8000` to fetch:
+During development, the frontend communicates with the backend API at
+`http://localhost:8000`. Production uses `VITE_API_URL` to fetch:
 
 - GeoJSON data for the world map
 - Time series data for military expenditure by country

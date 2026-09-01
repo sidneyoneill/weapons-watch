@@ -2,13 +2,15 @@
 
 from fastapi import FastAPI, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
-from typing import List, Dict, Any, Literal
+from typing import List, Dict, Any, Literal, Optional
 import geopandas as gpd
 import pandas as pd
 import json
 import uvicorn
 from enum import Enum
 import os
+from pathlib import Path
+
 # from prepare_arms_trade_matrix import prepare_arms_trade_matrix
 
 # Define DataMode enum for type safety
@@ -19,10 +21,30 @@ class DataMode(str, Enum):
 # Initialize FastAPI app
 app = FastAPI()
 
-# Add CORS middleware with updated configuration
+# Allow the deployed frontend by default while supporting a comma-separated
+# environment override for custom domains and preview environments.
+DEFAULT_ALLOWED_ORIGINS = (
+    "http://localhost:5173",
+    "https://arms-trade-dashboard.onrender.com",
+)
+
+
+def parse_allowed_origins(configured_origins: Optional[str]) -> List[str]:
+    if configured_origins:
+        return [
+            origin.strip().rstrip("/")
+            for origin in configured_origins.split(",")
+            if origin.strip()
+        ]
+
+    return list(DEFAULT_ALLOWED_ORIGINS)
+
+
+allowed_origins = parse_allowed_origins(os.getenv("CORS_ORIGINS"))
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"],  # Your frontend URL
+    allow_origins=allowed_origins,
     allow_credentials=True,
     allow_methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allow_headers=["*"],
@@ -48,8 +70,8 @@ data_cache = {
     }
 }
 
-# Base path for data files
-BASE_PATH = "../data"
+# Resolve data files relative to this module instead of Render's working directory.
+BASE_PATH = Path(__file__).resolve().parent.parent / "data"
 
 print(f"Using data path: {BASE_PATH}")
 
@@ -124,12 +146,16 @@ def load_trade_data():
     
     return data_cache["trade"]
 
+# Track loader failures so Render does not promote a data-broken deployment.
+startup_errors: Dict[str, str] = {}
+
 # Load default data at startup
 try:
     print("Loading 'total' data...")
     load_data(DataMode.TOTAL)
     print("Successfully loaded 'total' data")
 except Exception as e:
+    startup_errors["total"] = str(e)
     print(f"Error loading 'total' data at startup: {e}")
     print("The application will continue, but some endpoints may not work properly")
     
@@ -138,6 +164,7 @@ try:
     load_data(DataMode.GDP)
     print("Successfully loaded 'gdp' data")
 except Exception as e:
+    startup_errors["gdp"] = str(e)
     print(f"Error loading 'gdp' data at startup: {e}")
     print("The application will continue, but GDP-related endpoints may not work properly")
 
@@ -146,8 +173,24 @@ try:
     load_trade_data()
     print("Successfully loaded trade data")
 except Exception as e:
+    startup_errors["trade"] = str(e)
     print(f"Error loading trade data at startup: {e}")
     print("The application will continue, but trade-related endpoints may not work properly")
+
+
+@app.get("/health", response_model=Dict[str, str])
+def get_health() -> Dict[str, str]:
+    if startup_errors:
+        raise HTTPException(
+            status_code=503,
+            detail={
+                "status": "degraded",
+                "datasets": sorted(startup_errors),
+            },
+        )
+
+    return {"status": "ok"}
+
 
 @app.get("/countries", response_model=Dict[str, List[str]])
 def get_countries() -> Dict[str, List[str]]:

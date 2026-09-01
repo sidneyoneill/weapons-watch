@@ -81,10 +81,8 @@ Follow these steps to get the project up and running:
       source venv/bin/activate  # On Linux/macOS
       # venv\Scripts\activate  # On Windows
 
-      pip install -r requirements.txt
+      pip install -r backend/requirements-dev.txt
       ```
-
-      (You may need to generate requirements.txt first. See `environment.yml` for a guide.)
 
 3.  **Set up the Frontend (Node.js):**
 
@@ -100,7 +98,7 @@ Follow these steps to get the project up and running:
     python app.py
     ```
 
-    This will start the Flask server, typically on `http://127.0.0.1:5000`.
+    This starts the FastAPI server at `http://127.0.0.1:8000`.
 
 5.  **Run the Frontend:**
 
@@ -117,8 +115,11 @@ Follow these steps to get the project up and running:
 
 The backend provides endpoints for fetching data and performing analysis.
 
-- `/data`: Returns arms trade data in JSON format. Supports filtering by year and country.
-- `/clustering`: Returns clustering results based on specified parameters.
+- `/health`: Returns the API health status.
+- `/geo_data`: Returns country boundary data.
+- `/all_expenditures`: Returns military expenditure data for all countries.
+- `/expenditure/{country}`: Returns expenditure history for one country.
+- `/trade_partners/{country}`: Returns arms-trade relationships for one country.
 
 Refer to the `backend/app.py` file for a complete list of endpoints and their parameters.
 
@@ -138,13 +139,35 @@ Refer to the `frontend/src/components` directory for component documentation and
 
 ### Backend
 
-- **Port:** The Flask server runs on port `5000` by default. You can change this in `backend/app.py`.
-- **Data Sources:** The application reads data from the `data` directory. Modify the paths in the Python scripts to use different data files.
+- **Port:** FastAPI runs on port `8000` locally. Render supplies its port through `$PORT`.
+- **Allowed origins:** Set `CORS_ORIGINS` to a comma-separated list of frontend origins. Localhost and the production Render frontend are allowed by default.
+- **Data sources:** The application resolves files from the repository's `data` directory.
 
 ### Frontend
 
-- **API Endpoint:** The frontend connects to the backend API at `http://127.0.0.1:5000` by default. You can change this in `frontend/src/App.jsx`.
+- **API endpoint:** Set `VITE_API_URL` before a production build. Development defaults to `http://localhost:8000`; `.env.production` points to the Render API.
 - **Map Styling:** Modify the styling of the map in `frontend/src/components/MapComponent.jsx`.
+
+## Render deployment
+
+The root `render.yaml` defines both services:
+
+- `arms-trade-dashboard-api`: Python web service rooted at the repository so it can read `data`
+- `arms-trade-dashboard`: Vite static site rooted at `frontend`
+
+Existing manually configured services should use these settings:
+
+| Service | Setting | Value |
+| --- | --- | --- |
+| API | Root directory | Leave blank (repository root) |
+| API | Build command | `pip install -r backend/requirements.txt` |
+| API | Start command | `uvicorn backend.app:app --host 0.0.0.0 --port $PORT` |
+| API | `CORS_ORIGINS` | `https://arms-trade-dashboard.onrender.com` |
+| Frontend | Build command | `npm ci && npm run build` |
+| Frontend | Publish directory | `dist` |
+| Frontend | `VITE_API_URL` | `https://arms-trade-dashboard-api.onrender.com` |
+
+Both services should deploy the same branch. Because Vite embeds environment variables at build time, redeploy the frontend after changing `VITE_API_URL`.
 
 <!-- ## Contributing Guidelines
 
